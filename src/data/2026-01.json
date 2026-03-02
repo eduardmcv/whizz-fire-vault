@@ -1,0 +1,5638 @@
+{
+  "month": "2026-01",
+  "month_label": "Enero 2026",
+  "coverage": {
+    "from": "2026-01-01",
+    "to": "2026-01-31"
+  },
+  "total_operations": 300,
+  "total_buys": 264,
+  "total_sells": 36,
+  "operations": [
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U005",
+      "type": "buy",
+      "ticker": "GIS",
+      "company": "GIS",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio GIS y O",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U005",
+      "type": "buy",
+      "ticker": "O",
+      "company": "O",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio GIS y O",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U015",
+      "type": "buy",
+      "ticker": "DA",
+      "company": "Diageo a 16,08£",
+      "shares": 12,
+      "price": 16.08,
+      "currency": "GBP",
+      "profit_pct": null,
+      "source_text": "Amplio 12 Diageo a 16,08£\nAmpliada 8 Kraft a 24,23$ <Se editó este mensaje.>",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U015",
+      "type": "buy",
+      "ticker": "KA",
+      "company": "Kraft a 24,23$",
+      "shares": 8,
+      "price": 24.23,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio 12 Diageo a 16,08£\nAmpliada 8 Kraft a 24,23$ <Se editó este mensaje.>",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U019",
+      "type": "buy",
+      "ticker": "NOVO",
+      "company": "Novo",
+      "shares": null,
+      "price": 16.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Mis Semapa compradas a 16, hoy han completado posición en Redeia y Novo",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "reported-later",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U033",
+      "type": "buy",
+      "ticker": "GIS",
+      "company": "GIS",
+      "shares": null,
+      "price": 45.85,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Ampliada $GIS 45,85$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U034",
+      "type": "buy",
+      "ticker": "EQUINIX",
+      "company": "equinix",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio LYB,  amplio petrobas, y amplio equinix",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U034",
+      "type": "buy",
+      "ticker": "LYB",
+      "company": "LYB",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio LYB,  amplio petrobas, y amplio equinix",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U034",
+      "type": "buy",
+      "ticker": "PETROBAS",
+      "company": "petrobas",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio LYB,  amplio petrobas, y amplio equinix",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U039",
+      "type": "buy",
+      "ticker": "LYB",
+      "company": "LYB",
+      "shares": null,
+      "price": 43.35,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio LYB 25 a 43,35",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U052",
+      "type": "buy",
+      "ticker": "CIE",
+      "company": "CIE",
+      "shares": 250,
+      "price": 30.25,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compradas 250 acciones de CIE a 30,25€. En breve dividendos...",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U082",
+      "type": "buy",
+      "ticker": "AALB",
+      "company": "AALB",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compra de AALB y a la espera de caída de CALM",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U082",
+      "type": "buy",
+      "ticker": "CALM",
+      "company": "CALM",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compra de AALB y a la espera de caída de CALM",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U085",
+      "type": "buy",
+      "ticker": "PR",
+      "company": "Pernord Ricard",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Inicio posición en Pernord Ricard",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "GDDY",
+      "company": "GDDY",
+      "shares": null,
+      "price": 119.5,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro otra accion de GoDaddy $GDDY a 119,5$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "KD",
+      "company": "Kyndryl a 26$",
+      "shares": 10,
+      "price": 26.0,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro otras 10 acciones de Kyndryl $KD a 26$",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-05",
+      "trade_date": null,
+      "user_id": "U014",
+      "type": "buy",
+      "ticker": "VA",
+      "company": "Verizon a 39,86",
+      "shares": null,
+      "price": 39.86,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Entro en Verizon a 39,86",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-05",
+      "trade_date": null,
+      "user_id": "U075",
+      "type": "buy",
+      "ticker": "TAP",
+      "company": "primera",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio TAP primera compra del año a 45,78",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-05",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "GIS",
+      "company": "GIS",
+      "shares": null,
+      "price": 44.88,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro GIS a 44,88$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-05",
+      "trade_date": null,
+      "user_id": "U080",
+      "type": "buy",
+      "ticker": "TAP",
+      "company": "TAP",
+      "shares": null,
+      "price": 45.87,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Primera compra del año. 2a entrada en TAP a 45,87$.",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-05",
+      "trade_date": null,
+      "user_id": "U097",
+      "type": "buy",
+      "ticker": "VICI",
+      "company": "VICI",
+      "shares": 25,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro 25  VICI",
+      "notes": null,
+      "flags": [
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-05",
+      "trade_date": null,
+      "user_id": "U110",
+      "type": "buy",
+      "ticker": "GIS",
+      "company": "$44,80 VZ $39,87",
+      "shares": null,
+      "price": 39.87,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio GIS $44,80\n               VZ  $39,87",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-05",
+      "trade_date": null,
+      "user_id": "U112",
+      "type": "buy",
+      "ticker": "BFA",
+      "company": "Brown Forman a 25,88$",
+      "shares": null,
+      "price": 25.88,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compra de Brown Forman a 25,88$.",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-05",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "CNQ",
+      "company": "CNQ",
+      "shares": 50,
+      "price": 31.3,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compradas 50 acciones mas de Canadian Natural Resources $CNQ a 31,3 $",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-05",
+      "trade_date": null,
+      "user_id": "U117",
+      "type": "buy",
+      "ticker": "TAP",
+      "company": "TAP",
+      "shares": null,
+      "price": 45.7,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio TAP a 45,7.",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "buy",
+      "ticker": "GIS",
+      "company": "GIS",
+      "shares": 40,
+      "price": 23.47,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Con el dinero de la venta de Mercedes, compradas 40 GIS a 43,92$ y 47 KHC a 23,47$",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U015",
+      "type": "buy",
+      "ticker": "IIPR",
+      "company": "IIPR",
+      "shares": 3,
+      "price": 47.71,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio 3 IIPR a 47,71$",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U034",
+      "type": "buy",
+      "ticker": "KHC",
+      "company": "KHC",
+      "shares": 20,
+      "price": 20.24,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio 20 KHC a 20.24€",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U040",
+      "type": "buy",
+      "ticker": "CSU",
+      "company": "acción de a 3150",
+      "shares": 1,
+      "price": 3150.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro 1 acción de CSU a 3150",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U044",
+      "type": "buy",
+      "ticker": "COLONIAL",
+      "company": "colonial",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio colonial...",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U044",
+      "type": "buy",
+      "ticker": "KRAFT",
+      "company": "kraft",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo 40% mi posición en Repsol (+69%) y amplio reality income, PepsiCo y kraft",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U044",
+      "type": "buy",
+      "ticker": "PEPSICO",
+      "company": "PepsiCo",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo 40% mi posición en Repsol (+69%) y amplio reality income, PepsiCo y kraft",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U052",
+      "type": "sell",
+      "ticker": "VIS",
+      "company": "VIS",
+      "shares": 103,
+      "price": 54.0,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Vendidas 103 acciones de VIS a 54€",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U068",
+      "type": "buy",
+      "ticker": "PAYCHEX",
+      "company": "PAYCHEX",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compradas en los últimos días VICI PROPERTIES y PAYCHEX",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U068",
+      "type": "buy",
+      "ticker": "VICI",
+      "company": "VICI",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compradas en los últimos días VICI PROPERTIES y PAYCHEX",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "KHC",
+      "company": "KHC",
+      "shares": null,
+      "price": 23.5,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro KHC 23,50$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U099",
+      "type": "buy",
+      "ticker": "EA",
+      "company": "Enbridge a 46'50$",
+      "shares": null,
+      "price": 50.0,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio Enbridge a 46'50$",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U100",
+      "type": "buy",
+      "ticker": "IIPR",
+      "company": "IIPR",
+      "shares": null,
+      "price": 48.0,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio IIPR a 48$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-06",
+      "trade_date": null,
+      "user_id": "U109",
+      "type": "buy",
+      "ticker": "UVV",
+      "company": "UVV",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro UVV",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "buy",
+      "ticker": "SWKS",
+      "company": "SWKS",
+      "shares": 4,
+      "price": 23.95,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Venta de toda mi posición en la francesa VINCI y en Annaly Capital. Con esas ventas he comprado: 4 SWKS (59,03$); 100 FLOWERS FOOD (10,25$); 18 CWEN (32,15$); 15 PAPA JOHNS (37,56$); 5 JM SMUCKERS (95,6$); 17 MONDELEZ (51,68$) y 25 AT&T (23,95$). Continuará...",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U016",
+      "type": "sell",
+      "ticker": "BUNZL",
+      "company": "a",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Y la roto a BUNZL",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U017",
+      "type": "buy",
+      "ticker": "DGE",
+      "company": "DGE",
+      "shares": 200,
+      "price": 15.71,
+      "currency": "GBP",
+      "profit_pct": null,
+      "source_text": "amplio DGE con 200 acc a 15,71 GBP",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U019",
+      "type": "buy",
+      "ticker": "GIS",
+      "company": "GIS",
+      "shares": 35,
+      "price": 43.6,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro 35 GIS a 43,6",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U033",
+      "type": "buy",
+      "ticker": "DGE",
+      "company": "DGE",
+      "shares": null,
+      "price": 15.83,
+      "currency": "GBP",
+      "profit_pct": null,
+      "source_text": "Ampliación $DGE 15,83 GBP",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U033",
+      "type": "buy",
+      "ticker": "MDLZ",
+      "company": "MDLZ",
+      "shares": null,
+      "price": 51.64,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Ampliación $MDLZ a 51.64 $",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U039",
+      "type": "buy",
+      "ticker": "PBR.A",
+      "company": "PBR.A",
+      "shares": 105,
+      "price": 10.97,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio 40 VICI 27,75\nAMPLIO 105 PBR.A  a 10,97",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U039",
+      "type": "buy",
+      "ticker": "VICI",
+      "company": "VICI",
+      "shares": 40,
+      "price": 27.75,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio 40 VICI 27,75\nAMPLIO 105 PBR.A  a 10,97",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U054",
+      "type": "buy",
+      "ticker": "MDLZ",
+      "company": "MDLZ",
+      "shares": 60,
+      "price": 51.77,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Ampliada la posición de MDLZ Mondelez: 60 acc a 51,77 usd",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U054",
+      "type": "buy",
+      "ticker": "PG",
+      "company": "PG",
+      "shares": 36,
+      "price": 139.24,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compradas 36 PG a 139,24 usd",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U064",
+      "type": "buy",
+      "ticker": "VICI",
+      "company": "VICI",
+      "shares": null,
+      "price": 27.6,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compradas VICI a 27,60 $",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U066",
+      "type": "buy",
+      "ticker": "PG",
+      "company": "PG",
+      "shares": 5,
+      "price": 139.45,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "🛒 Compro 5 acciones de Procter & Gamble $PG a 139,45$",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "KHC",
+      "company": "KHC",
+      "shares": null,
+      "price": 23.24,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio KHC  a 23,24$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "SKWS",
+      "company": "SKWS",
+      "shares": null,
+      "price": 58.42,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio SKWS a 58,42$, con la caída de hoy se pone a precios de los aranceles de Trump",
+      "notes": null,
+      "flags": [
+        "reported-later",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U075",
+      "type": "buy",
+      "ticker": "TLX",
+      "company": "TLX",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio y doy por completada la posición en TLX",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "sell",
+      "ticker": "ACS",
+      "company": "ACS",
+      "shares": 10,
+      "price": 92.6,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Vendidas 10 ACS a 92,6 euros",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "CNQ",
+      "company": "CNQ",
+      "shares": 50,
+      "price": 30.4,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Y compradas 50 Canadian Natural Resources $CNQ a 30,4$",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "CPKC",
+      "company": "CPKC",
+      "shares": null,
+      "price": 72.8,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compradas tb dos acciones de Canadian Pacific Kansas City $CPKC a 72,8$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-07",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "KD",
+      "company": "cinco Kyndryl a 26,8$",
+      "shares": null,
+      "price": 26.8,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Yo compro otras cinco Kyndryl $KD a 26,8$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U025",
+      "type": "buy",
+      "ticker": "ADM",
+      "company": "ADM",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Segunda compra de croda, y al vender ADM en uk he comprado bonos a corto plazo. Por lo menos algo dan. A esperar alguna oportunidad.",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U025",
+      "type": "buy",
+      "ticker": "CRODA",
+      "company": "croda",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Segunda compra de croda, y al vender ADM en uk he comprado bonos a corto plazo. Por lo menos algo dan. A esperar alguna oportunidad.",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U034",
+      "type": "buy",
+      "ticker": "GIS",
+      "company": "GIS",
+      "shares": 27,
+      "price": 37.88,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Entro en GIS con 27 acciones  a 37.88 €",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U044",
+      "type": "buy",
+      "ticker": "ALEXANDRIA",
+      "company": "alexandria",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo mi posición en star bulk y amplio alexandria, realty income, krafht, verizon y Petrobras",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U044",
+      "type": "buy",
+      "ticker": "KRAFHT",
+      "company": "krafht",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo mi posición en star bulk y amplio alexandria, realty income, krafht, verizon y Petrobras",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U044",
+      "type": "buy",
+      "ticker": "PETROBRAS",
+      "company": "Petrobras",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo mi posición en star bulk y amplio alexandria, realty income, krafht, verizon y Petrobras",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U044",
+      "type": "buy",
+      "ticker": "VERIZON",
+      "company": "verizon",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo mi posición en star bulk y amplio alexandria, realty income, krafht, verizon y Petrobras",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U052",
+      "type": "buy",
+      "ticker": "RA",
+      "company": "Repsol ⛽ a 16,13€",
+      "shares": null,
+      "price": 16.13,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Buenos días! Compradas 400 Repsol ⛽ a 16,13€, hoy bajada significativa y bajando... En breve dividendo...",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "reported-later",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U074",
+      "type": "buy",
+      "ticker": "PAYCHEX",
+      "company": "Paychex",
+      "shares": 8,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro 8 Paychex",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U088",
+      "type": "buy",
+      "ticker": "LODE",
+      "company": "Lode",
+      "shares": 350,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compra 350 Lode",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U089",
+      "type": "buy",
+      "ticker": "GIS",
+      "company": "GIS",
+      "shares": null,
+      "price": 44.07,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro GIS a 44,07$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U089",
+      "type": "buy",
+      "ticker": "ZS",
+      "company": "ZS",
+      "shares": null,
+      "price": 221.78,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro ZS a 221,78$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U090",
+      "type": "sell",
+      "ticker": "BXMT",
+      "company": "BXMT",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendidas Intel, Solventum. Ampliadas Veriron y BXMT",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U090",
+      "type": "sell",
+      "ticker": "INTEL",
+      "company": "Intel",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendidas Intel, Solventum. Ampliadas Veriron y BXMT",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "trade_date": null,
+      "user_id": "U090",
+      "type": "sell",
+      "ticker": "SAV",
+      "company": "Solventum. Ampliadas Veriron",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendidas Intel, Solventum. Ampliadas Veriron y BXMT",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-09",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "sell",
+      "ticker": "AGNC",
+      "company": "AGNC",
+      "shares": null,
+      "price": 11.6,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Vendida toda mi posición en AGNC a 11,6$. Casi tres años con esta gran dividendera. Fue muy bonito mientras duró🤗",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-09",
+      "trade_date": null,
+      "user_id": "U022",
+      "type": "sell",
+      "ticker": "LYB",
+      "company": "LYB",
+      "shares": null,
+      "price": 135.0,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Vendo put LYB 20feb strike 42.5$ prima 135$ <Se editó este mensaje.>",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-09",
+      "trade_date": null,
+      "user_id": "U022",
+      "type": "sell",
+      "ticker": "NOG",
+      "company": "NOG",
+      "shares": null,
+      "price": 70.0,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Vendo put NOG 20feb strike 20$ prima 70$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-09",
+      "trade_date": null,
+      "user_id": "U023",
+      "type": "sell",
+      "ticker": "CALL",
+      "company": "CALL",
+      "shares": 2,
+      "price": 50.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo 2 CALL DE NOVO JAN 16 50 dólares que tenía compradas. 960 dólares de beneficio. <Se editó este mensaje.>",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-09",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "AMT",
+      "company": "AMT",
+      "shares": null,
+      "price": 145.38,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio AMT a 145,38€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-09",
+      "trade_date": null,
+      "user_id": "U087",
+      "type": "buy",
+      "ticker": "BA",
+      "company": "Bunzl a 20",
+      "shares": 300,
+      "price": 20.7,
+      "currency": "GBP",
+      "profit_pct": null,
+      "source_text": "‎IMG-20260109-WA0028.jpg (archivo adjunto)\nBuenas tardes. Compradas 300 acciones de Bunzl a 20,70 GBP",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-12",
+      "trade_date": null,
+      "user_id": "U013",
+      "type": "sell",
+      "ticker": "REDEIA",
+      "company": "REDEIA",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Justo he hecho el camino inverso esta mañana.\nVendida lo que me quedaba de REDEIA y compro Wolters Kluvers,",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-12",
+      "trade_date": null,
+      "user_id": "U013",
+      "type": "buy",
+      "ticker": "WK",
+      "company": "Wolters Kluvers",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Justo he hecho el camino inverso esta mañana.\nVendida lo que me quedaba de REDEIA y compro Wolters Kluvers,",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-12",
+      "trade_date": null,
+      "user_id": "U039",
+      "type": "buy",
+      "ticker": "SWKS",
+      "company": "SWKS",
+      "shares": 18,
+      "price": 28.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio 18 SWKS a 58'28",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-12",
+      "trade_date": null,
+      "user_id": "U084",
+      "type": "buy",
+      "ticker": "HKD",
+      "company": "HKD",
+      "shares": null,
+      "price": 2.57,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Buenos días,\nCompra en Hong Kong:\n- La 1066 (la que habló Gorka de un usuario) a 5,307HKD\n- ⁠La 9616 a 2,57 HKD. <Se editó este mensaje.>",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-12",
+      "trade_date": null,
+      "user_id": "U106",
+      "type": "buy",
+      "ticker": "KHC",
+      "company": "x x 20,30€",
+      "shares": 100,
+      "price": 20.3,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio 100 x KHC x 20,30€",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-12",
+      "trade_date": null,
+      "user_id": "U116",
+      "type": "buy",
+      "ticker": "GIS",
+      "company": "GIS",
+      "shares": null,
+      "price": 43.7,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro GIS a 43,70$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-12",
+      "trade_date": null,
+      "user_id": "U119",
+      "type": "buy",
+      "ticker": "ARE",
+      "company": "ARE",
+      "shares": 38,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio ARE, 38 acciones",
+      "notes": null,
+      "flags": [
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-13",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "buy",
+      "ticker": "AC",
+      "company": "Abbott con 12",
+      "shares": 12,
+      "price": 122.59,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Jaja y ya paro de comprar (la venta de las francesas y de AGNC da vidilla): entro en Abbott con 12 títulos a 122,59$",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-13",
+      "trade_date": null,
+      "user_id": "U006",
+      "type": "buy",
+      "ticker": "KRKNF",
+      "company": "KRKNF",
+      "shares": 500,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Entro en KRKNF (Kraken Robotics) con 500 acciones <Se editó este mensaje.>",
+      "notes": null,
+      "flags": [
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-13",
+      "trade_date": null,
+      "user_id": "U040",
+      "type": "buy",
+      "ticker": "PAYX",
+      "company": "payx 14",
+      "shares": 14,
+      "price": 109.5,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Me entró la ampliación  de payx 14 acciones a 109,5 dólares contento !",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-13",
+      "trade_date": null,
+      "user_id": "U062",
+      "type": "buy",
+      "ticker": "HK",
+      "company": "HK",
+      "shares": null,
+      "price": 6186.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Entro en la 6186 de HK",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-13",
+      "trade_date": null,
+      "user_id": "U075",
+      "type": "buy",
+      "ticker": "RHI",
+      "company": "RHI",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio RHI",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-13",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "PA",
+      "company": "PayPal a 56,55$",
+      "shares": null,
+      "price": 56.55,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro PayPal a 56,55$",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-13",
+      "trade_date": null,
+      "user_id": "U089",
+      "type": "buy",
+      "ticker": "REP",
+      "company": "Rep",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro Rep y ayer XOM con el objetivo de sacar un poco% a CP",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "reported-later",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-13",
+      "trade_date": null,
+      "user_id": "U089",
+      "type": "buy",
+      "ticker": "XOM",
+      "company": "XOM",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro Rep y ayer XOM con el objetivo de sacar un poco% a CP",
+      "notes": null,
+      "flags": [
+        "reported-later",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-13",
+      "trade_date": null,
+      "user_id": "U110",
+      "type": "buy",
+      "ticker": "ETF",
+      "company": "JEQP $23,13€",
+      "shares": null,
+      "price": 23.13,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio ETF JEQP $23,13€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-13",
+      "trade_date": null,
+      "user_id": "U112",
+      "type": "buy",
+      "ticker": "HEINEKEN",
+      "company": "HEINEKEN",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro HEINEKEN",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-13",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "GDDY",
+      "company": "GoDaddy a 111,3$",
+      "shares": null,
+      "price": 111.3,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Comprada otra GoDaddy $GDDY a 111,3$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-13",
+      "trade_date": null,
+      "user_id": "U122",
+      "type": "buy",
+      "ticker": "MA",
+      "company": "Mondelez a 55$",
+      "shares": null,
+      "price": 55.0,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "he comprado  Mondelez a 55$",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-14",
+      "trade_date": null,
+      "user_id": "U002",
+      "type": "sell",
+      "ticker": "ARE",
+      "company": "call de",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendida call de $ARE, entro en PayPal con 225 títulos (entrada especulativa)",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-14",
+      "trade_date": null,
+      "user_id": "U002",
+      "type": "buy",
+      "ticker": "PC",
+      "company": "PayPal con 225",
+      "shares": 225,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendida call de $ARE, entro en PayPal con 225 títulos (entrada especulativa)",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-14",
+      "trade_date": null,
+      "user_id": "U052",
+      "type": "sell",
+      "ticker": "REPSOL...",
+      "company": "Repsol...⛽",
+      "shares": 400,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendidas las 400 acciones de Repsol...⛽",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-14",
+      "trade_date": null,
+      "user_id": "U062",
+      "type": "buy",
+      "ticker": "FDJU",
+      "company": "FDJU",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Entro en FDJU",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-14",
+      "trade_date": null,
+      "user_id": "U062",
+      "type": "buy",
+      "ticker": "HK",
+      "company": "de",
+      "shares": 1066,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Entro en 1066 de HK",
+      "notes": null,
+      "flags": [
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-14",
+      "trade_date": null,
+      "user_id": "U066",
+      "type": "buy",
+      "ticker": "PAYX",
+      "company": "PAYX",
+      "shares": 6,
+      "price": 109.0,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro 6 acciones de $PAYX a 109$ para iniciar posición.",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-14",
+      "trade_date": null,
+      "user_id": "U120",
+      "type": "buy",
+      "ticker": "ADBE",
+      "company": "Adobe a 303",
+      "shares": null,
+      "price": 303.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro Adobe $ADBE a 303",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-16",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "sell",
+      "ticker": "ACS",
+      "company": "acs 96,10€",
+      "shares": null,
+      "price": 96.1,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Vendo acs 96,10€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-16",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "AMADEUS",
+      "company": "Amadeus 60,60€",
+      "shares": null,
+      "price": 60.6,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compro Amadeus 60,60€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-16",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "FDJU",
+      "company": "fdju 22,92€",
+      "shares": null,
+      "price": 22.92,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compro fdju 22,92€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-16",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "HA",
+      "company": "HrBlock a 42,2$",
+      "shares": null,
+      "price": 42.2,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro HrBlock a 42,2$",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-16",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "KHC",
+      "company": "KHC",
+      "shares": null,
+      "price": 23.6,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro KHC 23,60$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-16",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "NFA",
+      "company": "Nomad Foods a 11,70$",
+      "shares": null,
+      "price": 11.7,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro Nomad Foods a 11,70$",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-16",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "RANDSTAD",
+      "company": "randstad 29,92€",
+      "shares": null,
+      "price": 29.92,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compro randstad 29,92€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U024",
+      "type": "buy",
+      "ticker": "COLONIAL",
+      "company": "Colonial",
+      "shares": null,
+      "price": 5.16,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Adrián Camacho entra en Colonial a 5,16€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U024",
+      "type": "buy",
+      "ticker": "IC",
+      "company": "Inmobiliaria Colonial",
+      "shares": null,
+      "price": 5.15,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Entro en Inmobiliaria Colonial a 5,15€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U024",
+      "type": "buy",
+      "ticker": "LDA",
+      "company": "LDA",
+      "shares": null,
+      "price": 1.11,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Entro en LDA, a 1,11€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U024",
+      "type": "buy",
+      "ticker": "PARTICULAR",
+      "company": "particular",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Entro en Redeia, a 14,85€ por la cuenta de empresa y particular",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U024",
+      "type": "buy",
+      "ticker": "REDEIA",
+      "company": "Redeia",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Entro en Redeia, a 14,85€ por la cuenta de empresa y particular",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U024",
+      "type": "buy",
+      "ticker": "XLM",
+      "company": "XLM",
+      "shares": null,
+      "price": 0.1852,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Entro en la cripto XLM stellar Lumen a 0,1852 € en la cuenta de empresa",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U039",
+      "type": "buy",
+      "ticker": "RED",
+      "company": "RED",
+      "shares": 67,
+      "price": 82.0,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio RED 67 acciones  a 14'82€",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U058",
+      "type": "buy",
+      "ticker": "DGE",
+      "company": "DGE",
+      "shares": null,
+      "price": 16.25,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro DGE a 16.25",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "FA",
+      "company": "Ferrari a 293€",
+      "shares": null,
+      "price": 293.0,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compro Ferrari a 293€ y PayPal a 48,07€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "PA",
+      "company": "PayPal a 48,07€",
+      "shares": null,
+      "price": 48.07,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compro Ferrari a 293€ y PayPal a 48,07€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "BUNZ",
+      "company": "Bunz 20,40£",
+      "shares": null,
+      "price": 20.4,
+      "currency": "GBP",
+      "profit_pct": null,
+      "source_text": "Compro Bunz 20,40£",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U087",
+      "type": "buy",
+      "ticker": "RA",
+      "company": "Relx a 30",
+      "shares": 265,
+      "price": 30.64,
+      "currency": "GBP",
+      "profit_pct": null,
+      "source_text": "‎IMG-20260119-WA0011.jpg (archivo adjunto)\nCompradas 265 acciones de Relx a 30,64 GBP£",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U089",
+      "type": "buy",
+      "ticker": "DGE",
+      "company": "DGE",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro DGE",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U108",
+      "type": "buy",
+      "ticker": "NTGY",
+      "company": "+12",
+      "shares": null,
+      "price": 12.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "no veo impacto hoy, hago mi compra semanal, +12 NTGY",
+      "notes": null,
+      "flags": [
+        "reported-later",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "trade_date": null,
+      "user_id": "U108",
+      "type": "buy",
+      "ticker": "SEMANAL",
+      "company": "semanal",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "no veo impacto hoy, hago mi compra semanal, +12 NTGY",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "reported-later",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "buy",
+      "ticker": "AC",
+      "company": "Amadeus con 26",
+      "shares": 26,
+      "price": 58.62,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Entro en Amadeus con 26 títulos a 58,62€. Gracias, gran amigo. CP279🤣",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "buy",
+      "ticker": "CC",
+      "company": "Cellnex con 60",
+      "shares": 60,
+      "price": 25.09,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Entro en Cellnex con 60 títulos a 25,09€. Buen día a todos, por cierto.",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "buy",
+      "ticker": "GAC",
+      "company": "gran amigo. CP279🤣",
+      "shares": null,
+      "price": 58.62,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Entro en Amadeus con 26 títulos a 58,62€. Gracias, gran amigo. CP279🤣",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "buy",
+      "ticker": "VPB",
+      "company": "vía Países Bajos",
+      "shares": null,
+      "price": 278.0,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Jeje David, hice mucha venta de francesas! Entro en la británica Relx, vía Países Bajos, con 34 títulos a 34,42€. El CP500 lleva 278 acciones. Ya subirá🤣💪",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U014",
+      "type": "buy",
+      "ticker": "BC",
+      "company": "Bunzl con 60",
+      "shares": 60,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Entro en Bunzl con 60 acciones",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U016",
+      "type": "sell",
+      "ticker": "BUNZL",
+      "company": "BUNZL",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": 50.0,
+      "source_text": "Roto 50% de la posición en realty income para meterlo en BUNZL",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U017",
+      "type": "buy",
+      "ticker": "BA",
+      "company": "Bunzl a 20,02£",
+      "shares": 100,
+      "price": 20.02,
+      "currency": "GBP",
+      "profit_pct": null,
+      "source_text": "añado 100 Bunzl a 20,02£",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U017",
+      "type": "buy",
+      "ticker": "REDEIA",
+      "company": "REDEIA",
+      "shares": 100,
+      "price": 14.48,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Entro en REDEIA con 100 acciones a 14,48",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U018",
+      "type": "buy",
+      "ticker": "JEQP",
+      "company": "títulos del etf",
+      "shares": 156,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Con la bajada del Nasdaq pongo orden de compra de 156 títulos del etf JEQP",
+      "notes": null,
+      "flags": [
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U023",
+      "type": "buy",
+      "ticker": "LDA",
+      "company": "LDA",
+      "shares": null,
+      "price": 1.13,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Entro en LDA a 1,13 euros.",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U024",
+      "type": "buy",
+      "ticker": "AA",
+      "company": "Amadeus a 58,56€",
+      "shares": null,
+      "price": 58.56,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Entro en Amadeus a 58,56€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U024",
+      "type": "buy",
+      "ticker": "BAL",
+      "company": "Bunzl a 20,05 libras",
+      "shares": null,
+      "price": 20.05,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Entro en Bunzl a 20,05 libras",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U024",
+      "type": "buy",
+      "ticker": "DAL",
+      "company": "Diageo a 16,13libras",
+      "shares": null,
+      "price": 16.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio Diageo a 16,13libras",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U024",
+      "type": "buy",
+      "ticker": "EA",
+      "company": "Enagás a 13,54€",
+      "shares": null,
+      "price": 13.54,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio Enagás a 13,54€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U032",
+      "type": "sell",
+      "ticker": "TP",
+      "company": "Target +30% pluses",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": 30.0,
+      "source_text": "Vendidas  Target +30% pluses y liquidez para USA era una posición muy pequeña.",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U032",
+      "type": "sell",
+      "ticker": "USA",
+      "company": "USA",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": 30.0,
+      "source_text": "Vendidas  Target +30% pluses y liquidez para USA era una posición muy pequeña.",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U039",
+      "type": "buy",
+      "ticker": "BUNZL",
+      "company": "Bunzl 50",
+      "shares": 50,
+      "price": 87.0,
+      "currency": "GBP",
+      "profit_pct": null,
+      "source_text": "Entro en Bunzl 50 títulos a 19'87£",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U039",
+      "type": "buy",
+      "ticker": "PAYX",
+      "company": "PAYX",
+      "shares": 11,
+      "price": 50.0,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Entro en PAYX 11  títulos a 108'50 $",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U044",
+      "type": "buy",
+      "ticker": "KRAFT",
+      "company": "kraft",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Ampliación de kraft",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U047",
+      "type": "buy",
+      "ticker": "BA",
+      "company": "Bunzl a 19,91£",
+      "shares": null,
+      "price": 19.91,
+      "currency": "GBP",
+      "profit_pct": null,
+      "source_text": "Inicio posición Bunzl a 19,91£ <Se editó este mensaje.>",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U053",
+      "type": "buy",
+      "ticker": "IIPR",
+      "company": "IIPR",
+      "shares": 10,
+      "price": 49.8,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compradas 10 acciones de IIPR a 49,80",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "NFA",
+      "company": "Nomad Foods a 11,67$",
+      "shares": null,
+      "price": 11.67,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "He ampliado Colonial a 5,05€, Redeia a 14,55€, Constellation Software a 1714€ y entro en Nomad Foods a 11,67$",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "ACS",
+      "company": "ACS",
+      "shares": null,
+      "price": 55.15,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro PayPal a 55,15$\n\nYa me he fundido lo sacado de la venta de ACS el otro día",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "HA",
+      "company": "HrBlock a 40,42$",
+      "shares": null,
+      "price": 40.42,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro HrBlock a 40,42$",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "RHI",
+      "company": "RHI",
+      "shares": null,
+      "price": 26.92,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro RHI 26,92$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U088",
+      "type": "buy",
+      "ticker": "WC",
+      "company": "Wendys co",
+      "shares": null,
+      "price": 8.28,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compra Wendys co a 8,28$",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U089",
+      "type": "buy",
+      "ticker": "ACFG",
+      "company": "ACFG",
+      "shares": null,
+      "price": 2.4,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro ACFG a 2,40$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U089",
+      "type": "buy",
+      "ticker": "ACX",
+      "company": "Amadeus con 8 x 58,56",
+      "shares": null,
+      "price": 58.56,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Entro en Amadeus con 8 x 58,56",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U100",
+      "type": "buy",
+      "ticker": "BUNZL",
+      "company": "BUNZL",
+      "shares": null,
+      "price": 20.04,
+      "currency": "GBP",
+      "profit_pct": null,
+      "source_text": "Yo también he comprado BUNZL a 20,04£\nMe acaba de entrar la orden de Amadeus a 58,74 euros \nTambién compre este viernes: Naturgy, Redeia, Basf y Colonial ( se me olvidó ponerlo😅)",
+      "notes": null,
+      "flags": [
+        "reported-later",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U103",
+      "type": "buy",
+      "ticker": "PAYX",
+      "company": "PAYX",
+      "shares": 10,
+      "price": 109.09,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro 10 títulos de PAYX a 109,09$. Un saludo.",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U117",
+      "type": "buy",
+      "ticker": "RHI",
+      "company": "RHI",
+      "shares": null,
+      "price": 27.8,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio RHI a 27,8.",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U119",
+      "type": "buy",
+      "ticker": "LYB",
+      "company": "de",
+      "shares": 32,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compradas 32 de LYB",
+      "notes": null,
+      "flags": [
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U125",
+      "type": "buy",
+      "ticker": "HRB",
+      "company": "titulos Bnzl 20",
+      "shares": 60,
+      "price": 20.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "amplio 60 titulos Bnzl y 20 HRB",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U125",
+      "type": "buy",
+      "ticker": "PAYX",
+      "company": "PAYX",
+      "shares": 20,
+      "price": 108.86,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "entro en PAYX con 20 acciones a 108,86",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U126",
+      "type": "buy",
+      "ticker": "ARE",
+      "company": "ARE",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Ampliando ARE y TROW 💪🏽",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U126",
+      "type": "buy",
+      "ticker": "RHI",
+      "company": "RHI",
+      "shares": null,
+      "price": 27.0,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio RHI a 27$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U126",
+      "type": "buy",
+      "ticker": "TROW",
+      "company": "💪🏽",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Ampliando ARE y TROW 💪🏽",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U127",
+      "type": "buy",
+      "ticker": "HEN",
+      "company": "HEN",
+      "shares": 10,
+      "price": 66.4,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio 10 HEN a 66.4€",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-20",
+      "trade_date": null,
+      "user_id": "U128",
+      "type": "buy",
+      "ticker": "RA",
+      "company": "Redeia a 14,50",
+      "shares": null,
+      "price": 14.5,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Comprada Redeia a 14,50",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U006",
+      "type": "buy",
+      "ticker": "NESN",
+      "company": "NESN",
+      "shares": 15,
+      "price": 72.9,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro 15 NESN a 72,9 CHF",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U016",
+      "type": "sell",
+      "ticker": "BUNZL",
+      "company": "BUNZL",
+      "shares": null,
+      "price": 50.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Por cierto roto el otro 50 de realty income para meterlo en BUNZL",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U018",
+      "type": "buy",
+      "ticker": "PC",
+      "company": "Petrobras con 350",
+      "shares": 350,
+      "price": 5.85,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio Petrobras con 350 acciones a 5,85€ en el Latibex, casi completando posicion 💪🏼",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U018",
+      "type": "sell",
+      "ticker": "VUSA",
+      "company": "VUSA",
+      "shares": null,
+      "price": 500.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendida 1/5 parte del etf S&P 500 VUSA para rotar a compras de dividendos 💰",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U030",
+      "type": "buy",
+      "ticker": "KT",
+      "company": "Kraft 22,68$ también 👍",
+      "shares": null,
+      "price": 22.68,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio Kraft 22,68$ también 👍",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U031",
+      "type": "sell",
+      "ticker": "AM",
+      "company": "abro Mapfre",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Cierro neinor Home y abro Mapfre.",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U031",
+      "type": "sell",
+      "ticker": "NH",
+      "company": "neinor Home",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Cierro neinor Home y abro Mapfre.",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U032",
+      "type": "buy",
+      "ticker": "ADBE",
+      "company": "ADBE",
+      "shares": null,
+      "price": 291.4,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Y primera compra de ADBE   10 a 291,40 si baja más entro más  fuerte.",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U032",
+      "type": "buy",
+      "ticker": "AMADEUS",
+      "company": "Amadeus 52",
+      "shares": 52,
+      "price": 58.1,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Primera compra de Amadeus 52 acciones a 58.1",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U033",
+      "type": "buy",
+      "ticker": "PAYX",
+      "company": "PAYX",
+      "shares": null,
+      "price": 107.16,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Pequeña entrada en $PAYX a 107.16 $ por acción",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U039",
+      "type": "buy",
+      "ticker": "JEQP",
+      "company": "títulos a 22,25€",
+      "shares": 50,
+      "price": 22.25,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio 50 títulos  JEQP a 22,25€",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U044",
+      "type": "buy",
+      "ticker": "KRAFT",
+      "company": "kraft 22,68$",
+      "shares": null,
+      "price": 22.68,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio kraft 22,68$",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "KHC",
+      "company": "KHC",
+      "shares": null,
+      "price": 22.08,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro KHC 22,08$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U084",
+      "type": "buy",
+      "ticker": "HRB",
+      "company": "HRB",
+      "shares": null,
+      "price": 39.6,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compradas HRB a 39,6$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U088",
+      "type": "buy",
+      "ticker": "FDJ",
+      "company": "FDJ",
+      "shares": 124,
+      "price": 23.0,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio FDJ en 124 acciones a 23€ y cierro posicion",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U088",
+      "type": "sell",
+      "ticker": "POSICION",
+      "company": "posicion",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio FDJ en 124 acciones a 23€ y cierro posicion",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U100",
+      "type": "buy",
+      "ticker": "ADOBE",
+      "company": "en 289$",
+      "shares": null,
+      "price": 289.0,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio ADOBE en 289$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U105",
+      "type": "buy",
+      "ticker": "LGEN",
+      "company": "LGEN",
+      "shares": null,
+      "price": 1.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Ampliada posición en LGEN a 260, 01 GBX.",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U110",
+      "type": "buy",
+      "ticker": "ETF",
+      "company": "JEQP 22,40€ Y LOGISTA 30,90€",
+      "shares": null,
+      "price": 30.9,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Cierro dos pequeñas posiciones en UPS + 24,90% y MERCK + 39%.\nAmplio ETF JEQP 22,40€ Y  \nLOGISTA 30,90€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U110",
+      "type": "sell",
+      "ticker": "MERCK",
+      "company": "MERCK",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": 39.0,
+      "source_text": "Cierro dos pequeñas posiciones en UPS + 24,90% y MERCK + 39%.\nAmplio ETF JEQP 22,40€ Y  \nLOGISTA 30,90€",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U110",
+      "type": "sell",
+      "ticker": "UPS",
+      "company": "UPS",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": 24.9,
+      "source_text": "Cierro dos pequeñas posiciones en UPS + 24,90% y MERCK + 39%.\nAmplio ETF JEQP 22,40€ Y  \nLOGISTA 30,90€",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U122",
+      "type": "buy",
+      "ticker": "BA",
+      "company": "Bunzl a 1990",
+      "shares": null,
+      "price": 1990.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio Bunzl a 1990",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U125",
+      "type": "buy",
+      "ticker": "JEQP",
+      "company": "JEQP",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "amplio JEQP",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U126",
+      "type": "buy",
+      "ticker": "XRX",
+      "company": "XRX",
+      "shares": 100,
+      "price": 2.17,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Entro en Xerox XRX con 100 títulos a 2.17",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U128",
+      "type": "buy",
+      "ticker": "COLONIAL",
+      "company": "Colonial",
+      "shares": null,
+      "price": 5.035,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio Colonial a 5,035",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U128",
+      "type": "buy",
+      "ticker": "ETF",
+      "company": "ETF",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Me llama la atención que he vistos varias compras del ETF JEQP, yo lo sigo desde hace tiempo y he hecho anteriormente alguna compra, pero me llama la atención el movimiento sobre este ETF , y puede que esté motivado por algo que se me escapa, lo comento por si alguien pudiera darme luz sobre el tema, gracias",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U135",
+      "type": "buy",
+      "ticker": "KHC",
+      "company": "KHC",
+      "shares": null,
+      "price": 22.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio KHC a 22",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "trade_date": null,
+      "user_id": "U136",
+      "type": "buy",
+      "ticker": "PA",
+      "company": "Pets a 194,7",
+      "shares": null,
+      "price": 194.7,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Ampliada Pets a 194,7",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-22",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "buy",
+      "ticker": "BCA",
+      "company": "Buckle con 19 a 53,15$",
+      "shares": null,
+      "price": 53.15,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Doblo en Abbot (11 a 109,73$) y McCormick (12 a 60,81$). Entro en Buckle con 19 a 53,15$ <Se editó este mensaje.>",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-22",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "sell",
+      "ticker": "POSICION",
+      "company": "posición",
+      "shares": null,
+      "price": 29.88,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Vendo posición, con buenos beneficios, en Kinder Morgan (100 a 29,88$) y doblo posición en tres castigadas de hoy <Se editó este mensaje.>",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "reported-later",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-22",
+      "trade_date": null,
+      "user_id": "U029",
+      "type": "buy",
+      "ticker": "COMCAST",
+      "company": "comcast",
+      "shares": 100,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compra de 100 acciones de comcast.",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-22",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "sell",
+      "ticker": "PERO",
+      "company": "pero",
+      "shares": null,
+      "price": 8.5,
+      "currency": "EUR",
+      "profit_pct": 50.0,
+      "source_text": "Vendida la mitad de la posición en Allfunds a 8,50€ en pre market, esperaba poder vender el otro 50% a mayor precio ya con el mercado abierto,  pero de momento no ha habido suerte...😊",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-22",
+      "trade_date": null,
+      "user_id": "U075",
+      "type": "buy",
+      "ticker": "BPA",
+      "company": "Bunzl 83 por aqui",
+      "shares": null,
+      "price": 83.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Inicio posición en Bunzl 83 por aqui",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-22",
+      "trade_date": null,
+      "user_id": "U089",
+      "type": "buy",
+      "ticker": "HRZN",
+      "company": "HRZN",
+      "shares": 100,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro 100 HRZN",
+      "notes": null,
+      "flags": [
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-22",
+      "trade_date": null,
+      "user_id": "U137",
+      "type": "buy",
+      "ticker": "POSICION",
+      "company": "posicion)",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "10 acciones a 31,77€ de LOGISTA.\n3 acciones a 44,77€ de LYB (Ampliando posicion)",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "buy",
+      "ticker": "ADM",
+      "company": "amplío (26 a 26,7£)",
+      "shares": null,
+      "price": 26.7,
+      "currency": "GBP",
+      "profit_pct": null,
+      "source_text": "Vendo mi posición en Baxter (148 a 20,39$) y entro en AFX (35 a 20,88€) y amplío ADM (26 a 26,7£)",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "buy",
+      "ticker": "AFX",
+      "company": "(35 a 20,88€)",
+      "shares": null,
+      "price": 20.88,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Vendo mi posición en Baxter (148 a 20,39$) y entro en AFX (35 a 20,88€) y amplío ADM (26 a 26,7£)",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "sell",
+      "ticker": "CHMI",
+      "company": "posición en (539 a 2,745$)",
+      "shares": null,
+      "price": 2.745,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Vendo mi posición en CHMI (539 a 2,745$) y con ese dinero amplío SL Green Realty (36 a 45,51$) <Se editó este mensaje.>",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "sell",
+      "ticker": "SL",
+      "company": "SL",
+      "shares": null,
+      "price": 45.51,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Vendo mi posición en CHMI (539 a 2,745$) y con ese dinero amplío SL Green Realty (36 a 45,51$) <Se editó este mensaje.>",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U024",
+      "type": "buy",
+      "ticker": "KD",
+      "company": "KD",
+      "shares": null,
+      "price": 24.4,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Entro en KD Kyndryl en la cuenta personal a 24,40$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "PA",
+      "company": "Paychex a 90,33€",
+      "shares": null,
+      "price": 90.33,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compro Paychex a 90,33€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U089",
+      "type": "buy",
+      "ticker": "FDJU",
+      "company": "FDJU",
+      "shares": null,
+      "price": 22.66,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compro FDJU a 22,66€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U089",
+      "type": "buy",
+      "ticker": "RACE",
+      "company": "RACE",
+      "shares": null,
+      "price": 287.0,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compro RACE a 287€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U100",
+      "type": "buy",
+      "ticker": "KE",
+      "company": "Kyndryl en 24,83 $",
+      "shares": null,
+      "price": 24.83,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio Kyndryl en 24,83 $",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U103",
+      "type": "sell",
+      "ticker": "REDEIA",
+      "company": "REDEIA",
+      "shares": null,
+      "price": 14.43,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplío y cierro posición (salvo sorpresa) en REDEIA a 14,43€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U106",
+      "type": "buy",
+      "ticker": "FDJU",
+      "company": "FDJU",
+      "shares": null,
+      "price": 22.72,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compro FDJU a 22,72€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "VRLA",
+      "company": "VRLA",
+      "shares": null,
+      "price": 21.5,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compradas otras cinco Verallis $VRLA a 21,5 euros",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U119",
+      "type": "buy",
+      "ticker": "NYSE",
+      "company": "NYSE",
+      "shares": 30,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro 30 acciones de NYSE:MKC",
+      "notes": null,
+      "flags": [
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U119",
+      "type": "buy",
+      "ticker": "NYSE",
+      "company": "NYSE",
+      "shares": 15,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro 15 acciones de NYSE:PG",
+      "notes": null,
+      "flags": [
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U119",
+      "type": "buy",
+      "ticker": "NYSE",
+      "company": "NYSE",
+      "shares": 50,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compro 50 acciones de NYSE:LYB",
+      "notes": null,
+      "flags": [
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U120",
+      "type": "buy",
+      "ticker": "BUNZL",
+      "company": "BUNZL",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Despliegue de capital de esta semana:\n-Amplio $PAYX\n-Abro posición en $HRB\n-Abro posición en $BUNZL",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U120",
+      "type": "buy",
+      "ticker": "HRB",
+      "company": "HRB",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Despliegue de capital de esta semana:\n-Amplio $PAYX\n-Abro posición en $HRB\n-Abro posición en $BUNZL",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U120",
+      "type": "buy",
+      "ticker": "PAYX",
+      "company": "PAYX",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Despliegue de capital de esta semana:\n-Amplio $PAYX\n-Abro posición en $HRB\n-Abro posición en $BUNZL",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-23",
+      "trade_date": null,
+      "user_id": "U132",
+      "type": "buy",
+      "ticker": "BUNZL",
+      "company": "BUNZL",
+      "shares": null,
+      "price": 2052.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio BUNZL a 2052 peniques, pero pillaré más si cae x debajo 2 libras <Se editó este mensaje.>",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-26",
+      "trade_date": null,
+      "user_id": "U034",
+      "type": "buy",
+      "ticker": "REDEIRA",
+      "company": "redeira",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Podo un poco Petrobas y siemens  para la compra de redeira",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-26",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "BOA",
+      "company": "Blue Owl a 14,535$",
+      "shares": null,
+      "price": 14.535,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio Blue Owl a 14,535$ y Teleperformance a 54,30€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-26",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "TA",
+      "company": "Teleperformance a 54,30€",
+      "shares": null,
+      "price": 54.3,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio Blue Owl a 14,535$ y Teleperformance a 54,30€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-26",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "PAYCHEX",
+      "company": "Paychex 105,90$",
+      "shares": null,
+      "price": 105.9,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro Paychex 105,90$",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-26",
+      "trade_date": null,
+      "user_id": "U102",
+      "type": "buy",
+      "ticker": "XRP",
+      "company": "XRP",
+      "shares": null,
+      "price": 59.0,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Pequeña ampliación de XRP a 1'59€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-26",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "KD",
+      "company": "Kyndryl a 24,5$",
+      "shares": 5,
+      "price": 24.5,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compradas otras 5 acciones de Kyndryl $KD a 24,5$",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-26",
+      "trade_date": null,
+      "user_id": "U132",
+      "type": "buy",
+      "ticker": "ENGI",
+      "company": "ENGI",
+      "shares": null,
+      "price": 24.43,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio posición un pellizco de ENGI a 24,43eur, vendo 1/3 de posición y recojo beneficios de Acciona a 181,9eur.",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-26",
+      "trade_date": null,
+      "user_id": "U139",
+      "type": "buy",
+      "ticker": "MSCI",
+      "company": "World a 111’85€",
+      "shares": null,
+      "price": 85.0,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Buenos días. Compradas 3 MSCI World a 111’85€, Primera compra de mi vida",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-26",
+      "trade_date": null,
+      "user_id": "U139",
+      "type": "buy",
+      "ticker": "PRIMERA",
+      "company": "Primera",
+      "shares": null,
+      "price": 85.0,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Buenos días. Compradas 3 MSCI World a 111’85€, Primera compra de mi vida",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-26",
+      "trade_date": null,
+      "user_id": "U139",
+      "type": "buy",
+      "ticker": "VIDA",
+      "company": "vida",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Buenos días. Compradas 3 MSCI World a 111’85€, Primera compra de mi vida",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "buy",
+      "ticker": "JD",
+      "company": ".COM (41 a 29,19$)",
+      "shares": null,
+      "price": 29.19,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Entro en JD.COM (41 a 29,19$)",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U006",
+      "type": "buy",
+      "ticker": "NESN",
+      "company": "NESN",
+      "shares": 15,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio 15 NESN",
+      "notes": null,
+      "flags": [
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U039",
+      "type": "buy",
+      "ticker": "JGPI",
+      "company": "JGPI",
+      "shares": 40,
+      "price": 22.75,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio el etf  JGPI 40 titulos a 22,75 €",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U052",
+      "type": "buy",
+      "ticker": "REDEIA",
+      "company": "REDEIA",
+      "shares": 200,
+      "price": 14.47,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Buenos días, compradas 200 acciones de REDEIA a 14,47€",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "AA",
+      "company": "Adobe a 245,35€",
+      "shares": null,
+      "price": 245.35,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Entro en Adobe a 245,35€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "DBA",
+      "company": "Deutsche Borse a 207,30€",
+      "shares": null,
+      "price": 207.3,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compro Verizon a 32,80€ y Deutsche Borse a 207,30€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "ETR",
+      "company": "en Trade Republic",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Es que es en euros, la he comprado en Trade Republic",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "PA",
+      "company": "Paychex a 87,51€",
+      "shares": null,
+      "price": 87.51,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio Paychex a 87,51€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "VA",
+      "company": "Verizon a 32,80€",
+      "shares": null,
+      "price": 32.8,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compro Verizon a 32,80€ y Deutsche Borse a 207,30€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U103",
+      "type": "buy",
+      "ticker": "FDJ",
+      "company": "FDJ",
+      "shares": null,
+      "price": 22.74,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Pequeñas ampliaciones de:\n-PAYX a 104,83$\n-BNZL a 20,3£ \nInicio posición en:\n-FDJ a 22,74€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U103",
+      "type": "buy",
+      "ticker": "PAYX",
+      "company": "PAYX",
+      "shares": null,
+      "price": 20.3,
+      "currency": "GBP",
+      "profit_pct": null,
+      "source_text": "Pequeñas ampliaciones de:\n-PAYX a 104,83$\n-BNZL a 20,3£ \nInicio posición en:\n-FDJ a 22,74€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U106",
+      "type": "buy",
+      "ticker": "BUNZL",
+      "company": "y",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "entro en BUNZL y amplio GIS",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U106",
+      "type": "buy",
+      "ticker": "GIS",
+      "company": "GIS",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "entro en BUNZL y amplio GIS",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "CVS",
+      "company": "CVS",
+      "shares": null,
+      "price": 2.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo 10 Lennar Corp $LEN y compro 10 Kyndryl $KD, 1 United Health $UNH, 2 GoDaddy $GDDY y 2 CVS Health $CVS",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "GDDY",
+      "company": "GDDY",
+      "shares": null,
+      "price": 2.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo 10 Lennar Corp $LEN y compro 10 Kyndryl $KD, 1 United Health $UNH, 2 GoDaddy $GDDY y 2 CVS Health $CVS",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "KD",
+      "company": "KD",
+      "shares": null,
+      "price": 10.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo 10 Lennar Corp $LEN y compro 10 Kyndryl $KD, 1 United Health $UNH, 2 GoDaddy $GDDY y 2 CVS Health $CVS",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "sell",
+      "ticker": "LEN",
+      "company": "Lennar Corp y",
+      "shares": 10,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo 10 Lennar Corp $LEN y compro 10 Kyndryl $KD, 1 United Health $UNH, 2 GoDaddy $GDDY y 2 CVS Health $CVS",
+      "notes": null,
+      "flags": [
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "UNH",
+      "company": "UNH",
+      "shares": null,
+      "price": 1.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo 10 Lennar Corp $LEN y compro 10 Kyndryl $KD, 1 United Health $UNH, 2 GoDaddy $GDDY y 2 CVS Health $CVS",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "trade_date": null,
+      "user_id": "U140",
+      "type": "buy",
+      "ticker": "REDEIA",
+      "company": "Redeia 100",
+      "shares": 100,
+      "price": 14.46,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio Redeia, 100 acc a 14.46 (estrategia dividendos)",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-28",
+      "trade_date": null,
+      "user_id": "U018",
+      "type": "buy",
+      "ticker": "FDJ",
+      "company": "FDJ",
+      "shares": 30,
+      "price": 22.66,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio y doy por completada posición en FDJ 30acc.×22,66€",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-28",
+      "trade_date": null,
+      "user_id": "U029",
+      "type": "buy",
+      "ticker": "FDJ",
+      "company": "United 100 acciones a 22,60",
+      "shares": 100,
+      "price": 22.6,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Yo tb compra de FDJ United 100 acciones a 22,60",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-28",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "CS",
+      "company": "Constellation Software",
+      "shares": null,
+      "price": 1.602,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio Redeia a 14,24€,  Otis a 72,2€, Constellation Software a 1.602€ y PayPal a 46,10€ en Trade Republic",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-28",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "OA",
+      "company": "Otis a 72,2€",
+      "shares": null,
+      "price": 72.2,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio Redeia a 14,24€,  Otis a 72,2€, Constellation Software a 1.602€ y PayPal a 46,10€ en Trade Republic",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-28",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "RA",
+      "company": "Redeia a 14,24€",
+      "shares": null,
+      "price": 14.24,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio Redeia a 14,24€,  Otis a 72,2€, Constellation Software a 1.602€ y PayPal a 46,10€ en Trade Republic",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-28",
+      "trade_date": null,
+      "user_id": "U080",
+      "type": "buy",
+      "ticker": "FDJU",
+      "company": "FDJU",
+      "shares": null,
+      "price": 22.44,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compra de FDJU a 22,44.",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-28",
+      "trade_date": null,
+      "user_id": "U105",
+      "type": "buy",
+      "ticker": "UNH",
+      "company": "posiciones en",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Ampliación posiciones en UNH <Se editó este mensaje.>",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-28",
+      "trade_date": null,
+      "user_id": "U117",
+      "type": "sell",
+      "ticker": "FDJ",
+      "company": "FDJ",
+      "shares": null,
+      "price": 22.52,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo mi posición en Brembo (+30) y lo roto a FDJ a 22,52.\nEmpresa de más calidad y más dividendos.",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-28",
+      "trade_date": null,
+      "user_id": "U117",
+      "type": "sell",
+      "ticker": "LO",
+      "company": "lo",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo mi posición en Brembo (+30) y lo roto a FDJ a 22,52.\nEmpresa de más calidad y más dividendos.",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-28",
+      "trade_date": null,
+      "user_id": "U117",
+      "type": "sell",
+      "ticker": "PEB",
+      "company": "posición en Brembo (+30)",
+      "shares": null,
+      "price": 30.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Vendo mi posición en Brembo (+30) y lo roto a FDJ a 22,52.\nEmpresa de más calidad y más dividendos.",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-28",
+      "trade_date": null,
+      "user_id": "U133",
+      "type": "buy",
+      "ticker": "VICI",
+      "company": "VICI",
+      "shares": null,
+      "price": 28.0,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Entro en VICI A $28",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-28",
+      "trade_date": null,
+      "user_id": "U143",
+      "type": "sell",
+      "ticker": "ELECNOR",
+      "company": "Elecnor 125",
+      "shares": 125,
+      "price": 26.35,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Vendo Elecnor 125 acciones a 26.35€",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U001",
+      "type": "buy",
+      "ticker": "ADP",
+      "company": "(5 a 246,9$)",
+      "shares": null,
+      "price": 246.9,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Os paso mis Operaciones de hoy: Venta de Viatris (300 a 12,97$, con un 50% de beneficio al haberlas comprado en abril24, aranceles) y compro: Ampliación de Whirpool (15 a 74,33$) y entradas en Greif (23 a 68,73$) y ADP (5 a 246,9$) <Se editó este mensaje.>",
+      "notes": null,
+      "flags": [
+        "reported-later",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U021",
+      "type": "sell",
+      "ticker": "ARE",
+      "company": "(minusv 20%",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": 20.0,
+      "source_text": "Vendo todo PBR.NYS (plusv 25%) y ARE (minusv 20% y amplío:\n-JEPQ 80 títulos a 26,85$\n-SEMI 20 títulos a 13,39$\n-HDLV 10 títulos a 37,21$\n-XNAS 5 títulos a 59,17$",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U021",
+      "type": "sell",
+      "ticker": "JEPQ",
+      "company": "JEPQ",
+      "shares": 80,
+      "price": 59.17,
+      "currency": "USD",
+      "profit_pct": 25.0,
+      "source_text": "Vendo todo PBR.NYS (plusv 25%) y ARE (minusv 20% y amplío:\n-JEPQ 80 títulos a 26,85$\n-SEMI 20 títulos a 13,39$\n-HDLV 10 títulos a 37,21$\n-XNAS 5 títulos a 59,17$",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U021",
+      "type": "buy",
+      "ticker": "SGPDU",
+      "company": "SGPDU",
+      "shares": 10,
+      "price": 10.6,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Entro en dos etf’s. \n-MSCISingapur (SGPDU) 10 títulos a 25,84$\n-Amundi stoxx europe (SELD) 20 títulos a 21,46€\nY amplío:\n-superdividend (SDIV) 100 títulos a 10,60$",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U039",
+      "type": "buy",
+      "ticker": "IIPR",
+      "company": "IIPR",
+      "shares": null,
+      "price": 85.0,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio IIPR 25 a 47'85 $.",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U040",
+      "type": "buy",
+      "ticker": "MSFT",
+      "company": "MSFT",
+      "shares": 2,
+      "price": 425.0,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compradas 2 MSFT a 425 $",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "CA",
+      "company": "Coinbase a 169,42€",
+      "shares": null,
+      "price": 169.42,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Entro en Coinbase a 169,42€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "FA",
+      "company": "Ferrari a 277,10€",
+      "shares": null,
+      "price": 277.1,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio Ferrari a 277,10€, PayPal a 45,10€  y entró wn Canadian National Railway a 82,56€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "PA",
+      "company": "PayPal a 45,10€",
+      "shares": null,
+      "price": 45.1,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio Ferrari a 277,10€, PayPal a 45,10€  y entró wn Canadian National Railway a 82,56€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U089",
+      "type": "buy",
+      "ticker": "AFCG",
+      "company": "AFCG",
+      "shares": null,
+      "price": 2.35,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio  AFCG a 2,35$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U089",
+      "type": "buy",
+      "ticker": "DGE",
+      "company": "DGE",
+      "shares": 20,
+      "price": 1629.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Compra 20 DGE a 1629",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U089",
+      "type": "buy",
+      "ticker": "HRZN",
+      "company": "más de a 2,69$",
+      "shares": 50,
+      "price": 2.69,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Amplio 50 más de HRZN a 2,69$",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "GDDY",
+      "company": "mas GoDaddy",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Yo hoy he comprado más Kyndryl $KD y mas GoDaddy $GDDY",
+      "notes": null,
+      "flags": [
+        "reported-later",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U113",
+      "type": "buy",
+      "ticker": "KD",
+      "company": "más Kyndryl",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Yo hoy he comprado más Kyndryl $KD y mas GoDaddy $GDDY",
+      "notes": null,
+      "flags": [
+        "reported-later",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U125",
+      "type": "buy",
+      "ticker": "ARCC",
+      "company": "ARCC",
+      "shares": 100,
+      "price": 20.075,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "amplio 100 ARCC 20,075 <Se editó este mensaje.>",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U125",
+      "type": "buy",
+      "ticker": "FDJU",
+      "company": "FDJU",
+      "shares": 75,
+      "price": 22.5,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "amplio 75 acciones de FDJU a 22,5 <Se editó este mensaje.>",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U126",
+      "type": "buy",
+      "ticker": "BME",
+      "company": "BME",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Ampliación de : \nRedeia, BME, Mondi y WPP",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U126",
+      "type": "buy",
+      "ticker": "MONDI",
+      "company": "Mondi",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Ampliación de : \nRedeia, BME, Mondi y WPP",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U126",
+      "type": "buy",
+      "ticker": "REDEIA",
+      "company": "Redeia",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Ampliación de : \nRedeia, BME, Mondi y WPP",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U126",
+      "type": "buy",
+      "ticker": "VA",
+      "company": "Viscofan a 55.9",
+      "shares": null,
+      "price": 55.9,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio Viscofan a 55.9",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U126",
+      "type": "buy",
+      "ticker": "WPP",
+      "company": "WPP",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Ampliación de : \nRedeia, BME, Mondi y WPP",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U140",
+      "type": "buy",
+      "ticker": "MA",
+      "company": "Microsoft a 354€",
+      "shares": null,
+      "price": 354.0,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Entro en Microsoft a 354€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "trade_date": null,
+      "user_id": "U146",
+      "type": "buy",
+      "ticker": "VIDA",
+      "company": "vida 😶",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Abro posición en \nComcast (12 a 29,04$)\nUnitedHealth (2 a 292,55$) \n\nSegunda compra de mi vida 😶",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U033",
+      "type": "buy",
+      "ticker": "FDJU",
+      "company": "+33% a 22.28€",
+      "shares": null,
+      "price": 22.28,
+      "currency": "EUR",
+      "profit_pct": 33.0,
+      "source_text": "Ampliación +33% $FDJU a 22.28€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U034",
+      "type": "buy",
+      "ticker": "PETS",
+      "company": "pets",
+      "shares": null,
+      "price": 2.34,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio pets a 2.34 €",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U051",
+      "type": "buy",
+      "ticker": "HRB",
+      "company": "HRB",
+      "shares": 30,
+      "price": 38.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Inicio posición en $HRB con 30 títulos a 38,52!",
+      "notes": null,
+      "flags": []
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "FA",
+      "company": "Fielmann a 41,20€",
+      "shares": null,
+      "price": 41.2,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio VICI a 23,22€ y Blue Owl a 13,90$ y entro en Fielmann a 41,20€",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U071",
+      "type": "buy",
+      "ticker": "VICI",
+      "company": "VICI",
+      "shares": null,
+      "price": 23.22,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Amplio VICI a 23,22€ y Blue Owl a 13,90$ y entro en Fielmann a 41,20€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U077",
+      "type": "buy",
+      "ticker": "FDJU",
+      "company": "FDJU",
+      "shares": null,
+      "price": 22.24,
+      "currency": "EUR",
+      "profit_pct": null,
+      "source_text": "Compro FDJU 22,24€",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U100",
+      "type": "buy",
+      "ticker": "PAYX",
+      "company": "PAYX",
+      "shares": null,
+      "price": 101.5,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Entro en PAYX a 101,50$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U103",
+      "type": "buy",
+      "ticker": "PAYX",
+      "company": "PAYX",
+      "shares": null,
+      "price": 102.24,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Y otra pequeña ampliación de $PAYX a 102,24$.",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U120",
+      "type": "buy",
+      "ticker": "PAYX",
+      "company": "PAYX",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Despliegue de capital de esta semana:\n-Amplio $PAYX\n-Abro posición en $PYPL\n-Amplío $VICI",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U120",
+      "type": "buy",
+      "ticker": "PYPL",
+      "company": "PYPL",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Despliegue de capital de esta semana:\n-Amplio $PAYX\n-Abro posición en $PYPL\n-Amplío $VICI",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U120",
+      "type": "buy",
+      "ticker": "VICI",
+      "company": "VICI",
+      "shares": null,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Despliegue de capital de esta semana:\n-Amplio $PAYX\n-Abro posición en $PYPL\n-Amplío $VICI",
+      "notes": null,
+      "flags": [
+        "no-price",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U125",
+      "type": "buy",
+      "ticker": "ARCC",
+      "company": "ARCC",
+      "shares": 75,
+      "price": null,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio 75 acciones de ARCC",
+      "notes": null,
+      "flags": [
+        "no-price"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U126",
+      "type": "buy",
+      "ticker": "EC",
+      "company": "Enagas con 30",
+      "shares": 30,
+      "price": 13.85,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Entro en Enagas con 30 títulos a 13.85",
+      "notes": null,
+      "flags": [
+        "derived-ticker"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U126",
+      "type": "buy",
+      "ticker": "MAP",
+      "company": "Mondi a 850 peniques",
+      "shares": null,
+      "price": 850.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio Mondi a 850 peniques",
+      "notes": null,
+      "flags": [
+        "derived-ticker",
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U126",
+      "type": "buy",
+      "ticker": "PETS",
+      "company": "PETS",
+      "shares": null,
+      "price": 204.0,
+      "currency": null,
+      "profit_pct": null,
+      "source_text": "Amplio PETS a 204 peniques",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-30",
+      "trade_date": null,
+      "user_id": "U147",
+      "type": "buy",
+      "ticker": "PAYX",
+      "company": "PAYX",
+      "shares": null,
+      "price": 101.57,
+      "currency": "USD",
+      "profit_pct": null,
+      "source_text": "Compro PAYX a 101,570$",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "date": "2026-01-13",
+      "user_id": "U011",
+      "side": "unknown",
+      "ticker": "REE",
+      "company": "REE",
+      "shares": null,
+      "price": 14.95,
+      "currency": "USD",
+      "source_text": "Entra orden de Redeia $REE @14.95 USD 😉Power!!!",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    },
+    {
+      "date": "2026-01-16",
+      "user_id": "U123",
+      "side": "unknown",
+      "ticker": "NVDA",
+      "company": "NVDA",
+      "shares": null,
+      "price": 181.0,
+      "currency": "USD",
+      "source_text": "Orden de $NVDA ejecutada a $181 en esta semana",
+      "notes": null,
+      "flags": [
+        "no-shares"
+      ]
+    }
+  ],
+  "unresolved_messages": [
+    {
+      "date": "2026-01-01",
+      "user_id": "U075",
+      "source_text": "Amplio uno el  2025🤪",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-02",
+      "user_id": "U017",
+      "source_text": "amplio jeqp a 22,50",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-02",
+      "user_id": "U082",
+      "source_text": "Vendida toda la posición de Repsol",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-02",
+      "user_id": "U085",
+      "source_text": "Amplio petrobras y amplio Wendys (recordando la infancia)",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-05",
+      "user_id": "U071",
+      "source_text": "Vendo 1/3 de mi posición en Repsol a 16,98€",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-05",
+      "user_id": "U075",
+      "source_text": "Amplio TAP primera compra del año a 45,78",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-05",
+      "user_id": "U080",
+      "source_text": "Primera compra del año. 2a entrada en TAP a 45,87$.",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-05",
+      "user_id": "U084",
+      "source_text": "Vendida el 50% de mi posición en Amper, a 0’1930",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-06",
+      "user_id": "U001",
+      "source_text": "Vendidas todas mis posiciones, con un beneficio medio del 28%, en: Mercedes, Daimler y Engie. Habrá más ventas en próximos días (cuando se crucen las órdenes). Felices Reyes. Jeje la Bolsa hoy no descansa!!!",
+      "reason": "Referencia ambigua dentro de mensaje largo."
+    },
+    {
+      "date": "2026-01-06",
+      "user_id": "U044",
+      "source_text": "Vendo 40% mi posición en Repsol (+69%) y amplio reality income, PepsiCo y kraft",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-07",
+      "user_id": "U016",
+      "source_text": "Vendida mi posición en clínica Baviera",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-07",
+      "user_id": "U034",
+      "source_text": "Entro en P&G...a 118.54€",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-08",
+      "user_id": "U025",
+      "source_text": "Segunda compra de croda, y al vender ADM en uk he comprado bonos a corto plazo. Por lo menos algo dan. A esperar alguna oportunidad.",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-08",
+      "user_id": "U034",
+      "source_text": "Vendo posición  de enagas completa a 13.97 € y paso todo a naturgy  a 25,76€",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-08",
+      "user_id": "U044",
+      "source_text": "Vendo mi posición en star bulk y amplio alexandria, realty income, krafht, verizon y Petrobras",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-08",
+      "user_id": "U066",
+      "source_text": "Es cíclica, y creo q puede ponerse barata en un futuro. Además el dividendo no es creciente, tiene épocas q lo recorta.\n\nSi baja la cotización quizá vuelva a entrar, mientras tanto meto ese dinero en dividendera pura y me quedo tranquilo.",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-08",
+      "user_id": "U066",
+      "source_text": "Vendo toda mi posición en Río Tinto, 47% de beneficio. Pensando en entrar en una dividendera de manual para la jubilación. <Se editó este mensaje.>",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-08",
+      "user_id": "U077",
+      "source_text": "Compro Randstad 30,83€\nNi idea de pq ha abierto con tanta bajada",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-08",
+      "user_id": "U088",
+      "source_text": "Compra 42 hims and hers a 34,79",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-09",
+      "user_id": "U023",
+      "source_text": "Vendo 2 CALL DE NOVO JAN 16 50 dólares que tenía compradas. 960 dólares de beneficio. <Se editó este mensaje.>",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-09",
+      "user_id": "U029",
+      "source_text": "Compra de bunzl a 24'22 euros, así es más fácil para hacer la declaración de hacienda.",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-13",
+      "user_id": "U053",
+      "source_text": "Para mantener el grupo limpio, operativo y útil para todos, recordamos que este grupo es exclusivamente para operaciones (compra / venta / órdenes). \n\nCualquier otro tipo de publicación, aunque sea bienintencionada, debe compartirse fuera de este grupo. \n\n@⁨Basilio IF⁩ y que conste que soy el primero en apoyar el video y hypearlo 😁.",
+      "reason": "Referencia ambigua dentro de mensaje largo."
+    },
+    {
+      "date": "2026-01-13",
+      "user_id": "U103",
+      "source_text": "Amplio 100 títulos de Redeia a 14,98€. Un saludo",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-14",
+      "user_id": "U036",
+      "source_text": "Entro en 1448 a 2,75HKD que empresa es ?",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-14",
+      "user_id": "U040",
+      "source_text": "Vendida mi posición en Apple por verla cara e irán hacia dividenderas",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-14",
+      "user_id": "U089",
+      "source_text": "Entro en 1448 a 2,75HKD",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-16",
+      "user_id": "U001",
+      "source_text": "Comprados 7 títulos de la empresa de transportes Hapag-Lloyd a 119,8€. Gracias \"Pastores\" por darla a conocer!🤗💪",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-16",
+      "user_id": "U035",
+      "source_text": "Yo he comprado por primera vez Henkel, 17 acc a 67.9€",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-16",
+      "user_id": "U047",
+      "source_text": "Vendidas todas mis Acs de 2021 a  96,30 €",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-16",
+      "user_id": "U089",
+      "source_text": "Venta 4 LMT a 582$  +29% compradas en noviembre '25",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-19",
+      "user_id": "U001",
+      "source_text": "Entro en la británica Dunelm Group con 223 acciones a 9,45£",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-19",
+      "user_id": "U077",
+      "source_text": "Compro China Fehie 6186\nLa de la leche china\nTenía la orden de antiguo y  no sé si es buena compra o no",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-20",
+      "user_id": "U001",
+      "source_text": "Compra de Bunzl (cartera de mi padre) con 180 títulos a 19,9£",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-20",
+      "user_id": "U001",
+      "source_text": "Doblo posición en Unilever: compro 10 títulos a 54,44€",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-20",
+      "user_id": "U005",
+      "source_text": "amplio bunzl a 20.08",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-20",
+      "user_id": "U005",
+      "source_text": "yo también, ampliada redeia a 14.49",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-20",
+      "user_id": "U015",
+      "source_text": "Compradas 20 Bunzl a 20,17£ (sin comisión a 20,02£)",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-20",
+      "user_id": "U018",
+      "source_text": "Con la bajada del Nasdaq pongo orden de compra de 156 títulos del etf JEQP",
+      "reason": "Segmento operativo vacío tras limpiar."
+    },
+    {
+      "date": "2026-01-20",
+      "user_id": "U046",
+      "source_text": "Vendidas 9 acciones de accenture a 283,3.\nEse dinero va para wise para comrpar calls de Adobe seguramente , veremos cuando llegue a tasty",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-20",
+      "user_id": "U087",
+      "source_text": "‎IMG-20260120-WA0044.jpg (archivo adjunto)\nCompradas 27 acciones T.Row a 104,26$",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-20",
+      "user_id": "U088",
+      "source_text": "Compra 1000 acciones immunitybio inc a 6,72$",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-20",
+      "user_id": "U088",
+      "source_text": "Orden de venta a sylvania platinum a 1,25",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-20",
+      "user_id": "U100",
+      "source_text": "Yo también he comprado BUNZL a 20,04£\nMe acaba de entrar la orden de Amadeus a 58,74 euros \nTambién compre este viernes: Naturgy, Redeia, Basf y Colonial ( se me olvidó ponerlo😅)",
+      "reason": "Orden demasiado ambigua o genérica."
+    },
+    {
+      "date": "2026-01-21",
+      "user_id": "U001",
+      "source_text": "Amplío ENCE. Comprados 786 títulos a 2,21€",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-21",
+      "user_id": "U053",
+      "source_text": "Compro 2 calls de Kraft aprovechando la caida que vendi mi posicion a 30/12 para minusvalias",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-21",
+      "user_id": "U103",
+      "source_text": "Vendida Estee Lauder  a 116,56$. \n(100% de ganancia, pero posición muy pequeña que no quiero ampliar.)",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-21",
+      "user_id": "U128",
+      "source_text": "Me llama la atención que he vistos varias compras del ETF JEQP, yo lo sigo desde hace tiempo y he hecho anteriormente alguna compra, pero me llama la atención el movimiento sobre este ETF , y puede que esté motivado por algo que se me escapa, lo comento por si alguien pudiera darme luz sobre el tema, gracias",
+      "reason": "Referencia ambigua dentro de mensaje largo."
+    },
+    {
+      "date": "2026-01-22",
+      "user_id": "U001",
+      "source_text": "Vendida toda mi posición en Cohen & Steers (100 títulos a 25,09$) y con lo obtenido compro Americold (92 a 13,15$) y American Fin Group (10 a 128,28$). Jeje CP284... <Se editó este mensaje.>",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-22",
+      "user_id": "U008",
+      "source_text": "Compradas 120 de diageo",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-22",
+      "user_id": "U089",
+      "source_text": "Venta Novob a 396 DKK compradas hace 2 meses +42%",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-23",
+      "user_id": "U001",
+      "source_text": "Vendo mi posición en Baxter (148 a 20,39$) y entro en AFX (35 a 20,88€) y amplío ADM (26 a 26,7£)",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-26",
+      "user_id": "U018",
+      "source_text": "Amplio posición en Mid America Apartment 9 acciones × 134,83$",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-26",
+      "user_id": "U087",
+      "source_text": "‎IMG-20260126-WA0002.jpg (archivo adjunto)\n¡Buenos días y feliz lunes! \nEntro en Viscofan con 21 acciones a 56,30€.\nSigo aumentando 33 posiciones en Logista a 31,10€. Esperando el buen dividendo que repartirá Logista en febrero 🙌🏽🤗",
+      "reason": "Activo ambiguo dentro de mensaje largo."
+    },
+    {
+      "date": "2026-01-26",
+      "user_id": "U132",
+      "source_text": "Amplio posición un pellizco de ENGI a 24,43eur, vendo 1/3 de posición y recojo beneficios de Acciona a 181,9eur.",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-27",
+      "user_id": "U077",
+      "source_text": "Compro JP6869 Syxmex Corp a 1502,5¥\nOpción Value, aunque después de ejecutada la orden la veo mucho menos clara 😅😅",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-28",
+      "user_id": "U032",
+      "source_text": "A la orden",
+      "reason": "Segmento operativo vacío tras limpiar."
+    },
+    {
+      "date": "2026-01-28",
+      "user_id": "U039",
+      "source_text": "Venta de Solaria, 50% beneficio ,por saltar el stop loss a 17'96 €.",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-28",
+      "user_id": "U053",
+      "source_text": "Me habeis preguntado algunos en privado sobre esto, solo para aclarar, si alguien NO quiere poner numero de acciones no pasa nada, no se exige eso como tal (ya que hay quien quiere privacidad sobre las cantidades que compra o vende)\n\nLas normas estan pensadas para acotar que no se hable de lo que no debe o se generen debates dentro de este grupo (los debates siempre en los otros grupos).",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-28",
+      "user_id": "U140",
+      "source_text": "Entro en skyworks solutions 40 acciones a 46.72€",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-29",
+      "user_id": "U001",
+      "source_text": "Os paso mis Operaciones de hoy: Venta de Viatris (300 a 12,97$, con un 50% de beneficio al haberlas comprado en abril24, aranceles) y compro: Ampliación de Whirpool (15 a 74,33$) y entradas en Greif (23 a 68,73$) y ADP (5 a 246,9$) <Se editó este mensaje.>",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-29",
+      "user_id": "U021",
+      "source_text": "Vendo todo PBR.NYS (plusv 25%) y ARE (minusv 20% y amplío:\n-JEPQ 80 títulos a 26,85$\n-SEMI 20 títulos a 13,39$\n-HDLV 10 títulos a 37,21$\n-XNAS 5 títulos a 59,17$",
+      "reason": "Activo ambiguo dentro de mensaje largo."
+    },
+    {
+      "date": "2026-01-29",
+      "user_id": "U036",
+      "source_text": "Yo también estoy pendiente si redeia llega a 14, compro.",
+      "reason": "Segmento operativo vacío tras limpiar."
+    },
+    {
+      "date": "2026-01-29",
+      "user_id": "U046",
+      "source_text": "Vendidas 130 acciones de Brembo aprovechando la Subida de hoy, para destinar el dinero a Tasty trade",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-29",
+      "user_id": "U125",
+      "source_text": "amplio 300 acciones ib1t",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    },
+    {
+      "date": "2026-01-29",
+      "user_id": "U145",
+      "source_text": "Compras semana. 120 Fdj . posición cerrada / 20 IIPR. Primera compra",
+      "reason": "Segmento operativo vacío tras limpiar."
+    },
+    {
+      "date": "2026-01-30",
+      "user_id": "U040",
+      "source_text": "Compra 8 acciones  de paychex a 101,6 $",
+      "reason": "No se pudo extraer un activo con suficiente claridad."
+    }
+  ],
+  "warnings": [
+    "Parseo automático y conservador a partir del export de WhatsApp.",
+    "Las operaciones ambiguas o con contexto insuficiente se han movido a unresolved_messages.",
+    "Los tickers derivados desde nombres de empresa son aproximaciones cuando el mensaje no incluye un ticker explícito."
+  ]
+}
