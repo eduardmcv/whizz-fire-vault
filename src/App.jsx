@@ -125,15 +125,40 @@ function KpiButton({ label, value, sub, tone = "default", onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className="rounded-xl border border-white/10 bg-[#161920] p-5 text-left transition hover:border-white/20 hover:bg-[#1b1f28]"
+      className="cursor-pointer group relative overflow-hidden rounded-xl border border-border bg-surface p-5 text-left transition hover:border-white/20 hover:bg-hover"
     >
-      <div className="text-[11px] uppercase tracking-[0.18em] text-slate-500">
-        {label}
-      </div>
-      <div className={`mt-2 font-mono text-3xl font-semibold ${valueClass}`}>
+      <div className={`mb-3 font-mono text-5xl font-semibold ${valueClass}`}>
         {value}
       </div>
-      <div className="mt-1 text-xs text-slate-500">{sub}</div>
+      <div className="text-[11px] uppercase tracking-[0.18em] text-text">
+        {label}
+      </div>
+      <div className="mt-1 text-xs text-text-muted">{sub}</div>
+      <div
+        className="absolute -bottom-1.5 -right-1.5 p-2 bg-border rounded-4xl 
+          transition-all duration-300 ease-in-out
+          group-hover:bottom-0 group-hover:right-0"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-list-search"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M11 15a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+          <path d="M18.5 18.5l2.5 2.5" />
+          <path d="M4 6h16" />
+          <path d="M4 12h4" />
+          <path d="M4 18h4" />
+        </svg>
+      </div>
     </button>
   );
 }
@@ -153,9 +178,9 @@ function RankPanel({
   const max = items[0]?.count ?? 1;
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#161920]">
+    <div className="overflow-hidden rounded-2xl border border-white/10 bg-surface">
       <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-        <span className="text-[11px] uppercase tracking-[0.14em] text-slate-500">
+        <span className="text-[11px] uppercase tracking-[0.14em] text-text">
           {title}
         </span>
         <span className={`h-2 w-2 rounded-full ${accentClass}`} />
@@ -172,28 +197,26 @@ function RankPanel({
               onClick={() =>
                 onItemClick(item.ticker, accent === "buy" ? "buy" : "sell")
               }
-              className="grid w-full grid-cols-[32px_minmax(0,1fr)_110px] items-center gap-3 border-b border-white/10 px-5 py-3 text-left transition hover:bg-white/5 last:border-b-0"
+              className="cursor-pointer grid w-full grid-cols-[32px_minmax(0,1fr)_110px] items-center gap-4 border-b border-border pl-2 pr-4 py-3 text-left transition hover:bg-hover last:border-b-0"
             >
               <span
-                className={`text-right font-mono text-xs ${
+                className={`text-right font-mono text-md ${
                   index === 0
                     ? "text-yellow-400"
                     : index === 1
                       ? "text-slate-400"
                       : index === 2
                         ? "text-amber-700"
-                        : "text-slate-500"
+                        : "text-text-muted"
                 }`}
               >
                 #{index + 1}
               </span>
 
               <div className="min-w-0">
-                <div className="truncate font-mono text-sm text-slate-100">
+                <div className="truncate text-lg text-text">{item.company}</div>
+                <div className="truncate font-mono text-sm text-text-muted">
                   {item.ticker}
-                </div>
-                <div className="truncate text-xs text-slate-500">
-                  {item.company}
                 </div>
               </div>
 
@@ -352,38 +375,33 @@ export default function App() {
 
   if (!monthData) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#0d0f14] px-6 text-slate-400">
+      <div className="flex min-h-screen items-center justify-center bg-gray-2 px-6 text-text">
         No hay datos cargados
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#0d0f14] text-slate-100">
+    <div className="min-h-screen bg-gray-1 text-slate-100">
       <header className="border-b border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 md:flex-row md:items-center md:justify-between md:px-6">
           <div>
             <div className="flex items-center gap-3">
               <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.6)]" />
-              <span className="font-mono text-xs uppercase tracking-[0.16em] text-slate-500">
+              <span className="font-mono text-sm uppercase tracking-[0.16em] text-text-muted">
                 Operaciones · Dashboard
               </span>
             </div>
 
-            <div className="mt-2 text-sm text-slate-400">
+            <div className="mt-2 text-sm text-text-muted">
               {monthData.month_label}
-              {formatCoverage(monthData.coverage) ? (
-                <span className="ml-2 text-slate-500">
-                  · Cobertura: {formatCoverage(monthData.coverage)}
-                </span>
-              ) : null}
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <label
               htmlFor="monthSelect"
-              className="font-mono text-xs uppercase tracking-[0.16em] text-slate-500"
+              className="font-mono text-xs uppercase tracking-[0.16em] text-text-muted"
             >
               Mes
             </label>
@@ -392,7 +410,7 @@ export default function App() {
               id="monthSelect"
               value={currentMonth}
               onChange={(e) => setCurrentMonth(e.target.value)}
-              className="rounded-lg border border-white/10 bg-[#161920] px-3 py-2 text-sm text-slate-100 outline-none transition focus:border-emerald-400"
+              className="rounded-lg border border-border bg-surface px-3 py-2 text-sm text-slate-100 outline-none transition focus:border-emerald-400"
             >
               {MONTH_KEYS.map((monthKey) => (
                 <option key={monthKey} value={monthKey}>
@@ -468,16 +486,16 @@ export default function App() {
         </section>
 
         <section className="grid grid-cols-1 gap-5 xl:grid-cols-2">
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#161920]">
-            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-              <span className="text-[11px] uppercase tracking-[0.14em] text-slate-500">
+          <div className="overflow-hidden rounded-2xl border border-border bg-surface">
+            <div className="flex items-center justify-between border-b border-border px-5 py-4">
+              <span className="text-[11px] uppercase tracking-[0.14em] text-text">
                 Activos con más compradores únicos
               </span>
 
               <button
                 type="button"
                 onClick={() => openModal({ mode: "assets" })}
-                className="text-xs text-slate-400 transition hover:text-slate-200"
+                className="text-xs text-text-muted transition hover:text-text"
               >
                 Ver todos
               </button>
@@ -491,14 +509,14 @@ export default function App() {
                   onClick={() =>
                     openModal({ mode: "asset-all", ticker: item.ticker })
                   }
-                  className="grid w-full grid-cols-[minmax(0,1fr)_90px_90px] items-center gap-3 border-b border-white/10 px-5 py-3 text-left transition hover:bg-white/5 last:border-b-0"
+                  className="grid w-full cursor-pointer grid-cols-[minmax(0,1fr)_90px_90px] items-center gap-3 border-b border-border px-5 py-3 text-left transition hover:bg-hover last:border-b-0"
                 >
                   <div className="min-w-0">
-                    <div className="truncate font-mono text-sm text-slate-100">
-                      {item.ticker}
-                    </div>
-                    <div className="truncate text-xs text-slate-500">
+                    <div className="truncate text-md text-text">
                       {item.company}
+                    </div>
+                    <div className="truncate font-mono text-xs text-text-muted">
+                      {item.ticker}
                     </div>
                   </div>
 
@@ -506,7 +524,7 @@ export default function App() {
                     {item.uniqueBuyers} inv.
                   </div>
 
-                  <div className="text-right text-xs text-slate-500">
+                  <div className="text-right text-xs text-text-muted">
                     {item.buys} compras
                   </div>
                 </button>
@@ -514,9 +532,9 @@ export default function App() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#161920]">
-            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-              <span className="text-[11px] uppercase tracking-[0.14em] text-slate-500">
+          <div className="overflow-hidden rounded-2xl border border-border bg-surface">
+            <div className="flex items-center justify-between border-b border-border px-5 py-4">
+              <span className="text-[11px] uppercase tracking-[0.14em] text-text-muted">
                 Ventas con profit informado
               </span>
               <span className="h-2 w-2 rounded-full bg-yellow-400 shadow-[0_0_10px_rgba(250,204,21,0.5)]" />
@@ -524,7 +542,7 @@ export default function App() {
 
             <div>
               {topProfitAssets.length === 0 ? (
-                <div className="px-5 py-8 text-sm text-slate-500">
+                <div className="px-5 py-8 text-sm text-text-muted">
                   Sin datos
                 </div>
               ) : (
@@ -539,14 +557,14 @@ export default function App() {
                         side: "sell",
                       })
                     }
-                    className="grid w-full grid-cols-[minmax(0,1fr)_100px] items-center gap-3 border-b border-white/10 px-5 py-3 text-left transition hover:bg-white/5 last:border-b-0"
+                    className="cursor-pointer grid w-full grid-cols-[minmax(0,1fr)_100px] items-center gap-3 border-b border-border px-5 py-3 text-left transition hover:bg-hover last:border-b-0"
                   >
                     <div className="min-w-0">
-                      <div className="truncate font-mono text-sm text-slate-100">
-                        {item.ticker}
-                      </div>
-                      <div className="truncate text-xs text-slate-500">
+                      <div className="truncate text-md text-text">
                         {item.company}
+                      </div>
+                      <div className="truncate font-mono text-xs text-text-muted">
+                        {item.ticker}
                       </div>
                     </div>
 
@@ -554,7 +572,7 @@ export default function App() {
                       <div className="font-mono text-sm text-yellow-400">
                         +{item.avgProfit.toFixed(1)}%
                       </div>
-                      <div className="text-xs text-slate-500">
+                      <div className="text-xs text-text-muted">
                         {item.profits.length} ventas
                       </div>
                     </div>
@@ -567,7 +585,7 @@ export default function App() {
 
         <section>
           <div className="mb-4 flex items-center justify-between gap-3">
-            <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-slate-400">
+            <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-text-muted">
               Explorador de operaciones
             </h2>
 
@@ -575,7 +593,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => openModal({ mode: "orders" })}
-                className="rounded-lg border border-white/10 bg-[#161920] px-3 py-1.5 text-xs text-slate-300 transition hover:bg-[#1b1f28]"
+                className="rounded-lg border border-border bg-surface px-3 py-1.5 text-xs text-text-muted transition hover:bg-hover"
               >
                 Órdenes ({allOrders.length})
               </button>
@@ -583,7 +601,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => openModal({ mode: "unresolved" })}
-                className="rounded-lg border border-white/10 bg-[#161920] px-3 py-1.5 text-xs text-slate-300 transition hover:bg-[#1b1f28]"
+                className="rounded-lg border border-border bg-surface px-3 py-1.5 text-xs text-text-muted transition hover:bg-hover"
               >
                 Sin resolver ({allUnresolved.length})
               </button>
@@ -618,11 +636,11 @@ export default function App() {
           <div className="space-y-4">
             {selectedAssetSummary ? (
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
-                <div className="rounded-xl border border-white/10 bg-[#11151d] p-4">
-                  <div className="text-[11px] uppercase tracking-[0.16em] text-slate-500">
+                <div className="rounded-xl border border-border bg-surface p-4">
+                  <div className="text-[11px] uppercase tracking-[0.16em] text-text-muted">
                     Ticker
                   </div>
-                  <div className="mt-2 font-mono text-xl text-slate-100">
+                  <div className="mt-2 font-mono text-xl text-text">
                     {selectedAssetSummary.ticker}
                   </div>
                 </div>
@@ -664,27 +682,27 @@ export default function App() {
         )}
 
         {modal.mode === "orders" && (
-          <div className="overflow-hidden rounded-2xl border border-white/10">
+          <div className="overflow-hidden rounded-2xl border border-border">
             <div className="overflow-x-auto">
               <table className="min-w-full text-left text-sm">
-                <thead className="border-b border-white/10 bg-[#11151d]">
+                <thead className="border-b border-border bg-surface">
                   <tr>
-                    <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500">
+                    <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">
                       Fecha
                     </th>
-                    <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500">
+                    <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">
                       Lado
                     </th>
-                    <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500">
+                    <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">
                       Ticker
                     </th>
-                    <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500">
+                    <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">
                       Empresa
                     </th>
-                    <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500">
+                    <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">
                       Precio
                     </th>
-                    <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500">
+                    <th className="px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">
                       Usuario
                     </th>
                   </tr>
@@ -695,7 +713,7 @@ export default function App() {
                     <tr>
                       <td
                         colSpan={6}
-                        className="px-4 py-8 text-center text-slate-500"
+                        className="px-4 py-8 text-center text-text-muted"
                       >
                         Sin órdenes
                       </td>

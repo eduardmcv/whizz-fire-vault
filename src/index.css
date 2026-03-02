@@ -1,6 +1,75 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap");
 @import "tailwindcss";
 
+@theme {
+  /* GRAYS */
+  /* Backgrounds */
+  --color-gray-1: #111113;
+  --color-gray-2: #19191b;
+  /* Interactive components */
+  --color-gray-3: #222325;
+  --color-gray-4: #292a2e;
+  --color-gray-5: #303136;
+  /* Borders and separators */
+  --color-gray-6: #393a40;
+  --color-gray-7: #46484f;
+  --color-gray-8: #5f606a;
+  /* Solid colors */
+  --color-gray-9: #6c6e79;
+  --color-gray-10: #797b86;
+  /* Accessible text */
+  --color-gray-11: #b2b3bd;
+  --color-gray-12: #eeeef0;
+
+  /* BLUES */
+  /* Backgrounds */
+  --color-blue-1: #0c111c;
+  --color-blue-2: #111725;
+  /* Interactive components */
+  --color-blue-3: #172448;
+  --color-blue-4: #1d2e61;
+  --color-blue-5: #243974;
+  /* Borders and separators */
+  --color-blue-6: #2d4484;
+  --color-blue-7: #375098;
+  --color-blue-8: #405eb2;
+  /* Solid colors */
+  --color-blue-9: #3d63dd;
+  --color-blue-10: #3f5cb0;
+  /* Accessible text */
+  --color-blue-11: #93b4ff;
+  --color-blue-12: #d5e2ff;
+
+  /* Semantic colors */
+  --color-background: #111113;
+  --color-surface: #19191b;
+  --color-border: #303136;
+  --color-text: #eeeef0;
+  --color-text-muted: #73747a;
+
+  /* Category colors - text (lighter) */
+  --color-income: #93c5fd;
+  --color-savings: #6ee7b7;
+  --color-forecast: #fdba74;
+  --color-fixed: #c4b5fd;
+  --color-budget: #fca5a5;
+  --color-neutral: #b2b3bd;
+
+  /* Category colors - solid (for backgrounds/buttons) */
+  --color-income-solid: #1d4ed8;
+  --color-savings-solid: #059669;
+  --color-forecast-solid: #f97316;
+  --color-fixed-solid: #a855f7;
+  --color-budget-solid: #ef4444;
+  --color-neutral-solid: #46484f;
+
+  /* UI colors */
+  --color-hover: #222325;
+  --color-today-bg: #172448;
+  --color-today-text: #405eb2;
+  --color-weekend: rgba(239, 68, 68, 0.1);
+}
+
 html,
 body,
 #root {

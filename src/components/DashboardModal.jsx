@@ -3,21 +3,21 @@ export default function DashboardModal({ open, title, onClose, children }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className="max-h-[85vh] w-full max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl"
+        className="max-h-[85vh] w-full max-w-5xl overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-200">
+        <div className="flex items-center justify-between border-b border-border px-5 py-4">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-text">
             {title}
           </h3>
 
           <button
             onClick={onClose}
-            className="rounded-lg border border-white/10 px-3 py-1 text-sm text-slate-300 transition hover:bg-white/5"
+            className="rounded-lg border border-border px-3 py-1 text-sm text-text transition hover:bg-hover"
           >
             Cerrar
           </button>
