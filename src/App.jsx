@@ -125,7 +125,7 @@ function KpiButton({ label, value, sub, tone = "default", onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className="cursor-pointer group relative overflow-hidden rounded-xl border border-border bg-surface p-5 text-left transition hover:border-white/20 hover:bg-hover"
+      className="cursor-pointer group relative overflow-hidden rounded-xl border border-border bg-surface p-5 text-left transition hover:border-border hover:bg-hover"
     >
       <div className={`mb-3 font-mono text-5xl font-semibold ${valueClass}`}>
         {value}
@@ -135,7 +135,7 @@ function KpiButton({ label, value, sub, tone = "default", onClick }) {
       </div>
       <div className="mt-1 text-xs text-text-muted">{sub}</div>
       <div
-        className="absolute -bottom-1.5 -right-1.5 p-2 bg-border rounded-4xl 
+        className="absolute -bottom-1 -right-1 p-2 bg-border rounded-4xl 
           transition-all duration-300 ease-in-out
           group-hover:bottom-0 group-hover:right-0"
       >
@@ -178,8 +178,8 @@ function RankPanel({
   const max = items[0]?.count ?? 1;
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-surface">
-      <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+    <div className="overflow-hidden rounded-2xl border border-border bg-surface">
+      <div className="flex items-center justify-between border-b border-border px-5 py-4">
         <span className="text-[11px] uppercase tracking-[0.14em] text-text">
           {title}
         </span>
@@ -383,28 +383,28 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-1 text-slate-100">
-      <header className="border-b border-white/10">
+      <header className="border-b border-border bg-surface">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 md:flex-row md:items-center md:justify-between md:px-6">
           <div>
             <div className="flex items-center gap-3">
               <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.6)]" />
               <span className="font-mono text-sm uppercase tracking-[0.16em] text-text-muted">
-                Operaciones · Dashboard
+                Histórico de Operaciones
               </span>
             </div>
 
-            <div className="mt-2 text-sm text-text-muted">
+            {/* <div className="mt-2 text-sm text-text-muted">
               {monthData.month_label}
-            </div>
+            </div> */}
           </div>
 
           <div className="flex items-center gap-3">
-            <label
+            {/* <label
               htmlFor="monthSelect"
               className="font-mono text-xs uppercase tracking-[0.16em] text-text-muted"
             >
               Mes
-            </label>
+            </label> */}
 
             <select
               id="monthSelect"
@@ -457,7 +457,7 @@ export default function App() {
 
         <section>
           <div className="mb-4 flex items-center gap-3">
-            <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-slate-400">
+            <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-text-muted">
               Ranking principal
             </h2>
           </div>
@@ -645,7 +645,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-white/10 bg-[#11151d] p-4">
+                <div className="rounded-xl border border-border bg-[#11151d] p-4">
                   <div className="text-[11px] uppercase tracking-[0.16em] text-slate-500">
                     Compradores únicos
                   </div>
@@ -654,7 +654,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-white/10 bg-[#11151d] p-4">
+                <div className="rounded-xl border border-border bg-[#11151d] p-4">
                   <div className="text-[11px] uppercase tracking-[0.16em] text-slate-500">
                     Compras
                   </div>
@@ -663,7 +663,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-white/10 bg-[#11151d] p-4">
+                <div className="rounded-xl border border-border bg-[#11151d] p-4">
                   <div className="text-[11px] uppercase tracking-[0.16em] text-slate-500">
                     Ventas
                   </div>
@@ -722,7 +722,7 @@ export default function App() {
                     allOrders.map((order, index) => (
                       <tr
                         key={`${order.date}-${order.user_id}-${order.ticker}-${index}`}
-                        className="border-b border-white/10 last:border-b-0"
+                        className="border-b border-border last:border-b-0"
                       >
                         <td className="px-4 py-3 font-mono text-xs text-slate-400">
                           {order.date}
@@ -756,14 +756,14 @@ export default function App() {
         {modal.mode === "unresolved" && (
           <div className="space-y-3">
             {allUnresolved.length === 0 ? (
-              <div className="rounded-xl border border-white/10 bg-[#11151d] p-6 text-sm text-slate-500">
+              <div className="rounded-xl border border-border bg-[#11151d] p-6 text-sm text-slate-500">
                 Sin mensajes pendientes
               </div>
             ) : (
               allUnresolved.map((item, index) => (
                 <div
                   key={`${item.date}-${item.user_id}-${index}`}
-                  className="rounded-xl border border-white/10 bg-[#11151d] p-4"
+                  className="rounded-xl border border-border bg-[#11151d] p-4"
                 >
                   <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
                     <span className="font-mono">{item.date}</span>

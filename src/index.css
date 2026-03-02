@@ -82,3 +82,28 @@ body {
   background: #0d0f14;
   color: #e8eaf0;
 }
+
+/* Scrollbar global */
+* {
+  scrollbar-width: medium;
+  scrollbar-color: #303136 transparent;
+}
+
+/* Webkit (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #303136;
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #393a40;
+}
