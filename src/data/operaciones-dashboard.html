@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operaciones del Grupo · Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #161920;
+    --surface2: #1e2230;
+    --border: #2a2f3d;
+    --text: #e8eaf0;
+    --muted: #6b7280;
+    --accent-buy: #22d3a0;
+    --accent-sell: #f97316;
+    --accent-gold: #f5c842;
+    --accent-blue: #60a5fa;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ─────────────────────────────────── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .logo span.dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent-buy);
+    display: inline-block;
+    box-shadow: 0 0 8px var(--accent-buy);
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .month-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .month-selector select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: var(--mono);
+    font-size: 12px;
+    cursor: pointer;
+    outline: none;
+  }
+  .month-selector select:focus {
+    border-color: var(--accent-buy);
+  }
+  .month-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── LAYOUT ─────────────────────────────────── */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* ── KPI STRIP ───────────────────────────────── */
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .kpi {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .kpi-label {
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .kpi-value {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1;
+    font-family: var(--mono);
+  }
+  .kpi-value.buy { color: var(--accent-buy); }
+  .kpi-value.sell { color: var(--accent-sell); }
+  .kpi-value.total { color: var(--text); }
+  .kpi-sub {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* ── SECTION TITLE ───────────────────────────── */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 600;
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text);
+  }
+  .section-badge {
+    font-size: 10px;
+    font-family: var(--mono);
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: var(--surface2);
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  /* ── TOP TABLES (2 col grid) ─────────────────── */
+  .top-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .panel-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .panel-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .panel-accent {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .panel-accent.buy { background: var(--accent-buy); box-shadow: 0 0 6px var(--accent-buy); }
+  .panel-accent.sell { background: var(--accent-sell); box-shadow: 0 0 6px var(--accent-sell); }
+
+  .rank-list {
+    list-style: none;
+  }
+  .rank-item {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .rank-item:last-child { border-bottom: none; }
+  .rank-item:hover { background: var(--surface2); }
+
+  .rank-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-align: right;
+  }
+  .rank-num.gold { color: var(--accent-gold); font-weight: 500; }
+  .rank-num.silver { color: #9ca3af; }
+  .rank-num.bronze { color: #b45309; }
+
+  .rank-info { display: flex; flex-direction: column; gap: 2px; overflow: hidden; }
+  .rank-ticker {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .rank-company {
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .rank-bar-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; min-width: 80px; }
+  .rank-count {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .rank-count.buy { color: var(--accent-buy); }
+  .rank-count.sell { color: var(--accent-sell); }
+  .rank-sub-info {
+    font-size: 10px;
+    color: var(--muted);
+    font-family: var(--mono);
+    text-align: right;
+  }
+  .bar {
+    height: 3px;
+    border-radius: 2px;
+    min-width: 4px;
+  }
+  .bar.buy { background: var(--accent-buy); opacity: 0.6; }
+  .bar.sell { background: var(--accent-sell); opacity: 0.6; }
+
+  /* ── SECONDARY METRICS ───────────────────────── */
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* ── DISCLAIMER ─────────────────────────────── */
+  .disclaimer {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-gold);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .disclaimer strong { color: var(--accent-gold); font-weight: 500; }
+
+  /* ── FILTER BAR ─────────────────────────────── */
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .filter-bar label {
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .filter-bar input, .filter-bar select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: var(--mono);
+    font-size: 12px;
+    outline: none;
+  }
+  .filter-bar input:focus, .filter-bar select:focus {
+    border-color: var(--accent-blue);
+  }
+  .filter-bar input::placeholder { color: var(--muted); }
+
+  /* ── DETAIL TABLE ────────────────────────────── */
+  .detail-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .detail-table thead th {
+    padding: 10px 16px;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    position: sticky;
+    top: 0;
+  }
+  .detail-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+  }
+  .detail-table tbody tr:last-child { border-bottom: none; }
+  .detail-table tbody tr:hover { background: var(--surface2); }
+  .detail-table td {
+    padding: 9px 16px;
+    font-size: 12px;
+  }
+  .td-ticker { font-family: var(--mono); font-weight: 500; color: var(--text); }
+  .td-type-buy { color: var(--accent-buy); font-family: var(--mono); font-size: 11px; font-weight: 500; }
+  .td-type-sell { color: var(--accent-sell); font-family: var(--mono); font-size: 11px; font-weight: 500; }
+  .td-date { font-family: var(--mono); color: var(--muted); font-size: 11px; }
+  .td-price { font-family: var(--mono); font-size: 12px; }
+  .td-shares { font-family: var(--mono); color: var(--muted); }
+  .td-profit { font-family: var(--mono); color: var(--accent-buy); font-weight: 500; }
+  .td-user { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .td-company { color: var(--muted); font-size: 11px; max-width: 180px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .table-wrap {
+    max-height: 420px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 48px;
+    color: var(--muted);
+    font-size: 13px;
+    font-family: var(--mono);
+  }
+
+  /* ── FOOTER ─────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 20px 32px;
+    text-align: center;
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--muted);
+    opacity: 0.6;
+  }
+
+  /* ── RESPONSIVE ─────────────────────────────── */
+  @media (max-width: 768px) {
+    header { padding: 14px 16px; }
+    main { padding: 20px 12px; gap: 20px; }
+    .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+    .top-grid, .secondary-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span class="dot"></span>
+    OPERACIONES · GRUPO
+  </div>
+  <div class="header-right">
+    <div class="month-selector">
+      <label class="month-label">Mes:</label>
+      <select id="monthSelect" onchange="switchMonth(this.value)">
+        <option value="2026-02">Febrero 2026</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- KPI STRIP -->
+  <div class="kpi-strip" id="kpiStrip">
+    <div class="kpi">
+      <div class="kpi-label">Operaciones totales</div>
+      <div class="kpi-value total" id="kpiTotal">–</div>
+      <div class="kpi-sub" id="kpiMonthLabel">–</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Compras</div>
+      <div class="kpi-value buy" id="kpiBuys">–</div>
+      <div class="kpi-sub" id="kpiBuysPct">–</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Ventas</div>
+      <div class="kpi-value sell" id="kpiSells">–</div>
+      <div class="kpi-sub" id="kpiSellsPct">–</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Activos únicos</div>
+      <div class="kpi-value total" id="kpiAssets">–</div>
+      <div class="kpi-sub" id="kpiInvestors">–</div>
+    </div>
+  </div>
+
+  <!-- TOP COMPRADOS / VENDIDOS -->
+  <div>
+    <div class="section-header">
+      <span class="section-title">Ranking principal</span>
+    </div>
+    <div class="top-grid">
+
+      <!-- TOP COMPRADOS -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">↑ Más comprados · operaciones</span>
+          <span class="panel-accent buy"></span>
+        </div>
+        <ul class="rank-list" id="topBuy"></ul>
+      </div>
+
+      <!-- TOP VENDIDOS -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">↓ Más vendidos · operaciones</span>
+          <span class="panel-accent sell"></span>
+        </div>
+        <ul class="rank-list" id="topSell"></ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <strong>⚠ Nota metodológica</strong> · Los rankings de <em>"inversores únicos"</em> y <em>"acciones compradas"</em>
+    solo incluyen operaciones donde se ha especificado explícitamente esa información en el mensaje.
+    Muchos miembros no detallan cantidad de acciones o múltiples activos en un mismo mensaje,
+    por lo que estos datos son <strong>parciales e indicativos</strong>, no exhaustivos.
+    Este dashboard es informativo y no constituye asesoramiento financiero.
+  </div>
+
+  <!-- MÉTRICAS SECUNDARIAS -->
+  <div>
+    <div class="section-header">
+      <span class="section-title">Métricas secundarias</span>
+    </div>
+    <div class="secondary-grid">
+
+      <!-- TOP POR INVERSORES ÚNICOS -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Compradores únicos por activo</span>
+          <span class="panel-accent buy"></span>
+        </div>
+        <ul class="rank-list" id="topInvestors"></ul>
+      </div>
+
+      <!-- VENTAS CON % BENEFICIO MENCIONADO -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Ventas con % beneficio mencionado</span>
+          <span class="panel-accent sell"></span>
+        </div>
+        <ul class="rank-list" id="topProfit"></ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EXPLORADOR HISTÓRICO -->
+  <div>
+    <div class="section-header">
+      <span class="section-title">Explorador de operaciones</span>
+      <span class="section-badge">filtrable</span>
+    </div>
+    <div class="filter-bar" style="margin-bottom: 14px;">
+      <label>Ticker:</label>
+      <input type="text" id="filterTicker" placeholder="Ej: RHI, NVO…" oninput="renderTable()" maxlength="10">
+      <label>Tipo:</label>
+      <select id="filterType" onchange="renderTable()">
+        <option value="">Todos</option>
+        <option value="buy">Compras</option>
+        <option value="sell">Ventas</option>
+      </select>
+    </div>
+    <div class="detail-panel">
+      <div class="table-wrap">
+        <table class="detail-table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Tipo</th>
+              <th>Ticker</th>
+              <th>Empresa</th>
+              <th>Precio</th>
+              <th>Acciones</th>
+              <th>% Profit</th>
+              <th>Inversor</th>
+            </tr>
+          </thead>
+          <tbody id="opsTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Datos extraídos del chat del grupo · Solo operaciones publicadas · Privacidad: IDs anónimos
+</footer>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────────
+// Each key is "YYYY-MM". Add new months here.
+const DATA = {
+  "2026-02": {"month":"2026-02","month_label":"Febrero 2026","total_operations":315,"total_buys":249,"total_sells":66,"operations":[{"date":"2026-02-17","user_id":"UEBF8C4","type":"buy","ticker":"SPGI","company":"S&P Global","shares":null,"price":396.0,"currency":"USD"},{"date":"2026-02-17","user_id":"UEBF8C4","type":"buy","ticker":"SPGI","company":"S&P Global","shares":null,"price":396.0,"currency":"USD"},{"date":"2026-02-17","user_id":"U1B4F22","type":"buy","ticker":"JEQP","company":"JPMorgan Equity Premium Income ETF","shares":60,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U1B4F22","type":"buy","ticker":"JEQP","company":"JPMorgan Equity Premium Income ETF","shares":60,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U5ED84B","type":"sell","ticker":"TEF","company":"Telefonica","shares":null,"price":3.71,"currency":"USD"},{"date":"2026-02-17","user_id":"U3E17B6","type":"buy","ticker":"JEQP","company":"JPMorgan Equity Premium Income ETF","shares":null,"price":21.75,"currency":"USD"},{"date":"2026-02-17","user_id":"U3E17B6","type":"buy","ticker":"JEQP","company":"JPMorgan Equity Premium Income ETF","shares":null,"price":21.75,"currency":"USD"},{"date":"2026-02-17","user_id":"U2FAB55","type":"buy","ticker":"DGE","company":"Diageo","shares":null,"price":18.0,"currency":"GBP"},{"date":"2026-02-17","user_id":"U8CBF88","type":"buy","ticker":"DGE","company":"Diageo","shares":30,"price":18.11,"currency":"GBP"},{"date":"2026-02-17","user_id":"U8CBF88","type":"sell","ticker":"DGE","company":"Diageo","shares":30,"price":18.11,"currency":"GBP"},{"date":"2026-02-17","user_id":"U66E8F7","type":"buy","ticker":"IIPR","company":"Innovative Industrial Properties","shares":null,"price":45.4,"currency":"USD"},{"date":"2026-02-17","user_id":"U66E8F7","type":"buy","ticker":"IIPR","company":"Innovative Industrial Properties","shares":null,"price":45.4,"currency":"USD"},{"date":"2026-02-17","user_id":"U81CB8E","type":"buy","ticker":"VIS","company":"Viscofan","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U81CB8E","type":"sell","ticker":"VIS","company":"Viscofan","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"UA9B0C2","type":"sell","ticker":"IWDA","company":"MSCI World ETF","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"UA9B0C2","type":"buy","ticker":"BLK","company":"BlackRock","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U3F4B62","type":"buy","ticker":"GIS","company":"General Mills","shares":null,"price":44.98,"currency":"USD"},{"date":"2026-02-17","user_id":"U3F4B62","type":"buy","ticker":"GIS","company":"General Mills","shares":null,"price":44.98,"currency":"USD"},{"date":"2026-02-17","user_id":"UFB7C8A","type":"sell","ticker":"JGPI","company":"JPMorgan Global Growth & Income","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"UFB7C8A","type":"buy","ticker":"JEQP","company":"JPMorgan Equity Premium Income ETF","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U0FD64C","type":"buy","ticker":"JEQP","company":"JPMorgan Equity Premium Income ETF","shares":60,"price":21.7,"currency":"USD"},{"date":"2026-02-17","user_id":"U0FD64C","type":"buy","ticker":"JEQP","company":"JPMorgan Equity Premium Income ETF","shares":60,"price":21.7,"currency":"USD"},{"date":"2026-02-17","user_id":"U617CCA","type":"buy","ticker":"IIPR","company":"Innovative Industrial Properties","shares":30,"price":45.63,"currency":"USD"},{"date":"2026-02-17","user_id":"U617CCA","type":"buy","ticker":"IIPR","company":"Innovative Industrial Properties","shares":30,"price":45.63,"currency":"USD"},{"date":"2026-02-17","user_id":"U7D1E3B","type":"buy","ticker":"DGE","company":"Diageo","shares":null,"price":18.1,"currency":"GBP"},{"date":"2026-02-17","user_id":"U7D1E3B","type":"buy","ticker":"RHI","company":"Robert Half International","shares":null,"price":24.5,"currency":"USD"},{"date":"2026-02-17","user_id":"U7D1E3B","type":"buy","ticker":"KHC","company":"Kraft Heinz","shares":null,"price":24.4,"currency":"USD"},{"date":"2026-02-17","user_id":"UA14AB3","type":"buy","ticker":"FDJ","company":"FDJ United","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"UA14AB3","type":"buy","ticker":"MSFT","company":"Microsoft","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U5FD5A0","type":"sell","ticker":"SDR","company":"Schroders","shares":null,"price":6.86,"currency":"EUR"},{"date":"2026-02-17","user_id":"U5FD5A0","type":"buy","ticker":"AMS","company":"Amadeus IT","shares":null,"price":46.5,"currency":"EUR"},{"date":"2026-02-17","user_id":"U617CCA","type":"buy","ticker":"RHI","company":"Robert Half International","shares":50,"price":24.7,"currency":"USD"},{"date":"2026-02-17","user_id":"U617CCA","type":"buy","ticker":"MSFT","company":"Microsoft","shares":2,"price":397.22,"currency":"USD"},{"date":"2026-02-17","user_id":"U617CCA","type":"buy","ticker":"MSFT","company":"Microsoft","shares":2,"price":397.22,"currency":"USD"},{"date":"2026-02-17","user_id":"U8EC1A3","type":"buy","ticker":"GIS","company":"General Mills","shares":null,"price":44.78,"currency":"USD"},{"date":"2026-02-17","user_id":"U8EC1A3","type":"buy","ticker":"GIS","company":"General Mills","shares":null,"price":44.78,"currency":"USD"},{"date":"2026-02-17","user_id":"U8EC29F","type":"sell","ticker":"SDR","company":"Schroders","shares":264,"price":5.87,"currency":"GBP"},{"date":"2026-02-17","user_id":"U8EC29F","type":"sell","ticker":"PPG","company":"PPG Industries","shares":12,"price":129.2,"currency":"USD"},{"date":"2026-02-17","user_id":"U4D76FA","type":"buy","ticker":"RHI","company":"Robert Half International","shares":20,"price":24.66,"currency":"USD"},{"date":"2026-02-17","user_id":"U4D76FA","type":"buy","ticker":"RHI","company":"Robert Half International","shares":20,"price":24.66,"currency":"USD"},{"date":"2026-02-17","user_id":"U5ED84B","type":"buy","ticker":"NFE","company":"New Fortress Energy","shares":null,"price":1.2,"currency":"USD"},{"date":"2026-02-17","user_id":"U5ED84B","type":"buy","ticker":"KSPI","company":"Kaspi.kz","shares":null,"price":72.18,"currency":"USD"},{"date":"2026-02-17","user_id":"U5ED84B","type":"buy","ticker":"FDJ","company":"FDJ United","shares":null,"price":23.03,"currency":"USD"},{"date":"2026-02-17","user_id":"U5ED84B","type":"buy","ticker":"JEPQ","company":"JPMorgan Nasdaq Equity Premium Income ETF","shares":null,"price":21.91,"currency":"USD"},{"date":"2026-02-17","user_id":"U5ED84B","type":"buy","ticker":"NFE","company":"New Fortress Energy","shares":1000,"price":1.2,"currency":"USD"},{"date":"2026-02-17","user_id":"U5ED84B","type":"buy","ticker":"JEPQ","company":"JPMorgan Nasdaq Equity Premium Income ETF","shares":100,"price":21.88,"currency":"USD"},{"date":"2026-02-17","user_id":"UCE4B7F","type":"buy","ticker":"GIS","company":"General Mills","shares":null,"price":44.6,"currency":"USD"},{"date":"2026-02-17","user_id":"UCE4B7F","type":"buy","ticker":"KHC","company":"Kraft Heinz","shares":null,"price":23.72,"currency":"USD"},{"date":"2026-02-17","user_id":"U5FD5A0","type":"buy","ticker":"FDS","company":"FactSet Research","shares":null,"price":161.45,"currency":"EUR"},{"date":"2026-02-17","user_id":"U5FD5A0","type":"buy","ticker":"FDS","company":"FactSet Research","shares":null,"price":161.45,"currency":"EUR"},{"date":"2026-02-17","user_id":"U3BF94E","type":"buy","ticker":"GIS","company":"General Mills","shares":null,"price":44.76,"currency":"USD"},{"date":"2026-02-17","user_id":"U3BF94E","type":"buy","ticker":"GIS","company":"General Mills","shares":null,"price":44.76,"currency":"USD"},{"date":"2026-02-17","user_id":"U52BF7C","type":"buy","ticker":"RHI","company":"Robert Half International","shares":null,"price":24.62,"currency":"USD"},{"date":"2026-02-17","user_id":"U52BF7C","type":"buy","ticker":"RHI","company":"Robert Half International","shares":null,"price":24.62,"currency":"USD"},{"date":"2026-02-17","user_id":"UC8A037","type":"buy","ticker":"GIS","company":"General Mills","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U9AC8F4","type":"buy","ticker":"GIS","company":"General Mills","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U9AC8F4","type":"buy","ticker":"TAP","company":"Molson Coors","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"UA571CB","type":"buy","ticker":"TAP","company":"Molson Coors","shares":null,"price":51.0,"currency":"USD"},{"date":"2026-02-17","user_id":"U3E17B6","type":"buy","ticker":"JEQP","company":"JPMorgan Equity Premium Income ETF","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U3E17B6","type":"buy","ticker":"TROW","company":"T. Rowe Price","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U3E17B6","type":"buy","ticker":"GIS","company":"General Mills","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U3E17B6","type":"buy","ticker":"KHC","company":"Kraft Heinz","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U3E17B6","type":"buy","ticker":"IIPR","company":"Innovative Industrial Properties","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U3E17B6","type":"buy","ticker":"OWL","company":"Blue Owl Capital","shares":null,"price":null,"currency":null},{"date":"2026-02-17","user_id":"U48F32C","type":"buy","ticker":"RHI","company":"Robert Half International","shares":null,"price":24.5,"currency":"USD"},{"date":"2026-02-17","user_id":"U48F32C","type":"buy","ticker":"RHI","company":"Robert Half International","shares":null,"price":24.5,"currency":"USD"},{"date":"2026-02-17","user_id":"U5FD5A0","type":"buy","ticker":"HRB","company":"H&R Block","shares":null,"price":25.6,"currency":"EUR"},{"date":"2026-02-17","user_id":"U5FD5A0","type":"buy","ticker":"HRB","company":"H&R Block","shares":null,"price":25.6,"currency":"EUR"},{"date":"2026-02-17","user_id":"U3A9F1B","type":"sell","ticker":"BTRW","company":"Chesnara","shares":1120,"price":3.29,"currency":"GBP"},{"date":"2026-02-17","user_id":"U3A9F1B","type":"buy","ticker":"RHI","company":"Robert Half International","shares":70,"price":24.52,"currency":"USD"},{"date":"2026-02-17","user_id":"U3A9F1B","type":"buy","ticker":"GPC","company":"Genuine Parts","shares":6,"price":126.33,"currency":"USD"},{"date":"2026-02-17","user_id":"U3A9F1B","type":"buy","ticker":"HPQ","company":"HP Inc.","shares":48,"price":18.53,"currency":"USD"},{"date":"2026-02-17","user_id":"U3A9F1B","type":"buy","ticker":"LW","company":"Lamb Weston","shares":54,"price":47.43,"currency":"USD"},{"date":"2026-02-17","user_id":"U23A7BE","type":"buy","ticker":"JEQP","company":"JPMorgan Equity Premium Income ETF","shares":140,"price":21.75,"currency":"EUR"},{"date":"2026-02-18","user_id":"U4B521C","type":"buy","ticker":"RHI","company":"Robert Half International","shares":50,"price":24.63,"currency":"USD"},{"date":"2026-02-18","user_id":"U5C4B34","type":"buy","ticker":"ADP","company":"Automatic Data Processing","shares":3,"price":212.41,"currency":"USD"},{"date":"2026-02-18","user_id":"U5C4B34","type":"buy","ticker":"ADP","company":"Automatic Data Processing","shares":3,"price":212.41,"currency":"USD"},{"date":"2026-02-18","user_id":"U60FE24","type":"buy","ticker":"NTGY","company":"Naturgy","shares":null,"price":26.07,"currency":"EUR"},{"date":"2026-02-18","user_id":"U60FE24","type":"buy","ticker":"NTGY","company":"Naturgy","shares":null,"price":26.07,"currency":"EUR"},{"date":"2026-02-18","user_id":"UDB7F4C","type":"buy","ticker":"QYLD","company":"Global X NASDAQ Covered Call ETF","shares":40,"price":13.91,"currency":"EUR"},{"date":"2026-02-18","user_id":"UDB7F4C","type":"buy","ticker":"QYLD","company":"Global X NASDAQ Covered Call ETF","shares":40,"price":13.91,"currency":"EUR"},{"date":"2026-02-18","user_id":"U8FF2B4","type":"buy","ticker":"JEQP","company":"JPMorgan Equity Premium Income ETF","shares":null,"price":21.92,"currency":"EUR"},{"date":"2026-02-18","user_id":"U8FF2B4","type":"buy","ticker":"JEQP","company":"JPMorgan Equity Premium Income ETF","shares":null,"price":21.92,"currency":"EUR"},{"date":"2026-02-18","user_id":"U7D295A","type":"buy","ticker":"NTGY","company":"Naturgy","shares":null,"price":25.5,"currency":"USD"},{"date":"2026-02-18","user_id":"U7D295A","type":"buy","ticker":"NTGY","company":"Naturgy","shares":null,"price":25.5,"currency":"USD"},{"date":"2026-02-18","user_id":"U3BF94E","type":"buy","ticker":"NTGY","company":"Naturgy","shares":null,"price":25.7,"currency":"EUR"},{"date":"2026-02-18","user_id":"U3BF94E","type":"buy","ticker":"NTGY","company":"Naturgy","shares":null,"price":25.7,"currency":"EUR"},{"date":"2026-02-18","user_id":"UCF1B85","type":"buy","ticker":"RHI","company":"Robert Half International","shares":220,"price":24.85,"currency":"USD"},{"date":"2026-02-18","user_id":"UCF1B85","type":"buy","ticker":"RHI","company":"Robert Half International","shares":220,"price":24.85,"currency":"USD"},{"date":"2026-02-18","user_id":"U15F473","type":"buy","ticker":"JEQP","company":"JPMorgan Equity Premium Income ETF","shares":51,"price":null,"currency":null},{"date":"2026-02-18","user_id":"U15F473","type":"buy","ticker":"JEQP","company":"JPMorgan Equity Premium Income ETF","shares":51,"price":null,"currency":null},{"date":"2026-02-18","user_id":"U81CB8E","type":"buy","ticker":"PYPL","company":"PayPal","shares":18,"price":41.25,"currency":"USD"},{"date":"2026-02-18","user_id":"U81CB8E","type":"buy","ticker":"PYPL","company":"PayPal","shares":18,"price":41.25,"currency":"USD"},{"date":"2026-02-18","user_id":"U3A9F1B","type":"buy","ticker":"CHCT","company":"Community Healthcare Trust","shares":88,"price":17.69,"currency":"USD"},{"date":"2026-02-18","user_id":"U3A9F1B","type":"buy","ticker":"CHCT","company":"Community Healthcare Trust","shares":88,"price":17.69,"currency":"USD"},{"date":"2026-02-18","user_id":"U10C3E4","type":"buy","ticker":"VRLA","company":"Verallia","shares":null,"price":21.18,"currency":"EUR"},{"date":"2026-02-18","user_id":"U10C3E4","type":"buy","ticker":"VRLA","company":"Verallia","shares":null,"price":21.18,"currency":"EUR"},{"date":"2026-02-18","user_id":"U7CA8D4","type":"buy","ticker":"HRB","company":"H&R Block","shares":14,"price":null,"currency":null},{"date":"2026-02-18","user_id":"U7CA8D4","type":"buy","ticker":"HRB","company":"H&R Block","shares":14,"price":null,"currency":null},{"date":"2026-02-18","user_id":"U98AC04","type":"buy","ticker":"HRB","company":"H&R Block","shares":20,"price":31.52,"currency":"USD"},{"date":"2026-02-18","user_id":"U98AC04","type":"buy","ticker":"HRB","company":"H&R Block","shares":20,"price":31.52,"currency":"USD"},{"date":"2026-02-18","user_id":"U5ED84B","type":"buy","ticker":"RHI","company":"Robert Half International","shares":300,"price":25.7,"currency":"USD"},{"date":"2026-02-18","user_id":"U5ED84B","type":"buy","ticker":"RHI","company":"Robert Half International","shares":300,"price":25.7,"currency":"USD"},{"date":"2026-02-18","user_id":"U703C0F","type":"buy","ticker":"RHI","company":"Robert Half International","shares":15,"price":25.8,"currency":"USD"},{"date":"2026-02-18","user_id":"U703C0F","type":"buy","ticker":"RHI","company":"Robert Half International","shares":15,"price":25.8,"currency":"USD"},{"date":"2026-02-18","user_id":"UE3C7F4","type":"buy","ticker":"COLD","company":"Americold Realty Trust","shares":null,"price":null,"currency":null},{"date":"2026-02-18","user_id":"UE3C7F4","type":"buy","ticker":"COLD","company":"Americold Realty Trust","shares":null,"price":null,"currency":null},{"date":"2026-02-19","user_id":"U617CCA","type":"buy","ticker":"ENOG","company":"Energean","shares":150,"price":8.75,"currency":"USD"},{"date":"2026-02-19","user_id":"U617CCA","type":"buy","ticker":"ENOG","company":"Energean","shares":150,"price":8.75,"currency":"USD"},{"date":"2026-02-19","user_id":"U4B521C","type":"buy","ticker":"ENOG","company":"Energean","shares":100,"price":8.68,"currency":"USD"},{"date":"2026-02-19","user_id":"U4B521C","type":"buy","ticker":"ENOG","company":"Energean","shares":100,"price":8.68,"currency":"USD"},{"date":"2026-02-19","user_id":"UCCC501","type":"buy","ticker":"AMS","company":"Amadeus IT","shares":null,"price":46.5,"currency":"EUR"},{"date":"2026-02-19","user_id":"UCCC501","type":"buy","ticker":"AMS","company":"Amadeus IT","shares":null,"price":46.5,"currency":"EUR"},{"date":"2026-02-19","user_id":"U3A9F1B","type":"buy","ticker":"BTRW","company":"Barratt Developments","shares":450,"price":3.82,"currency":"GBP"},{"date":"2026-02-19","user_id":"U3A9F1B","type":"buy","ticker":"BTRW","company":"Barratt Developments","shares":450,"price":3.82,"currency":"GBP"},{"date":"2026-02-19","user_id":"U4B521C","type":"buy","ticker":"ENOG","company":"Energean","shares":200,"price":8.68,"currency":"USD"},{"date":"2026-02-19","user_id":"U4B521C","type":"buy","ticker":"ENOG","company":"Energean","shares":200,"price":8.68,"currency":"USD"},{"date":"2026-02-19","user_id":"U9C17F3","type":"buy","ticker":"VRLA","company":"Verallia","shares":null,"price":20.74,"currency":"USD"},{"date":"2026-02-19","user_id":"U9C17F3","type":"buy","ticker":"VRLA","company":"Verallia","shares":null,"price":20.74,"currency":"USD"},{"date":"2026-02-19","user_id":"U45BCC3","type":"buy","ticker":"AMS","company":"Amadeus IT","shares":null,"price":48.0,"currency":"EUR"},{"date":"2026-02-19","user_id":"U45BCC3","type":"buy","ticker":"AMS","company":"Amadeus IT","shares":null,"price":48.0,"currency":"EUR"},{"date":"2026-02-19","user_id":"U3E17B6","type":"buy","ticker":"OWL","company":"Blue Owl Capital","shares":100,"price":11.3,"currency":"USD"},{"date":"2026-02-19","user_id":"U3E17B6","type":"buy","ticker":"OWL","company":"Blue Owl Capital","shares":100,"price":11.3,"currency":"USD"},{"date":"2026-02-19","user_id":"UA571CB","type":"buy","ticker":"OWL","company":"Blue Owl Capital","shares":50,"price":11.38,"currency":"USD"},{"date":"2026-02-19","user_id":"UA571CB","type":"buy","ticker":"TAP","company":"Molson Coors","shares":15,"price":48.29,"currency":"USD"},{"date":"2026-02-19","user_id":"U0FD64C","type":"buy","ticker":"HPQ","company":"HP Inc.","shares":80,"price":18.35,"currency":"USD"},{"date":"2026-02-19","user_id":"U0FD64C","type":"buy","ticker":"HPQ","company":"HP Inc.","shares":80,"price":18.35,"currency":"USD"},{"date":"2026-02-19","user_id":"U4FE29A","type":"buy","ticker":"TAP","company":"Molson Coors","shares":null,"price":47.95,"currency":"USD"},{"date":"2026-02-19","user_id":"U4FE29A","type":"buy","ticker":"TAP","company":"Molson Coors","shares":null,"price":47.95,"currency":"USD"},{"date":"2026-02-19","user_id":"U8EC29F","type":"sell","ticker":"DE","company":"Deere & Company","shares":1,"price":655.0,"currency":"USD","profit_pct":80.0},{"date":"2026-02-19","user_id":"UCCC501","type":"buy","ticker":"VRLA","company":"Verallia","shares":null,"price":22.5,"currency":"EUR"},{"date":"2026-02-19","user_id":"UCCC501","type":"buy","ticker":"VRLA","company":"Verallia","shares":null,"price":22.5,"currency":"EUR"},{"date":"2026-02-19","user_id":"U3A9F1B","type":"buy","ticker":"GRG","company":"Greggs","shares":96,"price":15.67,"currency":"GBP"},{"date":"2026-02-19","user_id":"U3A9F1B","type":"buy","ticker":"GRG","company":"Greggs","shares":96,"price":15.67,"currency":"GBP"},{"date":"2026-02-19","user_id":"UCCC501","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":92.2,"currency":"USD"},{"date":"2026-02-19","user_id":"UCCC501","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":92.2,"currency":"USD"},{"date":"2026-02-19","user_id":"U3A9F1B","type":"buy","ticker":"AFCG","company":"AFC Gamma","shares":225,"price":2.2,"currency":"USD"},{"date":"2026-02-19","user_id":"U3A9F1B","type":"buy","ticker":"AFCG","company":"AFC Gamma","shares":225,"price":2.2,"currency":"USD"},{"date":"2026-02-19","user_id":"U5ED84B","type":"buy","ticker":"DNN","company":"Denison Mines","shares":2000,"price":3.9,"currency":"USD"},{"date":"2026-02-19","user_id":"U5ED84B","type":"buy","ticker":"DNN","company":"Denison Mines","shares":2000,"price":3.9,"currency":"USD"},{"date":"2026-02-19","user_id":"U3A9F1B","type":"sell","ticker":"GPC","company":"Genuine Parts","shares":20,"price":121.93,"currency":"USD"},{"date":"2026-02-19","user_id":"U3A9F1B","type":"buy","ticker":"GPC","company":"Genuine Parts","shares":10,"price":118.67,"currency":"USD"},{"date":"2026-02-19","user_id":"U4B521C","type":"sell","ticker":"OHI","company":"Omega Healthcare","shares":null,"price":null,"currency":null},{"date":"2026-02-19","user_id":"U4B521C","type":"buy","ticker":"VICI","company":"VICI Properties","shares":null,"price":null,"currency":null},{"date":"2026-02-19","user_id":"U5ED84B","type":"buy","ticker":"KSPI","company":"Kaspi.kz","shares":50,"price":null,"currency":null},{"date":"2026-02-19","user_id":"U3A9F1B","type":"buy","ticker":"PAYX","company":"Paychex","shares":9,"price":91.9,"currency":"USD"},{"date":"2026-02-19","user_id":"U3A9F1B","type":"buy","ticker":"PAYX","company":"Paychex","shares":9,"price":91.9,"currency":"USD"},{"date":"2026-02-19","user_id":"U485BFE","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":78.39,"currency":"EUR"},{"date":"2026-02-19","user_id":"U485BFE","type":"buy","ticker":"GIS","company":"General Mills","shares":null,"price":37.84,"currency":"EUR"},{"date":"2026-02-19","user_id":"U485BFE","type":"buy","ticker":"NTGY","company":"Naturgy","shares":null,"price":25.58,"currency":"EUR"},{"date":"2026-02-19","user_id":"U485BFE","type":"buy","ticker":"TROW","company":"T. Rowe Price","shares":null,"price":79.24,"currency":"EUR"},{"date":"2026-02-19","user_id":"U485BFE","type":"buy","ticker":"VICI","company":"VICI Properties","shares":null,"price":25.23,"currency":"EUR"},{"date":"2026-02-19","user_id":"U485BFE","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":78.77,"currency":"EUR"},{"date":"2026-02-20","user_id":"U5FD5A0","type":"buy","ticker":"BKNG","company":"Booking Holdings","shares":null,"price":3460.0,"currency":"EUR"},{"date":"2026-02-20","user_id":"U5FD5A0","type":"buy","ticker":"BKNG","company":"Booking Holdings","shares":null,"price":3460.0,"currency":"EUR"},{"date":"2026-02-20","user_id":"UCCC501","type":"sell","ticker":"ACS","company":"ACS Actividades","shares":null,"price":106.5,"currency":"EUR"},{"date":"2026-02-20","user_id":"UCCC501","type":"sell","ticker":"ACS","company":"ACS Actividades","shares":null,"price":106.5,"currency":"EUR"},{"date":"2026-02-20","user_id":"UE3C7F4","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":null,"price":null,"currency":null},{"date":"2026-02-20","user_id":"UE3C7F4","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":null,"price":null,"currency":null},{"date":"2026-02-20","user_id":"U8EC29F","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":8,"price":61.66,"currency":"EUR"},{"date":"2026-02-20","user_id":"U8EC29F","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":8,"price":61.66,"currency":"EUR"},{"date":"2026-02-20","user_id":"UCCC501","type":"buy","ticker":"RAND","company":"Randstad","shares":null,"price":27.9,"currency":"EUR"},{"date":"2026-02-20","user_id":"UCCC501","type":"buy","ticker":"RAND","company":"Randstad","shares":null,"price":27.9,"currency":"EUR"},{"date":"2026-02-20","user_id":"U5FD5A0","type":"buy","ticker":"OWL","company":"Blue Owl Capital","shares":null,"price":10.52,"currency":"USD"},{"date":"2026-02-20","user_id":"U5FD5A0","type":"buy","ticker":"BX","company":"Blackstone","shares":null,"price":105.5,"currency":"EUR"},{"date":"2026-02-20","user_id":"U3E17B6","type":"buy","ticker":"OWL","company":"Blue Owl Capital","shares":100,"price":10.51,"currency":"USD"},{"date":"2026-02-20","user_id":"U3E17B6","type":"buy","ticker":"OWL","company":"Blue Owl Capital","shares":100,"price":10.51,"currency":"USD"},{"date":"2026-02-20","user_id":"UA9B0C2","type":"buy","ticker":"BX","company":"Blackstone","shares":20,"price":null,"currency":null},{"date":"2026-02-20","user_id":"UA9B0C2","type":"buy","ticker":"BX","company":"Blackstone","shares":20,"price":null,"currency":null},{"date":"2026-02-20","user_id":"U39CE43","type":"buy","ticker":"IIPR","company":"Innovative Industrial Properties","shares":null,"price":45.85,"currency":"USD"},{"date":"2026-02-20","user_id":"U39CE43","type":"buy","ticker":"IIPR","company":"Innovative Industrial Properties","shares":null,"price":45.85,"currency":"USD"},{"date":"2026-02-20","user_id":"U3A9F1B","type":"buy","ticker":"SLG","company":"SL Green Realty","shares":14,"price":38.6,"currency":"USD"},{"date":"2026-02-20","user_id":"U3A9F1B","type":"buy","ticker":"SLG","company":"SL Green Realty","shares":14,"price":38.6,"currency":"USD"},{"date":"2026-02-20","user_id":"U39B93E","type":"buy","ticker":"PAYX","company":"Paychex","shares":12,"price":91.0,"currency":"EUR"},{"date":"2026-02-20","user_id":"U39B93E","type":"buy","ticker":"PAYX","company":"Paychex","shares":12,"price":91.0,"currency":"EUR"},{"date":"2026-02-20","user_id":"U4FE29A","type":"buy","ticker":"RHI","company":"Robert Half International","shares":null,"price":26.91,"currency":"USD"},{"date":"2026-02-20","user_id":"U4FE29A","type":"buy","ticker":"RHI","company":"Robert Half International","shares":null,"price":26.91,"currency":"USD"},{"date":"2026-02-20","user_id":"U4C64D8","type":"buy","ticker":"OWL","company":"Blue Owl Capital","shares":100,"price":10.93,"currency":"USD"},{"date":"2026-02-20","user_id":"U4C64D8","type":"buy","ticker":"OWL","company":"Blue Owl Capital","shares":100,"price":10.93,"currency":"USD"},{"date":"2026-02-20","user_id":"U3E17B6","type":"buy","ticker":"PAYX","company":"Paychex","shares":12,"price":90.92,"currency":"USD"},{"date":"2026-02-20","user_id":"U3E17B6","type":"buy","ticker":"PAYX","company":"Paychex","shares":12,"price":90.92,"currency":"USD"},{"date":"2026-02-20","user_id":"UA571CB","type":"buy","ticker":"PAYX","company":"Paychex","shares":10,"price":90.9,"currency":"USD"},{"date":"2026-02-20","user_id":"UA571CB","type":"buy","ticker":"PAYX","company":"Paychex","shares":10,"price":90.9,"currency":"USD"},{"date":"2026-02-20","user_id":"UA35618","type":"buy","ticker":"RHI","company":"Robert Half International","shares":40,"price":26.3,"currency":"USD"},{"date":"2026-02-20","user_id":"UA35618","type":"buy","ticker":"RHI","company":"Robert Half International","shares":40,"price":26.3,"currency":"USD"},{"date":"2026-02-20","user_id":"U3BF94E","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":90.99,"currency":"USD"},{"date":"2026-02-20","user_id":"U3BF94E","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":90.99,"currency":"USD"},{"date":"2026-02-20","user_id":"U3E17B6","type":"buy","ticker":"PAYX","company":"Paychex","shares":13,"price":90.4,"currency":"USD"},{"date":"2026-02-20","user_id":"U3E17B6","type":"buy","ticker":"PAYX","company":"Paychex","shares":13,"price":90.4,"currency":"USD"},{"date":"2026-02-20","user_id":"U485BFE","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":76.98,"currency":"EUR"},{"date":"2026-02-20","user_id":"U485BFE","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":76.98,"currency":"EUR"},{"date":"2026-02-20","user_id":"U5FD5A0","type":"buy","ticker":"HRB","company":"H&R Block","shares":null,"price":25.8,"currency":"EUR"},{"date":"2026-02-20","user_id":"U5FD5A0","type":"buy","ticker":"HRB","company":"H&R Block","shares":null,"price":25.8,"currency":"EUR"},{"date":"2026-02-20","user_id":"U9E12C6","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":90.5,"currency":"USD"},{"date":"2026-02-20","user_id":"U9E12C6","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":90.5,"currency":"USD"},{"date":"2026-02-20","user_id":"U5C8A0E","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":90.48,"currency":"USD"},{"date":"2026-02-20","user_id":"U5C8A0E","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":90.48,"currency":"USD"},{"date":"2026-02-23","user_id":"U7E6D3B","type":"buy","ticker":"DFNS","company":"VanEck Defense ETF","shares":8,"price":60.4,"currency":"EUR"},{"date":"2026-02-23","user_id":"U7E6D3B","type":"buy","ticker":"DFNS","company":"VanEck Defense ETF","shares":8,"price":60.4,"currency":"EUR"},{"date":"2026-02-23","user_id":"UA571CB","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":25,"price":61.4,"currency":"EUR"},{"date":"2026-02-23","user_id":"UA571CB","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":25,"price":61.4,"currency":"EUR"},{"date":"2026-02-23","user_id":"U5C4B34","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":8,"price":null,"currency":null},{"date":"2026-02-23","user_id":"U5C4B34","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":8,"price":null,"currency":null},{"date":"2026-02-23","user_id":"UCCC501","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":null,"price":61.26,"currency":"EUR"},{"date":"2026-02-23","user_id":"UCCC501","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":null,"price":61.26,"currency":"EUR"},{"date":"2026-02-23","user_id":"UCCC501","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":34.735,"currency":"EUR"},{"date":"2026-02-23","user_id":"UCCC501","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":34.735,"currency":"EUR"},{"date":"2026-02-23","user_id":"U8FF2B4","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":34.75,"currency":"EUR"},{"date":"2026-02-23","user_id":"U8FF2B4","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":34.75,"currency":"EUR"},{"date":"2026-02-23","user_id":"U3A9F1B","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":7,"price":34.2,"currency":"EUR"},{"date":"2026-02-23","user_id":"U3A9F1B","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":7,"price":34.2,"currency":"EUR"},{"date":"2026-02-23","user_id":"UAEC2C6","type":"sell","ticker":"LYB","company":"LyondellBasell","shares":null,"price":null,"currency":null,"profit_pct":12.0},{"date":"2026-02-23","user_id":"UAEC2C6","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":38.6,"currency":"USD"},{"date":"2026-02-23","user_id":"UE3C7F4","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":39.9,"currency":"USD"},{"date":"2026-02-23","user_id":"UE3C7F4","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":39.9,"currency":"USD"},{"date":"2026-02-23","user_id":"UCE4B7F","type":"buy","ticker":"AMS","company":"Amadeus IT","shares":null,"price":48.31,"currency":"USD"},{"date":"2026-02-23","user_id":"UCE4B7F","type":"buy","ticker":"AMS","company":"Amadeus IT","shares":null,"price":48.31,"currency":"USD"},{"date":"2026-02-23","user_id":"U1CBC5D","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":100,"price":34.1,"currency":"USD"},{"date":"2026-02-23","user_id":"U1CBC5D","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":100,"price":34.1,"currency":"USD"},{"date":"2026-02-23","user_id":"U6FB4CE","type":"buy","ticker":"GIS","company":"General Mills","shares":null,"price":44.35,"currency":"USD"},{"date":"2026-02-23","user_id":"U6FB4CE","type":"buy","ticker":"GIS","company":"General Mills","shares":null,"price":44.35,"currency":"USD"},{"date":"2026-02-23","user_id":"U5C8A0E","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":null,"price":null,"currency":null},{"date":"2026-02-23","user_id":"U5C8A0E","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":null,"price":null,"currency":null},{"date":"2026-02-23","user_id":"UA571CB","type":"buy","ticker":"FDS","company":"FactSet Research","shares":10,"price":192.0,"currency":"USD"},{"date":"2026-02-23","user_id":"UA571CB","type":"buy","ticker":"FDS","company":"FactSet Research","shares":10,"price":192.0,"currency":"USD"},{"date":"2026-02-23","user_id":"U5C4B34","type":"buy","ticker":"RHI","company":"Robert Half International","shares":23,"price":24.85,"currency":"USD"},{"date":"2026-02-23","user_id":"U5C4B34","type":"buy","ticker":"RHI","company":"Robert Half International","shares":23,"price":24.85,"currency":"USD"},{"date":"2026-02-23","user_id":"U39B93E","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":90,"price":34.2,"currency":"EUR"},{"date":"2026-02-23","user_id":"U39B93E","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":90,"price":34.2,"currency":"EUR"},{"date":"2026-02-23","user_id":"U39B93E","type":"buy","ticker":"PAYX","company":"Paychex","shares":15,"price":88.15,"currency":"USD"},{"date":"2026-02-23","user_id":"U39B93E","type":"buy","ticker":"PAYX","company":"Paychex","shares":15,"price":88.15,"currency":"USD"},{"date":"2026-02-23","user_id":"U0FD64C","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":25,"price":40.28,"currency":"USD"},{"date":"2026-02-23","user_id":"U0FD64C","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":25,"price":40.28,"currency":"USD"},{"date":"2026-02-23","user_id":"UDB7F4C","type":"buy","ticker":"SDIV","company":"Global X SuperDividend ETF","shares":20,"price":10.63,"currency":"USD"},{"date":"2026-02-23","user_id":"UDB7F4C","type":"buy","ticker":"SDIV","company":"Global X SuperDividend ETF","shares":20,"price":10.63,"currency":"USD"},{"date":"2026-02-23","user_id":"UCCC501","type":"buy","ticker":"RHI","company":"Robert Half International","shares":null,"price":24.7,"currency":"USD"},{"date":"2026-02-23","user_id":"UCCC501","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":87.88,"currency":"USD"},{"date":"2026-02-23","user_id":"UCCC501","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":null,"price":60.2,"currency":"EUR"},{"date":"2026-02-23","user_id":"U4C26A5","type":"buy","ticker":"HRB","company":"H&R Block","shares":20,"price":29.0,"currency":"USD"},{"date":"2026-02-23","user_id":"U4C26A5","type":"buy","ticker":"HRB","company":"H&R Block","shares":20,"price":29.0,"currency":"USD"},{"date":"2026-02-23","user_id":"U1FB47A","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":40.37,"currency":"USD"},{"date":"2026-02-23","user_id":"U1FB47A","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":40.37,"currency":"USD"},{"date":"2026-02-23","user_id":"U98AC04","type":"buy","ticker":"HRB","company":"H&R Block","shares":20,"price":28.89,"currency":"USD"},{"date":"2026-02-23","user_id":"U98AC04","type":"buy","ticker":"HRB","company":"H&R Block","shares":20,"price":28.89,"currency":"USD"},{"date":"2026-02-23","user_id":"U7B2DC3","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":33.94,"currency":"EUR"},{"date":"2026-02-23","user_id":"U7B2DC3","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":33.94,"currency":"EUR"},{"date":"2026-02-23","user_id":"U485BFE","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":34.12,"currency":"EUR"},{"date":"2026-02-23","user_id":"U485BFE","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":34.12,"currency":"EUR"},{"date":"2026-02-23","user_id":"U8A24B3","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":100,"price":40.3,"currency":"USD"},{"date":"2026-02-23","user_id":"U8A24B3","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":100,"price":40.3,"currency":"USD"},{"date":"2026-02-23","user_id":"U4D76FA","type":"buy","ticker":"RHI","company":"Robert Half International","shares":100,"price":24.73,"currency":"USD"},{"date":"2026-02-23","user_id":"U4D76FA","type":"buy","ticker":"PAYX","company":"Paychex","shares":6,"price":87.71,"currency":"USD"},{"date":"2026-02-23","user_id":"U4D76FA","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":8,"price":61.34,"currency":"USD"},{"date":"2026-02-23","user_id":"UCCC501","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":33.85,"currency":"EUR"},{"date":"2026-02-23","user_id":"UA14AB3","type":"sell","ticker":"RED","company":"Redeia","shares":null,"price":16.1,"currency":"EUR"},{"date":"2026-02-23","user_id":"UA14AB3","type":"buy","ticker":"RED","company":"Redeia","shares":null,"price":16.1,"currency":"EUR"},{"date":"2026-02-23","user_id":"UA14AB3","type":"sell","ticker":"RHM","company":"Rheinmetall","shares":null,"price":1712.0,"currency":"EUR"},{"date":"2026-02-23","user_id":"U485BFE","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":74.73,"currency":"EUR"},{"date":"2026-02-23","user_id":"U485BFE","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":74.73,"currency":"EUR"},{"date":"2026-02-23","user_id":"UCCC501","type":"buy","ticker":"RICK","company":"RCI Hospitality Holdings","shares":null,"price":22.1,"currency":"USD"},{"date":"2026-02-23","user_id":"UCCC501","type":"buy","ticker":"RICK","company":"RCI Hospitality Holdings","shares":null,"price":22.1,"currency":"USD"},{"date":"2026-02-23","user_id":"U485BFE","type":"buy","ticker":"RHI","company":"Robert Half International","shares":null,"price":21.2,"currency":"EUR"},{"date":"2026-02-23","user_id":"U485BFE","type":"buy","ticker":"AMS","company":"Amadeus IT","shares":null,"price":47.79,"currency":"EUR"},{"date":"2026-02-23","user_id":"U7BF4CA","type":"buy","ticker":"MSFT","company":"Microsoft","shares":3,"price":387.0,"currency":"USD"},{"date":"2026-02-23","user_id":"U7BF4CA","type":"buy","ticker":"MSFT","company":"Microsoft","shares":3,"price":387.0,"currency":"USD"},{"date":"2026-02-23","user_id":"U7BF45A","type":"buy","ticker":"MSFT","company":"Microsoft","shares":10,"price":387.0,"currency":"USD"},{"date":"2026-02-23","user_id":"U7BF45A","type":"buy","ticker":"MSFT","company":"Microsoft","shares":10,"price":387.0,"currency":"USD"},{"date":"2026-02-23","user_id":"U39B93E","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":null,"price":60.0,"currency":"EUR"},{"date":"2026-02-23","user_id":"U39B93E","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":null,"price":60.0,"currency":"EUR"},{"date":"2026-02-23","user_id":"UCB8B94","type":"buy","ticker":"LOG","company":"Logista","shares":50,"price":33.58,"currency":"EUR"},{"date":"2026-02-23","user_id":"UB41A29","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":null,"currency":null},{"date":"2026-02-23","user_id":"UCB8B94","type":"buy","ticker":"CIE","company":"CIE Automotive","shares":100,"price":33.6,"currency":"EUR"},{"date":"2026-02-23","user_id":"UCCC501","type":"buy","ticker":"HRB","company":"H&R Block","shares":null,"price":28.8,"currency":"USD"},{"date":"2026-02-23","user_id":"U39B93E","type":"buy","ticker":"HRB","company":"H&R Block","shares":null,"price":28.8,"currency":"EUR"},{"date":"2026-02-23","user_id":"U39B93E","type":"buy","ticker":"HRB","company":"H&R Block","shares":null,"price":28.8,"currency":"EUR"},{"date":"2026-02-23","user_id":"U8A7F21","type":"buy","ticker":"JPM","company":"JPMorgan Chase","shares":5,"price":297.58,"currency":"USD"},{"date":"2026-02-23","user_id":"U8A7F21","type":"buy","ticker":"JPM","company":"JPMorgan Chase","shares":5,"price":297.58,"currency":"USD"},{"date":"2026-02-23","user_id":"U3E17B6","type":"buy","ticker":"TROW","company":"T. Rowe Price","shares":null,"price":null,"currency":null},{"date":"2026-02-23","user_id":"U3E17B6","type":"buy","ticker":"OWL","company":"Blue Owl Capital","shares":null,"price":null,"currency":null},{"date":"2026-02-23","user_id":"U3E17B6","type":"buy","ticker":"HRB","company":"H&R Block","shares":null,"price":null,"currency":null},{"date":"2026-02-23","user_id":"U3E17B6","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":null,"currency":null},{"date":"2026-02-23","user_id":"UEBF8C4","type":"buy","ticker":"SPGI","company":"S&P Global","shares":null,"price":411.0,"currency":"USD"},{"date":"2026-02-23","user_id":"UEBF8C4","type":"buy","ticker":"SPGI","company":"S&P Global","shares":null,"price":411.0,"currency":"USD"},{"date":"2026-02-23","user_id":"UC891D7","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":150,"price":40.77,"currency":"USD"},{"date":"2026-02-23","user_id":"UC891D7","type":"buy","ticker":"GRG","company":"Greggs","shares":163,"price":15.9,"currency":"GBP"},{"date":"2026-02-23","user_id":"UC891D7","type":"buy","ticker":"BNZL","company":"Bunzl","shares":122,"price":21.18,"currency":"GBP"},{"date":"2026-02-23","user_id":"U9AC3B5","type":"sell","ticker":"BLK","company":"BlackRock","shares":null,"price":119.0,"currency":"EUR"},{"date":"2026-02-23","user_id":"U9AC3B5","type":"buy","ticker":"MSFT","company":"Microsoft","shares":null,"price":327.0,"currency":"EUR"},{"date":"2026-02-23","user_id":"U9AC3B5","type":"buy","ticker":"BX","company":"Blackstone","shares":null,"price":95.39,"currency":"EUR"},{"date":"2026-02-23","user_id":"U9AC3B5","type":"buy","ticker":"HRB","company":"H&R Block","shares":null,"price":24.8,"currency":"EUR"},{"date":"2026-02-23","user_id":"U9AC3B5","type":"buy","ticker":"BKNG","company":"Booking Holdings","shares":null,"price":3246.0,"currency":"EUR"},{"date":"2026-02-23","user_id":"U9AC3B5","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":75.05,"currency":"EUR"},{"date":"2026-02-23","user_id":"U9AC3B5","type":"buy","ticker":"ADBE","company":"Adobe","shares":null,"price":211.15,"currency":"EUR"},{"date":"2026-02-23","user_id":"U9AC3B5","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":35.5,"currency":"EUR"},{"date":"2026-02-23","user_id":"U0C7B2F","type":"buy","ticker":"RHI","company":"Robert Half International","shares":40,"price":24.35,"currency":"USD"},{"date":"2026-02-23","user_id":"U0C7B2F","type":"buy","ticker":"RHI","company":"Robert Half International","shares":40,"price":24.35,"currency":"USD"},{"date":"2026-02-23","user_id":"U4C26A5","type":"buy","ticker":"RHI","company":"Robert Half International","shares":20,"price":24.21,"currency":"USD"},{"date":"2026-02-23","user_id":"U4C26A5","type":"buy","ticker":"RHI","company":"Robert Half International","shares":20,"price":24.21,"currency":"USD"},{"date":"2026-02-23","user_id":"U9EF8C0","type":"buy","ticker":"MSFT","company":"Microsoft","shares":11,"price":383.6,"currency":"USD"},{"date":"2026-02-23","user_id":"U9EF8C0","type":"buy","ticker":"MSFT","company":"Microsoft","shares":11,"price":383.6,"currency":"USD"},{"date":"2026-02-23","user_id":"U703C0F","type":"buy","ticker":"RHI","company":"Robert Half International","shares":25,"price":24.08,"currency":"USD"},{"date":"2026-02-23","user_id":"U703C0F","type":"buy","ticker":"RHI","company":"Robert Half International","shares":25,"price":24.08,"currency":"USD"},{"date":"2026-02-24","user_id":"U39B93E","type":"sell","ticker":"RED","company":"Redeia","shares":null,"price":16.35,"currency":"EUR"},{"date":"2026-02-24","user_id":"U39B93E","type":"sell","ticker":"RED","company":"Redeia","shares":null,"price":16.35,"currency":"EUR"},{"date":"2026-02-24","user_id":"U1CBC5D","type":"buy","ticker":"MVC","company":"Metrovacesa","shares":100,"price":11.0,"currency":"EUR"},{"date":"2026-02-24","user_id":"U1CBC5D","type":"buy","ticker":"MVC","company":"Metrovacesa","shares":100,"price":11.0,"currency":"EUR"},{"date":"2026-02-24","user_id":"U485BFE","type":"sell","ticker":"SIE","company":"Siemens","shares":null,"price":null,"currency":null,"profit_pct":16.0},{"date":"2026-02-24","user_id":"U3A9F1B","type":"sell","ticker":"APAM","company":"Aperam","shares":145,"price":43.3,"currency":"EUR"},{"date":"2026-02-24","user_id":"U3A9F1B","type":"sell","ticker":"APAM","company":"Aperam","shares":145,"price":43.3,"currency":"EUR"},{"date":"2026-02-24","user_id":"UB41E29","type":"sell","ticker":"BY6","company":"BYD Electronic","shares":307,"price":10.75,"currency":"EUR"},{"date":"2026-02-24","user_id":"UB41E29","type":"sell","ticker":"BY6","company":"BYD Electronic","shares":307,"price":10.75,"currency":"EUR"},{"date":"2026-02-24","user_id":"U3B9F4A","type":"sell","ticker":"REP","company":"Repsol","shares":null,"price":18.67,"currency":"EUR","profit_pct":15.0},{"date":"2026-02-24","user_id":"U3B9F4A","type":"sell","ticker":"REP","company":"Repsol","shares":null,"price":18.67,"currency":"EUR","profit_pct":15.0},{"date":"2026-02-24","user_id":"U3A9F1B","type":"buy","ticker":"RYN","company":"Rayonier","shares":39,"price":41.49,"currency":"USD"},{"date":"2026-02-24","user_id":"U3A9F1B","type":"buy","ticker":"RYN","company":"Rayonier","shares":39,"price":41.49,"currency":"USD"},{"date":"2026-02-24","user_id":"U9C17F3","type":"buy","ticker":"FDJU","company":"FDJ United ETF","shares":null,"price":25.06,"currency":"USD"},{"date":"2026-02-24","user_id":"U9C17F3","type":"buy","ticker":"FDJU","company":"FDJ United ETF","shares":null,"price":25.06,"currency":"USD"},{"date":"2026-02-24","user_id":"U3E17B6","type":"buy","ticker":"RHI","company":"Robert Half International","shares":null,"price":null,"currency":null},{"date":"2026-02-24","user_id":"U3E17B6","type":"buy","ticker":"IB1T","company":"iShares Treasury Bond 1-3yr","shares":null,"price":null,"currency":null},{"date":"2026-02-24","user_id":"U3B4523","type":"sell","ticker":"IBRX","company":"ImmunityBio","shares":null,"price":null,"currency":null,"profit_pct":64.5},{"date":"2026-02-24","user_id":"UCB8B94","type":"buy","ticker":"HRMY","company":"Harmony Biosciences","shares":100,"price":28.87,"currency":"USD"},{"date":"2026-02-24","user_id":"UCB8B94","type":"buy","ticker":"HRMY","company":"Harmony Biosciences","shares":100,"price":28.87,"currency":"USD"},{"date":"2026-02-24","user_id":"U5FD5A0","type":"buy","ticker":"EDEN","company":"Edenred","shares":null,"price":19.0,"currency":"EUR"},{"date":"2026-02-24","user_id":"U5FD5A0","type":"buy","ticker":"PLX","company":"Pluxee","shares":null,"price":11.57,"currency":"EUR"},{"date":"2026-02-24","user_id":"U0FD64C","type":"buy","ticker":"RHI","company":"Robert Half International","shares":40,"price":23.85,"currency":"USD"},{"date":"2026-02-24","user_id":"U0FD64C","type":"buy","ticker":"RHI","company":"Robert Half International","shares":40,"price":23.85,"currency":"USD"},{"date":"2026-02-24","user_id":"U4C64D8","type":"buy","ticker":"RHI","company":"Robert Half International","shares":100,"price":23.72,"currency":"USD"},{"date":"2026-02-24","user_id":"U4C64D8","type":"buy","ticker":"RHI","company":"Robert Half International","shares":100,"price":23.72,"currency":"USD"},{"date":"2026-02-24","user_id":"U6B35D2","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":40,"price":38.59,"currency":"USD"},{"date":"2026-02-24","user_id":"U6B35D2","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":40,"price":38.59,"currency":"USD"},{"date":"2026-02-25","user_id":"U5C4B34","type":"buy","ticker":"RI","company":"Pernod Ricard","shares":5,"price":80.93,"currency":"USD"},{"date":"2026-02-25","user_id":"U5C4B34","type":"buy","ticker":"RI","company":"Pernod Ricard","shares":5,"price":80.93,"currency":"USD"},{"date":"2026-02-25","user_id":"U39B93E","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":33.2,"currency":"EUR"},{"date":"2026-02-25","user_id":"U39B93E","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":33.2,"currency":"EUR"},{"date":"2026-02-25","user_id":"U7C4EBD","type":"buy","ticker":"VDR","company":"Vidrala","shares":null,"price":83.0,"currency":"EUR"},{"date":"2026-02-25","user_id":"U7C4EBD","type":"buy","ticker":"VDR","company":"Vidrala","shares":null,"price":83.0,"currency":"EUR"},{"date":"2026-02-25","user_id":"U1CBC5D","type":"buy","ticker":"MVC","company":"Metrovacesa","shares":null,"price":12.0,"currency":"USD"},{"date":"2026-02-25","user_id":"U1CBC5D","type":"buy","ticker":"MVC","company":"Metrovacesa","shares":null,"price":12.0,"currency":"USD"},{"date":"2026-02-25","user_id":"U27CF18","type":"buy","ticker":"VDR","company":"Vidrala","shares":null,"price":80.9,"currency":"EUR"},{"date":"2026-02-25","user_id":"U27CF18","type":"buy","ticker":"VDR","company":"Vidrala","shares":null,"price":80.9,"currency":"EUR"},{"date":"2026-02-25","user_id":"UCCC501","type":"buy","ticker":"DGE","company":"Diageo","shares":null,"price":17.05,"currency":"GBP"},{"date":"2026-02-25","user_id":"UCCC501","type":"buy","ticker":"DGE","company":"Diageo","shares":null,"price":17.05,"currency":"GBP"},{"date":"2026-02-25","user_id":"U2FAB55","type":"buy","ticker":"LGEN","company":"Legal & General","shares":null,"price":2.65,"currency":"GBP"},{"date":"2026-02-25","user_id":"U2FAB55","type":"buy","ticker":"LGEN","company":"Legal & General","shares":null,"price":2.65,"currency":"GBP"},{"date":"2026-02-25","user_id":"U7ED3FA","type":"buy","ticker":"AENA","company":"AENA","shares":null,"price":26.85,"currency":"EUR"},{"date":"2026-02-25","user_id":"U7ED3FA","type":"buy","ticker":"AENA","company":"AENA","shares":null,"price":26.85,"currency":"EUR"},{"date":"2026-02-25","user_id":"U1CBC5D","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":32.0,"currency":"EUR"},{"date":"2026-02-25","user_id":"U1CBC5D","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":32.0,"currency":"EUR"},{"date":"2026-02-25","user_id":"U44B52C","type":"sell","ticker":"ROVI","company":"Laboratorios Rovi","shares":36,"price":80.0,"currency":"EUR","profit_pct":41.0},{"date":"2026-02-25","user_id":"UCCC501","type":"buy","ticker":"DGE","company":"Diageo","shares":null,"price":15.9,"currency":"GBP"},{"date":"2026-02-25","user_id":"UCCC501","type":"buy","ticker":"DGE","company":"Diageo","shares":null,"price":15.9,"currency":"GBP"},{"date":"2026-02-25","user_id":"UCCC501","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":31.9,"currency":"EUR"},{"date":"2026-02-25","user_id":"UCCC501","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":31.9,"currency":"EUR"},{"date":"2026-02-25","user_id":"U81CB8E","type":"sell","ticker":"VIS","company":"Viscofan","shares":null,"price":null,"currency":null},{"date":"2026-02-25","user_id":"U81CB8E","type":"buy","ticker":"DGE","company":"Diageo","shares":null,"price":null,"currency":null},{"date":"2026-02-25","user_id":"U4FE29A","type":"buy","ticker":"DEO","company":"Diageo ADR","shares":null,"price":86.425,"currency":"USD"},{"date":"2026-02-25","user_id":"U4FE29A","type":"buy","ticker":"DEO","company":"Diageo ADR","shares":null,"price":86.425,"currency":"USD"},{"date":"2026-02-25","user_id":"U2F4E79","type":"sell","ticker":"ZTS","company":"Zoetis","shares":null,"price":null,"currency":null},{"date":"2026-02-25","user_id":"U2F4E79","type":"buy","ticker":"MELI","company":"MercadoLibre","shares":2,"price":null,"currency":null},{"date":"2026-02-25","user_id":"U2F4E79","type":"buy","ticker":"GDDY","company":"GoDaddy","shares":null,"price":null,"currency":null},{"date":"2026-02-25","user_id":"U39B93E","type":"buy","ticker":"TAP","company":"Molson Coors","shares":null,"price":47.0,"currency":"USD"},{"date":"2026-02-25","user_id":"U39B93E","type":"buy","ticker":"TAP","company":"Molson Coors","shares":null,"price":47.0,"currency":"USD"},{"date":"2026-02-25","user_id":"U3E17B6","type":"buy","ticker":"DGE","company":"Diageo","shares":400,"price":16.0,"currency":"USD"},{"date":"2026-02-25","user_id":"U3E17B6","type":"buy","ticker":"DGE","company":"Diageo","shares":400,"price":16.0,"currency":"USD"},{"date":"2026-02-25","user_id":"U36B39C","type":"sell","ticker":"LOG","company":"Logista","shares":null,"price":null,"currency":null},{"date":"2026-02-25","user_id":"U36B39C","type":"buy","ticker":"NTGY","company":"Naturgy","shares":null,"price":null,"currency":null},{"date":"2026-02-26","user_id":"U5C4B34","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":16,"price":62.62,"currency":"EUR"},{"date":"2026-02-26","user_id":"U5C4B34","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":16,"price":62.62,"currency":"EUR"},{"date":"2026-02-26","user_id":"U81CB8E","type":"sell","ticker":"IIPR","company":"Innovative Industrial Properties","shares":null,"price":null,"currency":null},{"date":"2026-02-26","user_id":"U81CB8E","type":"buy","ticker":"DGE","company":"Diageo","shares":null,"price":null,"currency":null},{"date":"2026-02-26","user_id":"U81CB8E","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":null,"currency":null},{"date":"2026-02-26","user_id":"UA5C4F7","type":"buy","ticker":"MVC","company":"Metrovacesa","shares":200,"price":null,"currency":null},{"date":"2026-02-26","user_id":"UA5C4F7","type":"buy","ticker":"MVC","company":"Metrovacesa","shares":200,"price":null,"currency":null},{"date":"2026-02-26","user_id":"U485BFE","type":"buy","ticker":"NTGY","company":"Naturgy","shares":null,"price":26.06,"currency":"EUR"},{"date":"2026-02-26","user_id":"U485BFE","type":"buy","ticker":"NTGY","company":"Naturgy","shares":null,"price":26.06,"currency":"EUR"},{"date":"2026-02-26","user_id":"U3A9F1B","type":"buy","ticker":"WPP","company":"WPP plc","shares":400,"price":2.549,"currency":"GBP"},{"date":"2026-02-26","user_id":"U3A9F1B","type":"buy","ticker":"WPP","company":"WPP plc","shares":400,"price":2.549,"currency":"GBP"},{"date":"2026-02-26","user_id":"U485BFE","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":77.33,"currency":"EUR"},{"date":"2026-02-26","user_id":"U485BFE","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":77.33,"currency":"EUR"},{"date":"2026-02-26","user_id":"U5C4B34","type":"buy","ticker":"DGE","company":"Diageo","shares":54,"price":16.08,"currency":"USD"},{"date":"2026-02-26","user_id":"U5C4B34","type":"buy","ticker":"DGE","company":"Diageo","shares":54,"price":16.08,"currency":"USD"},{"date":"2026-02-26","user_id":"U45BCC3","type":"buy","ticker":"DGE","company":"Diageo","shares":null,"price":16.0,"currency":"GBP"},{"date":"2026-02-26","user_id":"U45BCC3","type":"buy","ticker":"DGE","company":"Diageo","shares":null,"price":16.0,"currency":"GBP"},{"date":"2026-02-26","user_id":"UE6B3D7","type":"buy","ticker":"FDJU","company":"FDJ United ETF","shares":12,"price":25.7,"currency":"EUR"},{"date":"2026-02-26","user_id":"UE6B3D7","type":"buy","ticker":"FDJU","company":"FDJ United ETF","shares":12,"price":25.7,"currency":"EUR"},{"date":"2026-02-26","user_id":"U9D3CF4","type":"buy","ticker":"WPP","company":"WPP plc","shares":500,"price":2.565,"currency":"GBP"},{"date":"2026-02-26","user_id":"U9D3CF4","type":"buy","ticker":"WPP","company":"WPP plc","shares":500,"price":2.565,"currency":"GBP"},{"date":"2026-02-26","user_id":"U7B56C2","type":"buy","ticker":"ADP","company":"Automatic Data Processing","shares":7,"price":215.0,"currency":"USD"},{"date":"2026-02-26","user_id":"U7B56C2","type":"buy","ticker":"ADP","company":"Automatic Data Processing","shares":7,"price":215.0,"currency":"USD"},{"date":"2026-02-26","user_id":"U0FD64C","type":"buy","ticker":"DGE","company":"Diageo","shares":40,"price":15.99,"currency":"GBP"},{"date":"2026-02-26","user_id":"U0FD64C","type":"buy","ticker":"DGE","company":"Diageo","shares":40,"price":15.99,"currency":"GBP"},{"date":"2026-02-26","user_id":"U3A9F1B","type":"buy","ticker":"BLND","company":"British Land","shares":200,"price":4.08,"currency":"GBP"},{"date":"2026-02-26","user_id":"U3A9F1B","type":"buy","ticker":"BLND","company":"British Land","shares":200,"price":4.08,"currency":"GBP"},{"date":"2026-02-26","user_id":"U39B93E","type":"buy","ticker":"DGE","company":"Diageo","shares":65,"price":16.0,"currency":"GBP"},{"date":"2026-02-26","user_id":"U39B93E","type":"buy","ticker":"DGE","company":"Diageo","shares":65,"price":16.0,"currency":"GBP"},{"date":"2026-02-26","user_id":"U4CEB4F","type":"sell","ticker":"SCYR","company":"Sacyr","shares":null,"price":5.54,"currency":"EUR","profit_pct":25.67},{"date":"2026-02-26","user_id":"U4D8AB9","type":"buy","ticker":"VICI","company":"VICI Properties","shares":null,"price":29.37,"currency":"USD"},{"date":"2026-02-26","user_id":"U4D8AB9","type":"buy","ticker":"VICI","company":"VICI Properties","shares":null,"price":29.37,"currency":"USD"},{"date":"2026-02-26","user_id":"U3A9F1B","type":"buy","ticker":"FDR","company":"Fluidra","shares":50,"price":22.8,"currency":"EUR"},{"date":"2026-02-26","user_id":"U3A9F1B","type":"buy","ticker":"FDR","company":"Fluidra","shares":50,"price":22.8,"currency":"EUR"},{"date":"2026-02-26","user_id":"U7A84BC","type":"buy","ticker":"FDJ","company":"FDJ United","shares":null,"price":25.98,"currency":"EUR"},{"date":"2026-02-26","user_id":"U7A84BC","type":"buy","ticker":"FDJ","company":"FDJ United","shares":null,"price":25.98,"currency":"EUR"},{"date":"2026-02-26","user_id":"U81CB8E","type":"buy","ticker":"DGE","company":"Diageo","shares":null,"price":null,"currency":null},{"date":"2026-02-26","user_id":"UCCC501","type":"buy","ticker":"NOMD","company":"Nomad Foods","shares":null,"price":10.8,"currency":"USD"},{"date":"2026-02-26","user_id":"UCCC501","type":"buy","ticker":"NOMD","company":"Nomad Foods","shares":null,"price":10.8,"currency":"USD"},{"date":"2026-02-26","user_id":"U3A9F1B","type":"buy","ticker":"ICL","company":"ICL Group","shares":350,"price":4.88,"currency":"USD"},{"date":"2026-02-26","user_id":"U3A9F1B","type":"buy","ticker":"ICL","company":"ICL Group","shares":350,"price":4.88,"currency":"USD"},{"date":"2026-02-26","user_id":"U3A9F1B","type":"buy","ticker":"JD","company":"JD.com","shares":31,"price":26.81,"currency":"USD"},{"date":"2026-02-26","user_id":"U3A9F1B","type":"buy","ticker":"JD","company":"JD.com","shares":31,"price":26.81,"currency":"USD"},{"date":"2026-02-26","user_id":"UCE4B7F","type":"buy","ticker":"GIS","company":"General Mills","shares":11,"price":44.3,"currency":"USD"},{"date":"2026-02-26","user_id":"UCE4B7F","type":"buy","ticker":"GIS","company":"General Mills","shares":11,"price":44.3,"currency":"USD"},{"date":"2026-02-26","user_id":"U3E17B6","type":"buy","ticker":"ARCC","company":"Ares Capital","shares":90,"price":19.09,"currency":"USD"},{"date":"2026-02-26","user_id":"U3E17B6","type":"buy","ticker":"ARCC","company":"Ares Capital","shares":90,"price":19.09,"currency":"USD"},{"date":"2026-02-26","user_id":"U5FD5A0","type":"buy","ticker":"NOMD","company":"Nomad Foods","shares":null,"price":11.01,"currency":"USD"},{"date":"2026-02-26","user_id":"U5FD5A0","type":"buy","ticker":"PLX","company":"Pluxee","shares":null,"price":10.95,"currency":"EUR"},{"date":"2026-02-26","user_id":"U5FD5A0","type":"buy","ticker":"EDEN","company":"Edenred","shares":null,"price":17.94,"currency":"EUR"},{"date":"2026-02-26","user_id":"U5FD5A0","type":"buy","ticker":"ACN","company":"Accenture","shares":null,"price":162.76,"currency":"EUR"},{"date":"2026-02-26","user_id":"U5C4B34","type":"sell","ticker":"VICI","company":"VICI Properties","shares":null,"price":null,"currency":null,"profit_pct":10.0},{"date":"2026-02-26","user_id":"U4E8B62","type":"buy","ticker":"ARCC","company":"Ares Capital","shares":60,"price":null,"currency":null},{"date":"2026-02-26","user_id":"U4E8B62","type":"buy","ticker":"ARCC","company":"Ares Capital","shares":60,"price":null,"currency":null},{"date":"2026-02-27","user_id":"U39B93E","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":31.85,"currency":"USD"},{"date":"2026-02-27","user_id":"U39B93E","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":31.85,"currency":"USD"},{"date":"2026-02-27","user_id":"UB2C4DF","type":"buy","ticker":"NTGY","company":"Naturgy","shares":null,"price":26.22,"currency":"USD"},{"date":"2026-02-27","user_id":"UB2C4DF","type":"buy","ticker":"NTGY","company":"Naturgy","shares":null,"price":26.22,"currency":"USD"},{"date":"2026-02-27","user_id":"U5C4B34","type":"buy","ticker":"METC","company":"Ramaco Resources","shares":76,"price":13.0,"currency":"EUR"},{"date":"2026-02-27","user_id":"U5C4B34","type":"buy","ticker":"METC","company":"Ramaco Resources","shares":76,"price":13.0,"currency":"EUR"},{"date":"2026-02-27","user_id":"U4B4CBF","type":"sell","ticker":"ANA","company":"Acciona","shares":16,"price":251.6,"currency":"EUR","profit_pct":65.0},{"date":"2026-02-27","user_id":"U7BF4CA","type":"sell","ticker":"VIS","company":"Viscofan","shares":87,"price":null,"currency":null},{"date":"2026-02-27","user_id":"U7BF4CA","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":100,"price":37.67,"currency":"USD"},{"date":"2026-02-27","user_id":"U703C0F","type":"sell","ticker":"BATS","company":"British American Tobacco","shares":null,"price":null,"currency":null},{"date":"2026-02-27","user_id":"U703C0F","type":"buy","ticker":"RAND","company":"Randstad","shares":null,"price":null,"currency":null},{"date":"2026-02-27","user_id":"U2C70CF","type":"buy","ticker":"AMS","company":"Amadeus IT","shares":40,"price":52.7,"currency":"EUR"},{"date":"2026-02-27","user_id":"U2C70CF","type":"buy","ticker":"AMS","company":"Amadeus IT","shares":40,"price":52.7,"currency":"EUR"},{"date":"2026-02-27","user_id":"U5C4B34","type":"buy","ticker":"METC","company":"Ramaco Resources","shares":41,"price":13.81,"currency":"USD"},{"date":"2026-02-27","user_id":"U5C4B34","type":"buy","ticker":"METC","company":"Ramaco Resources","shares":41,"price":13.81,"currency":"USD"},{"date":"2026-02-27","user_id":"U10C3E4","type":"buy","ticker":"AMS","company":"Amadeus IT","shares":null,"price":52.77,"currency":"USD"},{"date":"2026-02-27","user_id":"U10C3E4","type":"buy","ticker":"AMS","company":"Amadeus IT","shares":null,"price":52.77,"currency":"USD"},{"date":"2026-02-27","user_id":"U45BCC3","type":"buy","ticker":"MSFT","company":"Microsoft","shares":null,"price":393.0,"currency":"USD"},{"date":"2026-02-27","user_id":"U45BCC3","type":"buy","ticker":"MSFT","company":"Microsoft","shares":null,"price":393.0,"currency":"USD"},{"date":"2026-02-27","user_id":"U4D8AB9","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":92.79,"currency":"USD"},{"date":"2026-02-27","user_id":"U4D8AB9","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":92.79,"currency":"USD"},{"date":"2026-02-27","user_id":"U4B521C","type":"buy","ticker":"RHI","company":"Robert Half International","shares":60,"price":23.76,"currency":"USD"},{"date":"2026-02-27","user_id":"U4B521C","type":"buy","ticker":"RHI","company":"Robert Half International","shares":60,"price":23.76,"currency":"USD"},{"date":"2026-02-27","user_id":"UA4F9B7","type":"buy","ticker":"BAM","company":"Brookfield Asset Management","shares":7,"price":46.87,"currency":"USD"},{"date":"2026-02-27","user_id":"UA4F9B7","type":"buy","ticker":"BAM","company":"Brookfield Asset Management","shares":7,"price":46.87,"currency":"USD"},{"date":"2026-02-27","user_id":"U2FAB55","type":"buy","ticker":"ADBE","company":"Adobe","shares":null,"price":258.37,"currency":"USD"},{"date":"2026-02-27","user_id":"U2FAB55","type":"buy","ticker":"IIPR","company":"Innovative Industrial Properties","shares":null,"price":53.65,"currency":"USD"},{"date":"2026-02-27","user_id":"U7BF4CA","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":100,"price":37.67,"currency":"USD"},{"date":"2026-02-27","user_id":"U3A9F1B","type":"sell","ticker":"BX","company":"Blackstone","shares":null,"price":31.03,"currency":"GBP"},{"date":"2026-02-27","user_id":"U3A9F1B","type":"buy","ticker":"CRI","company":"Carter's Inc.","shares":39,"price":32.73,"currency":"USD"},{"date":"2026-02-27","user_id":"U3A9F1B","type":"buy","ticker":"PRU","company":"Prudential Financial","shares":12,"price":98.73,"currency":"USD"},{"date":"2026-02-27","user_id":"U7FDB4A","type":"buy","ticker":"MSFT","company":"Microsoft","shares":null,"price":398.0,"currency":"USD"},{"date":"2026-02-27","user_id":"U7FDB4A","type":"buy","ticker":"MSFT","company":"Microsoft","shares":null,"price":398.0,"currency":"USD"},{"date":"2026-02-27","user_id":"UB6F4C7","type":"buy","ticker":"ADP","company":"Automatic Data Processing","shares":null,"price":206.04,"currency":"USD"},{"date":"2026-02-27","user_id":"UB6F4C7","type":"buy","ticker":"PAYX","company":"Paychex","shares":null,"price":87.4,"currency":"USD"},{"date":"2026-02-27","user_id":"UB6F4C7","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":null,"price":40.21,"currency":"USD"},{"date":"2026-02-27","user_id":"UB6F4C7","type":"buy","ticker":"ACN","company":"Accenture","shares":null,"price":194.9,"currency":"USD"},{"date":"2026-02-27","user_id":"UB6F4C7","type":"buy","ticker":"WKL","company":"Wolters Kluwer","shares":null,"price":62.24,"currency":"EUR"},{"date":"2026-02-27","user_id":"U5C4B34","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":19,"price":31.75,"currency":"EUR"},{"date":"2026-02-27","user_id":"U5C4B34","type":"buy","ticker":"NVO","company":"Novo Nordisk","shares":19,"price":31.75,"currency":"EUR"},{"date":"2026-02-27","user_id":"UB7F4D3","type":"buy","ticker":"MAIN","company":"Main Street Capital","shares":8,"price":57.0,"currency":"USD"},{"date":"2026-02-27","user_id":"UB7F4D3","type":"buy","ticker":"MAIN","company":"Main Street Capital","shares":8,"price":57.0,"currency":"USD"},{"date":"2026-02-27","user_id":"U617CCA","type":"buy","ticker":"GOF","company":"Guggenheim Strategic Opp. Fund","shares":300,"price":12.01,"currency":"USD"},{"date":"2026-02-27","user_id":"U617CCA","type":"buy","ticker":"GOF","company":"Guggenheim Strategic Opp. Fund","shares":300,"price":12.01,"currency":"USD"},{"date":"2026-02-27","user_id":"U3E17B6","type":"buy","ticker":"OWL","company":"Blue Owl Capital","shares":111,"price":10.52,"currency":"USD"},{"date":"2026-02-27","user_id":"U3E17B6","type":"buy","ticker":"ARCC","company":"Ares Capital","shares":58,"price":18.84,"currency":"USD"},{"date":"2026-02-27","user_id":"U8FF2B4","type":"buy","ticker":"BAM","company":"Brookfield Asset Management","shares":50,"price":39.75,"currency":"EUR"},{"date":"2026-02-27","user_id":"U8FF2B4","type":"buy","ticker":"BAM","company":"Brookfield Asset Management","shares":50,"price":39.75,"currency":"EUR"},{"date":"2026-03-02","user_id":"UEDWARD","type":"sell","ticker":"REP","company":"Repsol","shares":null,"price":null,"currency":null,"profit_pct":101.71},{"date":"2026-03-02","user_id":"U629B0E","type":"buy","ticker":"DGE","company":"Diageo","shares":null,"price":16.05,"currency":"USD"},{"date":"2026-03-02","user_id":"U629B0E","type":"buy","ticker":"DGE","company":"Diageo","shares":null,"price":16.05,"currency":"USD"},{"date":"2026-03-02","user_id":"U1C8D4A","type":"buy","ticker":"RHI","company":"Robert Half International","shares":null,"price":23.55,"currency":"USD"},{"date":"2026-03-02","user_id":"U1C8D4A","type":"buy","ticker":"RHI","company":"Robert Half International","shares":null,"price":23.55,"currency":"USD"},{"date":"2026-03-02","user_id":"U66E8F7","type":"buy","ticker":"JEPQ","company":"JPMorgan Nasdaq Equity Premium Income ETF","shares":null,"price":22.27,"currency":"USD"},{"date":"2026-03-02","user_id":"U66E8F7","type":"buy","ticker":"JEPQ","company":"JPMorgan Nasdaq Equity Premium Income ETF","shares":null,"price":22.27,"currency":"USD"},{"date":"2026-03-02","user_id":"UB7C2F3","type":"sell","ticker":"ASML","company":"ASML Holding","shares":null,"price":null,"currency":null,"profit_pct":94.0}]}
+};
+
+// ─── STATE ───────────────────────────────────────────────────────
+let currentMonth = "2026-02";
+let allOps = [];
+
+// ─── INIT ────────────────────────────────────────────────────────
+function init() {
+  populateMonthSelect();
+  loadMonth(currentMonth);
+}
+
+function populateMonthSelect() {
+  const sel = document.getElementById('monthSelect');
+  sel.innerHTML = '';
+  Object.keys(DATA).sort().reverse().forEach(k => {
+    const opt = document.createElement('option');
+    opt.value = k;
+    opt.textContent = DATA[k].month_label;
+    sel.appendChild(opt);
+  });
+  sel.value = currentMonth;
+}
+
+function switchMonth(m) {
+  currentMonth = m;
+  loadMonth(m);
+}
+
+function loadMonth(m) {
+  const d = DATA[m];
+  if (!d) return;
+  allOps = d.operations;
+  const buys = allOps.filter(o => o.type === 'buy');
+  const sells = allOps.filter(o => o.type === 'sell');
+  const uniqueAssets = new Set(allOps.map(o => o.ticker)).size;
+  const uniqueInvestors = new Set(allOps.map(o => o.user_id)).size;
+
+  document.getElementById('kpiTotal').textContent = d.total_operations;
+  document.getElementById('kpiMonthLabel').textContent = d.month_label;
+  document.getElementById('kpiBuys').textContent = d.total_buys;
+  document.getElementById('kpiBuysPct').textContent = Math.round(d.total_buys/d.total_operations*100) + '% del total';
+  document.getElementById('kpiSells').textContent = d.total_sells;
+  document.getElementById('kpiSellsPct').textContent = Math.round(d.total_sells/d.total_operations*100) + '% del total';
+  document.getElementById('kpiAssets').textContent = uniqueAssets;
+  document.getElementById('kpiInvestors').textContent = uniqueInvestors + ' inversores únicos';
+
+  renderTopBuy(buys);
+  renderTopSell(sells);
+  renderTopInvestors(buys);
+  renderTopProfit(sells);
+  renderTable();
+}
+
+// Count operations per ticker
+function countBy(ops, key) {
+  const map = {};
+  ops.forEach(o => {
+    if (!map[o[key]]) map[o[key]] = { count: 0, company: o.company, users: new Set(), shares: 0, profits: [] };
+    map[o[key]].count++;
+    map[o[key]].users.add(o.user_id);
+    if (o.shares) map[o[key]].shares += o.shares;
+    if (o.profit_pct) map[o[key]].profits.push(o.profit_pct);
+  });
+  return Object.entries(map).sort((a,b) => b[1].count - a[1].count);
+}
+
+const MEDALS = ['🥇', '🥈', '🥉'];
+
+function renderTopBuy(buys) {
+  const ranked = countBy(buys, 'ticker').slice(0, 10);
+  const max = ranked[0]?.[1].count || 1;
+  const ul = document.getElementById('topBuy');
+  ul.innerHTML = ranked.map(([ticker, d], i) => `
+    <li class="rank-item">
+      <span class="rank-num ${i===0?'gold':i===1?'silver':i===2?'bronze':''}">${MEDALS[i]||('#'+(i+1))}</span>
+      <div class="rank-info">
+        <span class="rank-ticker">${ticker}</span>
+        <span class="rank-company">${d.company}</span>
+      </div>
+      <div class="rank-bar-wrap">
+        <span class="rank-count buy">${d.count} ops</span>
+        <div class="bar buy" style="width:${Math.max(4, Math.round(d.count/max*72))}px"></div>
+      </div>
+    </li>`).join('');
+}
+
+function renderTopSell(sells) {
+  const ranked = countBy(sells, 'ticker').slice(0, 10);
+  const max = ranked[0]?.[1].count || 1;
+  const ul = document.getElementById('topSell');
+  ul.innerHTML = ranked.map(([ticker, d], i) => {
+    const avgProfit = d.profits.length ? Math.round(d.profits.reduce((a,b)=>a+b,0)/d.profits.length) : null;
+    return `
+    <li class="rank-item">
+      <span class="rank-num ${i===0?'gold':i===1?'silver':i===2?'bronze':''}">${MEDALS[i]||('#'+(i+1))}</span>
+      <div class="rank-info">
+        <span class="rank-ticker">${ticker}</span>
+        <span class="rank-company">${d.company}</span>
+      </div>
+      <div class="rank-bar-wrap">
+        <span class="rank-count sell">${d.count} ops</span>
+        ${avgProfit ? `<span class="rank-sub-info">+${avgProfit}% profit</span>` : '<span class="rank-sub-info">–</span>'}
+        <div class="bar sell" style="width:${Math.max(4, Math.round(d.count/max*72))}px"></div>
+      </div>
+    </li>`;
+  }).join('');
+}
+
+function renderTopInvestors(buys) {
+  const ranked = countBy(buys, 'ticker').sort((a,b) => b[1].users.size - a[1].users.size).slice(0,8);
+  const max = ranked[0]?.[1].users.size || 1;
+  const ul = document.getElementById('topInvestors');
+  ul.innerHTML = ranked.map(([ticker, d], i) => `
+    <li class="rank-item">
+      <span class="rank-num ${i===0?'gold':i===1?'silver':i===2?'bronze':''}">${MEDALS[i]||('#'+(i+1))}</span>
+      <div class="rank-info">
+        <span class="rank-ticker">${ticker}</span>
+        <span class="rank-company">${d.company}</span>
+      </div>
+      <div class="rank-bar-wrap">
+        <span class="rank-count buy">${d.users.size} inv.</span>
+        <div class="bar buy" style="width:${Math.max(4, Math.round(d.users.size/max*72))}px"></div>
+      </div>
+    </li>`).join('');
+}
+
+function renderTopProfit(sells) {
+  const withProfit = sells.filter(o => o.profit_pct);
+  const map = {};
+  withProfit.forEach(o => {
+    if (!map[o.ticker]) map[o.ticker] = { company: o.company, profits: [] };
+    map[o.ticker].profits.push(o.profit_pct);
+  });
+  const ranked = Object.entries(map)
+    .map(([t, d]) => [t, d, d.profits.reduce((a,b)=>a+b,0)/d.profits.length])
+    .sort((a,b) => b[2] - a[2]).slice(0,8);
+  
+  const ul = document.getElementById('topProfit');
+  if (!ranked.length) {
+    ul.innerHTML = '<li class="rank-item"><div class="rank-info"><span class="rank-company">No hay ventas con % mencionado</span></div></li>';
+    return;
+  }
+  const max = ranked[0]?.[2] || 1;
+  ul.innerHTML = ranked.map(([ticker, d, avg], i) => `
+    <li class="rank-item">
+      <span class="rank-num ${i===0?'gold':i===1?'silver':i===2?'bronze':''}">${MEDALS[i]||('#'+(i+1))}</span>
+      <div class="rank-info">
+        <span class="rank-ticker">${ticker}</span>
+        <span class="rank-company">${d.company}</span>
+      </div>
+      <div class="rank-bar-wrap">
+        <span class="rank-count" style="color:var(--accent-gold)">+${Math.round(avg)}%</span>
+        <span class="rank-sub-info">${d.profits.length} operacion${d.profits.length>1?'es':''}</span>
+        <div class="bar" style="background:var(--accent-gold);opacity:.6;width:${Math.max(4,Math.round(avg/max*72))}px"></div>
+      </div>
+    </li>`).join('');
+}
+
+function renderTable() {
+  const tickerFilter = document.getElementById('filterTicker').value.toUpperCase().trim();
+  const typeFilter = document.getElementById('filterType').value;
+  
+  let ops = allOps;
+  if (tickerFilter) ops = ops.filter(o => o.ticker.toUpperCase().includes(tickerFilter));
+  if (typeFilter) ops = ops.filter(o => o.type === typeFilter);
+  
+  // Sort by date desc
+  ops = [...ops].sort((a,b) => b.date.localeCompare(a.date));
+  
+  const tbody = document.getElementById('opsTableBody');
+  if (!ops.length) {
+    tbody.innerHTML = '<tr><td colspan="8" class="empty-state">Sin resultados</td></tr>';
+    return;
+  }
+  tbody.innerHTML = ops.map(o => `
+    <tr>
+      <td class="td-date">${o.date.slice(5).replace('-','/')}</td>
+      <td class="${o.type==='buy'?'td-type-buy':'td-type-sell'}">${o.type==='buy'?'COMPRA':'VENTA'}</td>
+      <td class="td-ticker">${o.ticker}</td>
+      <td class="td-company" title="${o.company}">${o.company}</td>
+      <td class="td-price">${o.price!=null ? o.price + (o.currency?(' '+o.currency):'') : '–'}</td>
+      <td class="td-shares">${o.shares!=null ? o.shares : '–'}</td>
+      <td class="td-profit">${o.profit_pct!=null ? '+'+o.profit_pct+'%' : '–'}</td>
+      <td class="td-user">${o.user_id}</td>
+    </tr>`).join('');
+}
+
+init();
+</script>
+</body>
+</html>
