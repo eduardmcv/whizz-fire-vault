@@ -93,7 +93,7 @@ export default function OperationsTable({ rows = [], compact = false }) {
 
       {/* Content */}
       <div
-        className={`${compact ? "max-h-[62vh]" : "max-h-[480px]"} overflow-y-auto`}
+        className={`${compact ? "max-h-[62vh]" : "max-h-[680px]"} overflow-y-auto`}
       >
         {filteredRows.length === 0 ? (
           <p className="px-4 py-10 text-center text-sm text-text-muted">

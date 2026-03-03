@@ -1,30 +1,22 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import DashboardModal from "./components/DashboardModal";
 import OperationsTable from "./components/OperationsTable";
 import AssetSummaryTable from "./components/AssetSummaryTable";
 import HistoricalView from "./components/HistoricalView";
-import { useEffect, useRef } from "react";
+import { supabase } from "./lib/supabase";
 
-import feb26 from "./data/2026-02.json";
-
-const DATA = {
-  [feb26.month]: feb26,
-};
+// ── Ticker Tape ───────────────────────────────────────────────────────────────
 
 function TickerTape() {
   const containerRef = useRef(null);
-
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-
     container.innerHTML = "";
-
     const script = document.createElement("script");
     script.type = "module";
     script.src =
       "https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js";
-
     const ticker = document.createElement("tv-ticker-tape");
     ticker.setAttribute(
       "symbols",
@@ -33,28 +25,18 @@ function TickerTape() {
     ticker.setAttribute("item-size", "compact");
     ticker.setAttribute("theme", "dark");
     ticker.setAttribute("transparent", "");
-
     container.appendChild(script);
     container.appendChild(ticker);
-
     return () => {
       container.innerHTML = "";
     };
   }, []);
-
   return <div ref={containerRef} />;
 }
 
-const MONTH_KEYS = Object.keys(DATA).sort().reverse();
-
-function getEffectiveDate(op) {
-  return op.trade_date ?? op.date ?? "";
-}
+// ── Helpers ───────────────────────────────────────────────────────────────────
 
 function sortByNewest(a, b) {
-  const aDate = getEffectiveDate(a);
-  const bDate = getEffectiveDate(b);
-  if (aDate !== bDate) return bDate.localeCompare(aDate);
   return (b.date ?? "").localeCompare(a.date ?? "");
 }
 
@@ -77,15 +59,14 @@ function buildTickerStats(operations, type) {
     }
     const item = map.get(op.ticker);
     item.count += 1;
-    if (op.type === "buy") item.buyers.add(op.user_id);
-    if (op.type === "sell") item.sellers.add(op.user_id);
+    if (op.type === "buy") item.buyers.add(op.investor_id);
+    if (op.type === "sell") item.sellers.add(op.investor_id);
     if (op.profit_pct != null) item.profits.push(op.profit_pct);
   });
 
-  return [...map.values()].sort((a, b) => {
-    if (b.count !== a.count) return b.count - a.count;
-    return a.ticker.localeCompare(b.ticker);
-  });
+  return [...map.values()].sort((a, b) =>
+    b.count !== a.count ? b.count - a.count : a.ticker.localeCompare(b.ticker),
+  );
 }
 
 function buildAssetSummary(operations) {
@@ -107,11 +88,11 @@ function buildAssetSummary(operations) {
     item.totalOps += 1;
     if (op.type === "buy") {
       item.buys += 1;
-      item.buyers.add(op.user_id);
+      item.buyers.add(op.investor_id);
     }
     if (op.type === "sell") {
       item.sells += 1;
-      item.sellers.add(op.user_id);
+      item.sellers.add(op.investor_id);
     }
   });
 
@@ -121,18 +102,18 @@ function buildAssetSummary(operations) {
       uniqueBuyers: item.buyers.size,
       uniqueSellers: item.sellers.size,
     }))
-    .sort((a, b) => {
-      if (b.uniqueBuyers !== a.uniqueBuyers)
-        return b.uniqueBuyers - a.uniqueBuyers;
-      if (b.totalOps !== a.totalOps) return b.totalOps - a.totalOps;
-      return a.ticker.localeCompare(b.ticker);
-    });
+    .sort((a, b) =>
+      b.uniqueBuyers !== a.uniqueBuyers
+        ? b.uniqueBuyers - a.uniqueBuyers
+        : b.totalOps - a.totalOps,
+    );
 }
 
 function getRankWidth(value, max) {
-  const pct = Math.round((value / (max || 1)) * 100);
-  return `${Math.max(10, pct)}%`;
+  return `${Math.max(10, Math.round((value / (max || 1)) * 100))}%`;
 }
+
+// ── KpiButton ─────────────────────────────────────────────────────────────────
 
 function KpiButton({ label, value, sub, tone = "default", onClick }) {
   const valueClass =
@@ -146,9 +127,9 @@ function KpiButton({ label, value, sub, tone = "default", onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className="group relative cursor-pointer overflow-hidden rounded-xl border border-border bg-surface p-5 text-left transition hover:bg-hover"
+      className="group relative cursor-pointer overflow-hidden rounded-xl bg-surface p-6 text-left transition hover:bg-hover"
     >
-      <div className={`mb-3 font-mono text-5xl font-semibold ${valueClass}`}>
+      <div className={`mb-3 font-mono text-6xl font-REGULAR ${valueClass}`}>
         {value}
       </div>
       <div className="text-[11px] uppercase tracking-[0.18em] text-text">
@@ -178,6 +159,8 @@ function KpiButton({ label, value, sub, tone = "default", onClick }) {
     </button>
   );
 }
+
+// ── RankPanel ─────────────────────────────────────────────────────────────────
 
 function RankPanel({
   title,
@@ -253,9 +236,16 @@ function RankPanel({
   );
 }
 
+// ── Main App ──────────────────────────────────────────────────────────────────
+
 export default function App() {
-  const [view, setView] = useState("monthly"); // "monthly" | "historical"
-  const [currentMonth, setCurrentMonth] = useState(MONTH_KEYS[0] ?? "");
+  const [view, setView] = useState("monthly");
+  const [currentMonth, setCurrentMonth] = useState("");
+  const [monthKeys, setMonthKeys] = useState([]);
+  const [ops, setOps] = useState([]);
+  const [allOpsForHistory, setAllOpsForHistory] = useState([]);
+  const [assets, setAssets] = useState({});
+  const [loading, setLoading] = useState(true);
   const [modal, setModal] = useState({
     open: false,
     mode: null,
@@ -263,14 +253,73 @@ export default function App() {
     ticker: null,
   });
 
-  const monthData = DATA[currentMonth];
-  const allOps = useMemo(
-    () => [...(monthData?.operations ?? [])].sort(sortByNewest),
-    [monthData],
-  );
-  const allOrders = monthData?.orders ?? [];
-  const allUnresolved = monthData?.unresolved_messages ?? [];
+  // Load available months from Supabase
+  useEffect(() => {
+    supabase
+      .from("operations")
+      .select("month")
+      .order("month", { ascending: false })
+      .then(({ data }) => {
+        if (!data) return;
+        const unique = [...new Set(data.map((r) => r.month))].filter(Boolean);
+        setMonthKeys(unique);
+        if (unique.length > 0) setCurrentMonth(unique[0]);
+      });
+  }, []);
 
+  // Load assets catalog for company name lookup
+  useEffect(() => {
+    supabase
+      .from("assets")
+      .select("ticker,company")
+      .then(({ data }) => {
+        if (!data) return;
+        const map = {};
+        data.forEach((a) => {
+          map[a.ticker] = a.company;
+        });
+        setAssets(map);
+      });
+  }, []);
+
+  // Load ops for current month
+  useEffect(() => {
+    if (!currentMonth) return;
+    setLoading(true);
+    supabase
+      .from("operations")
+      .select("*")
+      .eq("month", currentMonth)
+      .order("date", { ascending: false })
+      .then(({ data }) => {
+        const enriched = (data ?? []).map((op) => ({
+          ...op,
+          company: assets[op.ticker] ?? op.ticker,
+          user_id: op.investor_id, // alias for existing components
+        }));
+        setOps(enriched);
+        setLoading(false);
+      });
+  }, [currentMonth, assets]);
+
+  // Load all ops for historical view (lazy — only when switching to historical)
+  useEffect(() => {
+    if (view !== "historical" || allOpsForHistory.length > 0) return;
+    supabase
+      .from("operations")
+      .select("*")
+      .order("date", { ascending: false })
+      .then(({ data }) => {
+        const enriched = (data ?? []).map((op) => ({
+          ...op,
+          company: assets[op.ticker] ?? op.ticker,
+          user_id: op.investor_id,
+        }));
+        setAllOpsForHistory(enriched);
+      });
+  }, [view]);
+
+  const allOps = useMemo(() => [...ops].sort(sortByNewest), [ops]);
   const buys = useMemo(
     () => allOps.filter((op) => op.type === "buy"),
     [allOps],
@@ -285,7 +334,7 @@ export default function App() {
     [allOps],
   );
   const uniqueInvestors = useMemo(
-    () => new Set(allOps.map((op) => op.user_id).filter(Boolean)).size,
+    () => new Set(allOps.map((op) => op.investor_id).filter(Boolean)).size,
     [allOps],
   );
 
@@ -300,33 +349,30 @@ export default function App() {
     [assetSummary],
   );
 
-  const topProfitAssets = useMemo(() => {
-    return sellStats
-      .map((item) => {
-        const avgProfit = item.profits.length
-          ? item.profits.reduce((acc, v) => acc + v, 0) / item.profits.length
-          : null;
-        return { ...item, avgProfit };
-      })
-      .filter((item) => item.avgProfit != null)
-      .sort((a, b) => b.avgProfit - a.avgProfit)
-      .slice(0, 8);
-  }, [sellStats]);
+  const topProfitAssets = useMemo(
+    () =>
+      sellStats
+        .map((item) => ({
+          ...item,
+          avgProfit: item.profits.length
+            ? item.profits.reduce((a, v) => a + v, 0) / item.profits.length
+            : null,
+        }))
+        .filter((item) => item.avgProfit != null)
+        .sort((a, b) => b.avgProfit - a.avgProfit)
+        .slice(0, 8),
+    [sellStats],
+  );
 
-  const buyPct = monthData?.total_operations
-    ? Math.round((monthData.total_buys / monthData.total_operations) * 100)
+  const buyPct = allOps.length
+    ? Math.round((buys.length / allOps.length) * 100)
     : 0;
-  const sellPct = monthData?.total_operations
-    ? Math.round((monthData.total_sells / monthData.total_operations) * 100)
+  const sellPct = allOps.length
+    ? Math.round((sells.length / allOps.length) * 100)
     : 0;
 
   function openModal(next) {
-    setModal({
-      open: true,
-      mode: next.mode,
-      side: next.side ?? null,
-      ticker: next.ticker ?? null,
-    });
+    setModal({ open: true, ...next });
   }
   function closeModal() {
     setModal({ open: false, mode: null, side: null, ticker: null });
@@ -339,10 +385,13 @@ export default function App() {
     );
   }, [allOps, modal.ticker, modal.side]);
 
-  const selectedAssetSummary = useMemo(() => {
-    if (!modal.ticker) return null;
-    return assetSummary.find((item) => item.ticker === modal.ticker) ?? null;
-  }, [assetSummary, modal.ticker]);
+  const selectedAssetSummary = useMemo(
+    () =>
+      modal.ticker
+        ? (assetSummary.find((item) => item.ticker === modal.ticker) ?? null)
+        : null,
+    [assetSummary, modal.ticker],
+  );
 
   const modalTitle = useMemo(() => {
     if (!modal.open) return "";
@@ -350,77 +399,71 @@ export default function App() {
     if (modal.mode === "buy-ops") return "Todas las compras";
     if (modal.mode === "sell-ops") return "Todas las ventas";
     if (modal.mode === "assets") return "Todos los activos";
-    if (modal.mode === "orders") return "Órdenes";
-    if (modal.mode === "unresolved") return "Mensajes sin resolver";
-    if (modal.mode === "ticker-ops" && modal.ticker && modal.side)
+    if (modal.mode === "ticker-ops" && modal.ticker)
       return `${modal.ticker} · ${modal.side === "buy" ? "Compras" : "Ventas"}`;
     if (modal.mode === "asset-all" && modal.ticker)
       return `${modal.ticker} · Resumen del activo`;
     return "";
   }, [modal]);
 
-  if (!monthData) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-gray-2 px-6 text-text">
-        No hay datos cargados
-      </div>
-    );
-  }
+  const monthLabel = currentMonth
+    ? new Date(currentMonth + "-01").toLocaleString("es-ES", {
+        month: "long",
+        year: "numeric",
+      })
+    : "";
+
+  // Group all ops by month for HistoricalView
+  const allDataByMonth = useMemo(() => {
+    const map = {};
+    allOpsForHistory.forEach((op) => {
+      if (!op.month) return;
+      if (!map[op.month]) map[op.month] = { month: op.month, operations: [] };
+      map[op.month].operations.push(op);
+    });
+    return map;
+  }, [allOpsForHistory]);
 
   return (
-    <div className="min-h-screen bg-gray-1 text-slate-100">
-      <div class="overflow-hidden bg-surface">
-        <TickerTape class="mb-2" />
+    <div className="min-h-screen bg-gray-1 text-slate-100 dot-black">
+      <div className="overflow-hidden bg-surface">
+        <TickerTape />
       </div>
-      <header className="bg-surface  border-b border-border relative z-50 -mt-7 py-2 mb-2">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 md:flex-row md:items-center md:justify-between md:px-6">
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.6)]" />
-            <span className="font-mono text-sm uppercase tracking-[0.16em] text-text-muted">
-              Histórico de Operaciones
-            </span>
-          </div>
 
-          {/* Nav + controls */}
+      <header className="bg-surface border-b border-border relative z-50 -mt-7 py-2 mb-2">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 md:flex-row md:items-center md:justify-between md:px-6">
+          <div className="flex items-center gap-3">
+            <span className="text-4xl text-text font-bold">Whizzfin</span>
+          </div>
           <div className="flex flex-wrap items-center gap-2">
-            {/* Tabs */}
             <div className="flex rounded-lg border border-border bg-surface p-0.5">
               <button
                 type="button"
                 onClick={() => setView("monthly")}
-                className={`rounded-md px-4 py-1.5 text-sm transition ${
-                  view === "monthly"
-                    ? "bg-border text-text"
-                    : "text-text-muted hover:text-text"
-                }`}
+                className={`rounded-md px-4 py-1.5 text-sm transition ${view === "monthly" ? "bg-border text-text" : "text-text-muted hover:text-text"}`}
               >
                 Mensual
               </button>
               <button
                 type="button"
                 onClick={() => setView("historical")}
-                className={`rounded-md px-4 py-1.5 text-sm transition ${
-                  view === "historical"
-                    ? "bg-border text-text"
-                    : "text-text-muted hover:text-text"
-                }`}
+                className={`rounded-md px-4 py-1.5 text-sm transition ${view === "historical" ? "bg-border text-text" : "text-text-muted hover:text-text"}`}
               >
                 Histórico
               </button>
             </div>
-
-            {/* Month selector — only in monthly view */}
             {view === "monthly" && (
               <select
-                id="monthSelect"
                 value={currentMonth}
                 onChange={(e) => setCurrentMonth(e.target.value)}
                 className="rounded-lg border border-border bg-surface px-3 py-2 text-sm text-slate-100 outline-none transition focus:border-emerald-400"
               >
-                {MONTH_KEYS.map((k) => (
+                {monthKeys.map((k) => (
                   <option key={k} value={k}>
-                    {DATA[k].month_label}
+                    {new Date(k + "-01").toLocaleString("es-ES", {
+                      month: "long",
+                      year: "numeric",
+                    })}
                   </option>
                 ))}
               </select>
@@ -429,193 +472,194 @@ export default function App() {
         </div>
       </header>
 
-      <main className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-6 md:px-6">
-        {/* ── HISTORICAL VIEW ── */}
+      <main className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-12 md:px-6">
         {view === "historical" && (
-          <HistoricalView allData={DATA} monthKeys={MONTH_KEYS} />
+          <HistoricalView
+            allData={allDataByMonth}
+            monthKeys={Object.keys(allDataByMonth).sort().reverse()}
+          />
         )}
 
-        {/* ── MONTHLY VIEW ── */}
         {view === "monthly" && (
           <>
-            <section className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
-              <KpiButton
-                label="Operaciones totales"
-                value={monthData.total_operations}
-                sub={`${uniqueInvestors} inversores únicos`}
-                onClick={() => openModal({ mode: "all-ops" })}
-              />
-              <KpiButton
-                label="Compras"
-                value={monthData.total_buys}
-                sub={`${buyPct}% del total`}
-                tone="buy"
-                onClick={() => openModal({ mode: "buy-ops" })}
-              />
-              <KpiButton
-                label="Ventas"
-                value={monthData.total_sells}
-                sub={`${sellPct}% del total`}
-                tone="sell"
-                onClick={() => openModal({ mode: "sell-ops" })}
-              />
-              <KpiButton
-                label="Activos únicos"
-                value={uniqueAssets}
-                sub={`${allOrders.length} órdenes · ${allUnresolved.length} sin resolver`}
-                onClick={() => openModal({ mode: "assets" })}
-              />
-            </section>
-
-            <section>
-              <div className="mb-4">
-                <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-text-muted">
-                  Ranking principal
-                </h2>
+            {loading ? (
+              <div className="py-20 text-center font-mono text-sm text-text-muted">
+                Cargando {monthLabel}...
               </div>
-              <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
-                <RankPanel
-                  title="Más comprados · operaciones"
-                  accent="buy"
-                  items={topBuys}
-                  onItemClick={(ticker, side) =>
-                    openModal({ mode: "ticker-ops", ticker, side })
-                  }
-                  valueFormatter={(item) => `${item.count} ops`}
-                />
-                <RankPanel
-                  title="Más vendidos · operaciones"
-                  accent="sell"
-                  items={topSells}
-                  onItemClick={(ticker, side) =>
-                    openModal({ mode: "ticker-ops", ticker, side })
-                  }
-                  valueFormatter={(item) => `${item.count} ops`}
-                />
-              </div>
-            </section>
-
-            <section className="grid grid-cols-1 gap-5 xl:grid-cols-2">
-              <div className="overflow-hidden rounded-2xl border border-border bg-surface">
-                <div className="flex items-center justify-between border-b border-border px-5 py-4">
-                  <span className="text-[11px] uppercase tracking-[0.14em] text-text">
-                    Activos con más compradores únicos
+            ) : (
+              <>
+                <div className="flex items-center gap-3">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.6)]" />
+                  <span className="font-mono text-sm uppercase tracking-[0.16em] text-text-muted">
+                    Histórico de Operaciones - GRUPO FIRE
                   </span>
-                  <button
-                    type="button"
+                </div>
+                <section className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                  <KpiButton
+                    label="Operaciones totales"
+                    value={allOps.length}
+                    sub={`${uniqueInvestors} inversores únicos`}
+                    onClick={() => openModal({ mode: "all-ops" })}
+                  />
+                  <KpiButton
+                    label="Compras"
+                    value={buys.length}
+                    sub={`${buyPct}% del total`}
+                    tone="buy"
+                    onClick={() => openModal({ mode: "buy-ops" })}
+                  />
+                  <KpiButton
+                    label="Ventas"
+                    value={sells.length}
+                    sub={`${sellPct}% del total`}
+                    tone="sell"
+                    onClick={() => openModal({ mode: "sell-ops" })}
+                  />
+                  <KpiButton
+                    label="Activos únicos"
+                    value={uniqueAssets}
+                    sub={`${currentMonth}`}
                     onClick={() => openModal({ mode: "assets" })}
-                    className="text-xs text-text-muted transition hover:text-text"
-                  >
-                    Ver todos
-                  </button>
-                </div>
-                <div>
-                  {topAssetsByBuyers.map((item) => (
-                    <button
-                      key={item.ticker}
-                      type="button"
-                      onClick={() =>
-                        openModal({ mode: "asset-all", ticker: item.ticker })
+                  />
+                </section>
+
+                <section>
+                  <div className="mt-12 mb-8">
+                    <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-text-muted">
+                      Ranking principal
+                    </h2>
+                  </div>
+                  <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
+                    <RankPanel
+                      title="Más comprados · operaciones"
+                      accent="buy"
+                      items={topBuys}
+                      onItemClick={(ticker, side) =>
+                        openModal({ mode: "ticker-ops", ticker, side })
                       }
-                      className="grid w-full cursor-pointer grid-cols-[minmax(0,1fr)_90px_90px] items-center gap-3 border-b border-border px-5 py-3 text-left transition hover:bg-hover last:border-b-0"
-                    >
-                      <div className="min-w-0">
-                        <div className="truncate text-md text-text">
-                          {item.company}
-                        </div>
-                        <div className="truncate font-mono text-xs text-text-muted">
-                          {item.ticker}
-                        </div>
-                      </div>
-                      <div className="text-right font-mono text-sm text-emerald-400">
-                        {item.uniqueBuyers} inv.
-                      </div>
-                      <div className="text-right text-xs text-text-muted">
-                        {item.buys} compras
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
+                      valueFormatter={(item) => `${item.count} ops`}
+                    />
+                    <RankPanel
+                      title="Más vendidos · operaciones"
+                      accent="sell"
+                      items={topSells}
+                      onItemClick={(ticker, side) =>
+                        openModal({ mode: "ticker-ops", ticker, side })
+                      }
+                      valueFormatter={(item) => `${item.count} ops`}
+                    />
+                  </div>
+                </section>
 
-              <div className="overflow-hidden rounded-2xl border border-border bg-surface">
-                <div className="flex items-center justify-between border-b border-border px-5 py-4">
-                  <span className="text-[11px] uppercase tracking-[0.14em] text-text-muted">
-                    Ventas con profit informado
-                  </span>
-                  <span className="h-2 w-2 rounded-full bg-yellow-400 shadow-[0_0_10px_rgba(250,204,21,0.5)]" />
-                </div>
-                <div>
-                  {topProfitAssets.length === 0 ? (
-                    <div className="px-5 py-8 text-sm text-text-muted">
-                      Sin datos
-                    </div>
-                  ) : (
-                    topProfitAssets.map((item) => (
+                <section className="grid grid-cols-1 gap-5 xl:grid-cols-2">
+                  <div className="overflow-hidden rounded-2xl border border-border bg-surface">
+                    <div className="flex items-center justify-between border-b border-border px-5 py-4">
+                      <span className="text-[11px] uppercase tracking-[0.14em] text-text">
+                        Activos con más compradores únicos
+                      </span>
                       <button
-                        key={item.ticker}
                         type="button"
-                        onClick={() =>
-                          openModal({
-                            mode: "ticker-ops",
-                            ticker: item.ticker,
-                            side: "sell",
-                          })
-                        }
-                        className="grid w-full cursor-pointer grid-cols-[minmax(0,1fr)_100px] items-center gap-3 border-b border-border px-5 py-3 text-left transition hover:bg-hover last:border-b-0"
+                        onClick={() => openModal({ mode: "assets" })}
+                        className="text-xs text-text-muted transition hover:text-text"
                       >
-                        <div className="min-w-0">
-                          <div className="truncate text-md text-text">
-                            {item.company}
-                          </div>
-                          <div className="truncate font-mono text-xs text-text-muted">
-                            {item.ticker}
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <div className="font-mono text-sm text-yellow-400">
-                            +{item.avgProfit.toFixed(1)}%
-                          </div>
-                          <div className="text-xs text-text-muted">
-                            {item.profits.length} ventas
-                          </div>
-                        </div>
+                        Ver todos
                       </button>
-                    ))
-                  )}
-                </div>
-              </div>
-            </section>
+                    </div>
+                    <div>
+                      {topAssetsByBuyers.map((item) => (
+                        <button
+                          key={item.ticker}
+                          type="button"
+                          onClick={() =>
+                            openModal({
+                              mode: "asset-all",
+                              ticker: item.ticker,
+                            })
+                          }
+                          className="grid w-full cursor-pointer grid-cols-[minmax(0,1fr)_90px_90px] items-center gap-3 border-b border-border px-5 py-3 text-left transition hover:bg-hover last:border-b-0"
+                        >
+                          <div className="min-w-0">
+                            <div className="truncate text-md text-text">
+                              {item.company}
+                            </div>
+                            <div className="truncate font-mono text-xs text-text-muted">
+                              {item.ticker}
+                            </div>
+                          </div>
+                          <div className="text-right font-mono text-sm text-emerald-400">
+                            {item.uniqueBuyers} inv.
+                          </div>
+                          <div className="text-right text-xs text-text-muted">
+                            {item.buys} compras
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
 
-            <section>
-              <div className="mb-4 flex items-center justify-between gap-3">
-                <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-text-muted">
-                  Explorador de operaciones
-                </h2>
-                <div className="flex justify-end flex-wrap items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => openModal({ mode: "orders" })}
-                    className="rounded-lg border border-border bg-surface px-3 py-1.5 text-xs text-text-muted transition hover:bg-hover"
-                  >
-                    Órdenes ({allOrders.length})
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => openModal({ mode: "unresolved" })}
-                    className="rounded-lg border border-border bg-surface px-3 py-1.5 text-xs text-text-muted transition hover:bg-hover"
-                  >
-                    Sin resolver ({allUnresolved.length})
-                  </button>
-                </div>
-              </div>
-              <OperationsTable rows={allOps} />
-            </section>
+                  <div className="overflow-hidden rounded-2xl border border-border bg-surface">
+                    <div className="flex items-center justify-between border-b border-border px-5 py-4">
+                      <span className="text-[11px] uppercase tracking-[0.14em] text-text">
+                        Ventas con profit informado
+                      </span>
+                      <span className="h-2 w-2 rounded-full bg-yellow-400 shadow-[0_0_10px_rgba(250,204,21,0.5)]" />
+                    </div>
+                    <div>
+                      {topProfitAssets.length === 0 ? (
+                        <div className="px-5 py-8 text-sm text-text-muted">
+                          Sin datos
+                        </div>
+                      ) : (
+                        topProfitAssets.map((item) => (
+                          <button
+                            key={item.ticker}
+                            type="button"
+                            onClick={() =>
+                              openModal({
+                                mode: "ticker-ops",
+                                ticker: item.ticker,
+                                side: "sell",
+                              })
+                            }
+                            className="grid w-full cursor-pointer grid-cols-[minmax(0,1fr)_100px] items-center gap-3 border-b border-border px-5 py-3 text-left transition hover:bg-hover last:border-b-0"
+                          >
+                            <div className="min-w-0">
+                              <div className="truncate text-md text-text">
+                                {item.company}
+                              </div>
+                              <div className="truncate font-mono text-xs text-text-muted">
+                                {item.ticker}
+                              </div>
+                            </div>
+                            <div className="text-right">
+                              <div className="font-mono text-sm text-yellow-400">
+                                +{item.avgProfit.toFixed(1)}%
+                              </div>
+                              <div className="text-xs text-text-muted">
+                                {item.profits.length} ventas
+                              </div>
+                            </div>
+                          </button>
+                        ))
+                      )}
+                    </div>
+                  </div>
+                </section>
+
+                <section>
+                  <div className="mb-8 mt-12 flex items-center justify-between gap-3">
+                    <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-text-muted">
+                      Explorador de operaciones
+                    </h2>
+                  </div>
+                  <OperationsTable rows={allOps} />
+                </section>
+              </>
+            )}
           </>
         )}
       </main>
 
-      {/* Modal — monthly view only */}
       {view === "monthly" && (
         <DashboardModal
           open={modal.open}
@@ -684,67 +728,6 @@ export default function App() {
                 rows={allOps.filter((op) => op.ticker === modal.ticker)}
                 compact
               />
-            </div>
-          )}
-          {modal.mode === "orders" && (
-            <div className="space-y-2">
-              {allOrders.length === 0 ? (
-                <div className="rounded-xl border border-border bg-surface p-6 text-sm text-text-muted">
-                  Sin órdenes
-                </div>
-              ) : (
-                allOrders.map((order, i) => (
-                  <div
-                    key={`${order.date}-${order.user_id}-${i}`}
-                    className="rounded-xl border border-border bg-surface p-4"
-                  >
-                    <div className="flex flex-wrap gap-2 text-xs text-text-muted font-mono">
-                      <span>{order.date}</span>
-                      <span>·</span>
-                      <span className="text-orange-400">
-                        {order.side?.toUpperCase()}
-                      </span>
-                      <span>·</span>
-                      <span className="text-text">{order.ticker}</span>
-                      <span>·</span>
-                      <span>{order.user_id}</span>
-                    </div>
-                    {order.company && (
-                      <p className="mt-1 text-sm text-text-muted">
-                        {order.company}
-                      </p>
-                    )}
-                  </div>
-                ))
-              )}
-            </div>
-          )}
-          {modal.mode === "unresolved" && (
-            <div className="space-y-3">
-              {allUnresolved.length === 0 ? (
-                <div className="rounded-xl border border-border bg-surface p-6 text-sm text-text-muted">
-                  Sin mensajes pendientes
-                </div>
-              ) : (
-                allUnresolved.map((item, i) => (
-                  <div
-                    key={`${item.date}-${item.user_id}-${i}`}
-                    className="rounded-xl border border-border bg-surface p-4"
-                  >
-                    <div className="flex flex-wrap items-center gap-2 text-xs text-text-muted">
-                      <span className="font-mono">{item.date}</span>
-                      <span>·</span>
-                      <span className="font-mono">{item.user_id}</span>
-                    </div>
-                    <div className="mt-3 text-sm text-text">
-                      {item.source_text}
-                    </div>
-                    <div className="mt-2 text-xs text-orange-300">
-                      {item.reason}
-                    </div>
-                  </div>
-                ))
-              )}
             </div>
           )}
         </DashboardModal>

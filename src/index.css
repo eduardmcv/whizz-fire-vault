@@ -78,9 +78,16 @@ body,
 
 body {
   margin: 0;
-  font-family: "DM Sans", system-ui, sans-serif;
+  font-family: "Outfit", system-ui, sans-serif;
   background: #0d0f14;
   color: #e8eaf0;
+}
+
+.dot-black {
+  background-image: url("./assets/bg-dot.png");
+  background-repeat: repeat;
+  background-position: center right;
+  background-size: 10px;
 }
 
 /* Scrollbar global */
