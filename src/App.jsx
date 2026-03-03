@@ -3,20 +3,47 @@ import DashboardModal from "./components/DashboardModal";
 import OperationsTable from "./components/OperationsTable";
 import AssetSummaryTable from "./components/AssetSummaryTable";
 import HistoricalView from "./components/HistoricalView";
+import { useEffect, useRef } from "react";
 
-import oct25 from "./data/2025-10.json";
-import nov25 from "./data/2025-11.json";
-import dec25 from "./data/2025-12.json";
-import ian25 from "./data/2026-01.json";
 import feb26 from "./data/2026-02.json";
 
 const DATA = {
-  [oct25.month]: oct25,
-  [nov25.month]: nov25,
-  [dec25.month]: dec25,
-  [ian25.month]: ian25,
   [feb26.month]: feb26,
 };
+
+function TickerTape() {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    const script = document.createElement("script");
+    script.type = "module";
+    script.src =
+      "https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js";
+
+    const ticker = document.createElement("tv-ticker-tape");
+    ticker.setAttribute(
+      "symbols",
+      "FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,FOREXCOM:DJI,FX:EURUSD,BITSTAMP:BTCUSD,BITSTAMP:ETHUSD,CMCMARKETS:GOLD",
+    );
+    ticker.setAttribute("item-size", "compact");
+    ticker.setAttribute("theme", "dark");
+    ticker.setAttribute("transparent", "");
+
+    container.appendChild(script);
+    container.appendChild(ticker);
+
+    return () => {
+      container.innerHTML = "";
+    };
+  }, []);
+
+  return <div ref={containerRef} />;
+}
 
 const MONTH_KEYS = Object.keys(DATA).sort().reverse();
 
@@ -342,7 +369,10 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-1 text-slate-100">
-      <header className="border-b border-border bg-surface">
+      <div class="overflow-hidden bg-surface">
+        <TickerTape class="mb-2" />
+      </div>
+      <header className="bg-surface  border-b border-border relative z-50 -mt-7 py-2 mb-2">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 md:flex-row md:items-center md:justify-between md:px-6">
           {/* Logo */}
           <div className="flex items-center gap-3">
